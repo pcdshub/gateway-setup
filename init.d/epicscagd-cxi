@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-cxi
+#
+# Starts the EPICS CAG daemon
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-cxi
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagd
+
+RETVAL=0
+
+export EPICS_CA_ADDR_LIST=$CXI_BC
+export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF $CDS_IF $FEE_IF $DEV_IF $SXR_IF $AMO_IF $XPP_IF $XCS_IF"
+
+case "$1" in
+start)
+	cagstart cxi NET:CAG:CXI
+	;;
+stop)
+	cagstop cxi
+	;;
+restart)
+	cagrestart cxi
+	;;
+*)
+	echo $"Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
