@@ -1,4 +1,12 @@
+HAG(xcshosts) {xcs-daq,xcs-control,xcs-monitor,xcs-console}
+
 ASG(DEFAULT) {
    RULE(1, READ)
 }
 
+ASG(RWXCS) {
+    RULE(1,READ)
+    RULE(1,WRITE){
+      HAG(xcshosts)
+    }
+}
