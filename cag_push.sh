@@ -9,9 +9,7 @@ else
 endif
 mkdir -p $confdir
 
-#set initdir = /etc/init.d
-set initdir = $1/init.d
-mkdir -p $initdir
+set initdir = /etc/init.d
 
 set path = ($path /reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64)
 
@@ -59,11 +57,11 @@ while ($i <= $#list)
 	end
     endif
     if ($init_inc != 0 || $init[$i]) then
-        echo $initdir/epicscagd-$list[$i] restart
+        $initdir/epicscagd-$list[$i] restart
     else
         if ($acc[$i] != 0 || $pvl[$i] != 0) then
 	    set prefix = `awk '/cagstart/{print $3;}' init.d/epicscagd-$list[$i]`
-	    echo caput ${prefix}:newAsFlag 1
+	    caput ${prefix}:newAsFlag 1
 	endif
     endif
     @ i = $i + 1
