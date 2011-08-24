@@ -27,6 +27,9 @@ stop)
 restart)
 	cagrestart xpp
 	;;
+reload)
+	cagreload NET:CAG:XPP
+	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
 	exit 1

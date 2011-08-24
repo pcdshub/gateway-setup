@@ -27,6 +27,9 @@ stop)
 restart)
 	cagrestart amo
 	;;
+reload)
+	cagreload NET:CAG:AMO
+	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
 	exit 1

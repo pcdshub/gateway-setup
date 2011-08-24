@@ -28,6 +28,9 @@ stop)
 restart)
 	cagrestart fee
 	;;
+reload)
+	cagreload NET:CAG:FEE
+	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
 	exit 1

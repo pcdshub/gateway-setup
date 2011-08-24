@@ -29,6 +29,9 @@ stop)
 restart)
 	cagrestart mcc
 	;;
+reload)
+	cagreload NET:CAG:MCC
+	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
 	exit 1

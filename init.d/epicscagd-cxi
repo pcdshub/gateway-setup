@@ -27,6 +27,9 @@ stop)
 restart)
 	cagrestart cxi
 	;;
+reload)
+	cagreload NET:CAG:CXI
+	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
 	exit 1
