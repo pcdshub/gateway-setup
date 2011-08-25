@@ -9,5 +9,5 @@ endif
 cd /u1/gateway
 foreach i (*/gateway.access)
     set j = `dirname $i`
-    echo /etc/init.d/epicscagd-$j $1
+    /etc/init.d/epicscagd-$j $1
 end

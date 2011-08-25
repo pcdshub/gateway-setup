@@ -10,8 +10,7 @@ if ($mydir != "/u1/gateway") then
         cd /u1/gateway
 	if ($mydir != `pwd`) then
 	    echo /u1/gateway already exists.  Please remove before running this install.
-#           exit 1
-	    cd $mydir
+            exit 1
 	endif
     else
         # If we don't have a /u1/gateway, make it a symbolic link to here!
