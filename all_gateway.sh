@@ -3,7 +3,7 @@
 # Run a command for all gateways.
 #
 if ($# == 0) then
-    echo Usage: all_gateway.sh COMMAND 
+    echo Usage: all_gateway.sh COMMAND  
     exit 0
 endif
 cd /u1/gateway
