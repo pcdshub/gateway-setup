@@ -19,8 +19,6 @@ if ($mydir != "/u1/gateway") then
     endif
 endif
 
-set path = ($path /reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64)
-
 # Remove old installation, if any.
 csh -c "rm -f /etc/init.d/epicscagd* /etc/rc*/*epicscagd*"
 
