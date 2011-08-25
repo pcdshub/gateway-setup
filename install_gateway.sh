@@ -14,23 +14,23 @@ if ($mydir != "/u1/gateway") then
 	endif
     else
         # If we don't have a /u1/gateway, make it a symbolic link to here!
-        if (! -d /u1) echo mkdir /u1
-	echo ln -s $mydir /u1/gateway
+        if (! -d /u1) mkdir /u1
+	ln -s $mydir /u1/gateway
     endif
 endif
 
 set path = ($path /reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64)
 
 # Remove old installation, if any.
-csh -c "echo rm -f /etc/init.d/epicscagd* /etc/rc*/*epicscagd*"
+csh -c "rm -f /etc/init.d/epicscagd* /etc/rc*/*epicscagd*"
 
 foreach i (init.d/epicscagd{,-???})
-    echo ln -s /u1/gateway/$i /etc/$i
+    ln -s /u1/gateway/$i /etc/$i
 end
 
 foreach i (init.d/epicscagd-???)
     set ii = `basename $i`
     foreach j (/etc/rc[345].d)
-	echo ln -s ../$i $j/S99$ii
+	ln -s ../$i $j/S99$ii
     end
 end
