@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-cds
+#	/etc/rc.d/init.d/epicscagd-mec
 #
 # Starts the EPICS CAG daemon
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-cds
+# processname: epicscagd-mec
 
 # Source function library.
 . /etc/init.d/functions
@@ -14,21 +14,21 @@
 
 RETVAL=0
 
-export EPICS_CA_ADDR_LIST=$CDS_BC
-export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF $FEE_IF $CXI_IF $DEV_IF $SXR_IF $AMO_IF $XPP_IF $XCS_IF $MEC_IF"
+export EPICS_CA_ADDR_LIST=$MEC_BC
+export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF $CDS_IF $FEE_IF $DEV_IF $XPP_IF $SXR_IF $XCS_IF $CXI_IF $AMO_IF"
 
 case "$1" in
 start)
-	cagstart cds NET:CAG:CDS
+	cagstart mec NET:CAG:MEC
 	;;
 stop)
-	cagstop cds
+	cagstop mec
 	;;
 restart)
-	cagrestart cds
+	cagrestart mec
 	;;
 reload)
-	cagreload NET:CAG:CDS
+	cagreload NET:CAG:MEC
 	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
