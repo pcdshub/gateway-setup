@@ -46,13 +46,14 @@ cagvardir="/u1/gateway"
 caglockdir="/var/lock/subsys"
 cagprogram="/reg/g/pcds/package/epics/3.14-dev/extensions/R3.14.11-0.0.0/bin/linux-x86_64/gateway"
 caput="/reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64/caput"
+daemonuser="psca"
 
 cagstart() {
 	# Check if this gateway is already running
 	test -x $cagprogram || (echo "Program $cagprogram doesn't exist" && exit 0)
 	if [ ! -f $caglockdir/epicscagd-$1 ]; then
 	    echo -n "Starting $1 gateway"
-	    daemon $cagprogram -home $cagvardir/$1 -prefix $2 -server
+	    daemon $cagprogram -home $cagvardir/$1 -pvlist $cagvardir/config/$1.pvlist -access $cagvardir/config/$1.access -prefix $2 -server
 	    RETVAL=$?
 	    [ $RETVAL -eq 0 ] && touch $caglockdir/epicscagd-$1
 	    echo

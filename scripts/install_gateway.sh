@@ -22,13 +22,13 @@ endif
 # Remove old installation, if any.
 csh -c "rm -f /etc/init.d/epicscagd* /etc/rc*/*epicscagd*"
 
-foreach i (init.d/epicscagd{,-???})
-    ln -s /u1/gateway/$i /etc/$i
+foreach i (scripts/epicscagd{,-???})
+    ln -s /u1/gateway/$i /etc/init.d/`basename $i`
 end
 
-foreach i (init.d/epicscagd-???)
+foreach i (scripts/epicscagd-???)
     set ii = `basename $i`
     foreach j (/etc/rc[345].d)
-	ln -s ../$i $j/S99$ii
+	ln -s ../init.d/$ii $j/S99$ii
     end
 end
