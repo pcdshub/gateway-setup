@@ -7,7 +7,7 @@ if ($# == 0) then
     exit 0
 endif
 cd /u1/gateway
-foreach i (*/gateway.access)
-    set j = `dirname $i`
+foreach i (config/*.access)
+    set j = `basename $i .access`
     /etc/init.d/epicscagd-$j $1
 end
