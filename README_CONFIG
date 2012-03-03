@@ -1,2 +1,10 @@
 Note:
 All configuration is under the config directory now.
+The gateway files on pscag are also mounted at /reg/d/pscag
+so you can see and update them without logging into pscag.
+
+However, to restart a gateway, you still need to ssh to
+pscag and run the appropriate restart script.
+Ex.
+pscag:% sudo /u1/gateway/cds/gateway.restart
+
