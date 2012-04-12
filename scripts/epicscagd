@@ -11,6 +11,18 @@ export CXI_IF=172.21.44.20
 export MEC_IF=172.21.45.20
 export THZ_IF=172.21.57.20
 
+export MCC_GW_IF=172.21.40.19
+export CDS_GW_IF=172.21.35.19
+export FEE_GW_IF=172.21.36.19
+export AMO_GW_IF=172.21.37.19
+export DEV_GW_IF=134.79.165.19
+export XPP_GW_IF=172.21.38.19
+export SXR_GW_IF=172.21.39.19
+export XCS_GW_IF=172.21.43.19
+export CXI_GW_IF=172.21.44.19
+export MEC_GW_IF=172.21.45.19
+export THZ_GW_IF=172.21.57.19
+
 export MCC_GW=172.27.224.220
 export MCC_BC=172.27.11.255
 export CDS_BC=172.21.35.255
@@ -27,10 +39,10 @@ export THZ_BC=172.21.57.255
 # Common to all
 export EPICS_CA_BEACON_PERIOD=20.0
 export EPICS_CA_CONN_TMO=60.0
-export EPICS_CA_MAX_ARRAY_BYTES=4000000
+export EPICS_CA_MAX_ARRAY_BYTES=8000000
 export EPICS_CA_AUTO_ADDR_LIST=NO
 export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
-export EPICS_CAS_IGNORE_ADDR_LIST="$MCC_IF $CDS_IF $FEE_IF $AMO_IF $DEV_IF $XPP_IF $SXR_IF $XCS_IF $CXI_IF $MEC_IF $THZ_IF"
+export EPICS_CAS_IGNORE_ADDR_LIST="$MCC_IF $CDS_IF $FEE_IF $AMO_IF $DEV_IF $XPP_IF $SXR_IF $XCS_IF $CXI_IF $MEC_IF $THZ_IF $MCC_GW_IF $CDS_GW_IF $FEE_GW_IF $AMO_GW_IF $DEV_GW_IF $XPP_GW_IF $SXR_GW_IF $XCS_GW_IF $CXI_GW_IF $MEC_GW_IF $THZ_GW_IF"
 export EPICS_CAS_BEACON_ADDR_LIST="$MCC_BC:5069 $CDS_BC:5065 $FEE_BC:5065 $AMO_BC:5065 $DEV_BC:5065 $XPP_BC:5065 $SXR_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065 $THZ_BC:5065"
 export DAEMON_COREFILE_LIMIT="unlimited"
 
@@ -53,7 +65,7 @@ cagstart() {
 	test -x $cagprogram || (echo "Program $cagprogram doesn't exist" && exit 0)
 	if [ ! -f $caglockdir/epicscagd-$1 ]; then
 	    echo -n "Starting $1 gateway"
-	    daemon $cagprogram -home $cagvardir/$1 -pvlist $cagvardir/config/$1.pvlist -access $cagvardir/config/$1.access -prefix $2 -server
+	    daemon $cagprogram -home $cagvardir/$1 -pvlist $cagvardir/config/$1.pvlist -access $cagvardir/config/$1.access -prefix $2 -server -command gateway.command
 	    RETVAL=$?
 	    [ $RETVAL -eq 0 ] && touch $caglockdir/epicscagd-$1
 	    echo
