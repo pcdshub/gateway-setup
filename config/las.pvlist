@@ -49,3 +49,6 @@ LAS:FS2:REG:kp_vcxo:wr ALLOW RWINSTR 1
 LAS:FS1:bt_.* ALLOW RWINSTR 1
 LAS:FS2:bt_.* ALLOW RWINSTR 1
 LAS:FS3:.* ALLOW RWINSTR 1
+
+# Phase cavity digitizers go through different gateway
+UND:R02:IOC:16:.* DENY

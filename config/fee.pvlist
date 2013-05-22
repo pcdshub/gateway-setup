@@ -2,3 +2,31 @@ EVALUATION ORDER ALLOW, DENY
 
 .* ALLOW
 .* ALLOW RWINSTRMCC 1
+
+# Deny gas detector PVs
+DIAG:FEE1:202:.*      DENY
+GDET:FEE1:.*          DENY
+IOC:FEE:GASDET:DAQ:.* DENY
+EVR:FEE:GASDET:DAQ:.* DENY
+
+# Deny KMONO PVs
+KMON:FEE1:.*          DENY
+IOC:FEE:KMONO:DAQ:.*  DENY
+EVR:FEE:KMONO:DAQ:.*  DENY
+
+# Deny FEE cameras
+DIAG:FEE1:481:.*      DENY
+CAMR:FEE1:.*          DENY
+CAMR:NEH1:.*          DENY
+
+# Deny XRT cameras
+XRT:DIA:CVV:01:.*     DENY
+HXX:UM6:CVV:01:.*     DENY
+HXX:HXM:CVV:01:.*     DENY
+HFX:MON:CVV:01:.*     DENY
+HFX:DG2:CVV:01:.*     DENY
+HFX:DG3:CVV:01:.*     DENY
+
+# Deny FEH cameras
+XCS:DG3:CVV:02:.*     DENY
+MEC:HXM:CVV:01:.*     DENY

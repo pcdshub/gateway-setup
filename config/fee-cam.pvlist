@@ -1,0 +1,13 @@
+EVALUATION ORDER DENY, ALLOW
+
+.* DENY
+
+# Allow FEE cameras read-only to the world
+DIAG:FEE1:481:.*      ALLOW
+CAMR:FEE1:.*          ALLOW
+CAMR:NEH1:.*          ALLOW
+
+# Allow FEE camears read-write to the consoles
+DIAG:FEE1:481:.*      ALLOW RWINSTRMCC 1
+CAMR:FEE1:.*          ALLOW RWINSTRMCC 1
+CAMR:NEH1:.*          ALLOW RWINSTRMCC 1

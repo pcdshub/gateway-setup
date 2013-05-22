@@ -1,0 +1,11 @@
+EVALUATION ORDER DENY, ALLOW
+
+.* DENY
+
+# Allow FEH cameras read-only to the world
+XCS:DG3:CVV:02:.*     ALLOW
+MEC:HXM:CVV:01:.*     ALLOW
+
+# Allow FEH cameras read-write to the consoles
+XCS:DG3:CVV:02:.*     ALLOW RWINSTRMCC 1
+MEC:HXM:CVV:01:.*     ALLOW RWINSTRMCC 1

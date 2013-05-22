@@ -1,0 +1,15 @@
+EVALUATION ORDER DENY, ALLOW
+
+.* DENY
+
+# Allow gas detector read-only to the world
+DIAG:FEE1:202:.*      ALLOW
+GDET:FEE1:.*          ALLOW
+IOC:FEE:GASDET:DAQ:.* ALLOW
+EVR:FEE:GASDET:DAQ:.* ALLOW
+
+# Allow gas detector read-write to the consoles
+DIAG:FEE1:202:.*      ALLOW RWINSTRMCC 1
+GDET:FEE1:.*          ALLOW RWINSTRMCC 1
+IOC:FEE:GASDET:DAQ:.* ALLOW RWINSTRMCC 1
+EVR:FEE:GASDET:DAQ:.* ALLOW RWINSTRMCC 1
