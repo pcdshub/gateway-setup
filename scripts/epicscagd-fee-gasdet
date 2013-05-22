@@ -6,7 +6,7 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee
+# processname: epicscagd-fee-gasdet
 
 # Source function library.
 . /etc/init.d/functions
@@ -15,21 +15,21 @@
 RETVAL=0
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
-export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $LAS_IF1 $CXI_IF1 $DEV_IF1 $SXR_IF1 $AMO_IF1 $XPP_IF1 $XCS_IF1 $MEC_IF1"
+export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF3 $MCC_IF3 $LAS_IF3 $THZ_IF3 $AMO_IF3 $SXR_IF3 $XPP_IF3 $XCS_IF3 $CXI_IF3 $MEC_IF3"
 export EPICS_CA_MAX_ARRAY_BYTES=36000000
 
 case "$1" in
 start)
-	cagstart fee NET:CAG:FEE
+	cagstart fee-gasdet NET:CAG:FEEGASDET
 	;;
 stop)
-	cagstop fee
+	cagstop fee-gasdet
 	;;
 restart)
-	cagrestart fee
+	cagrestart fee-gasdet
 	;;
 reload)
-	cagreload NET:CAG:FEE
+	cagreload NET:CAG:FEEGASDET
 	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
@@ -37,4 +37,3 @@ reload)
 esac
 
 exit $?
-
