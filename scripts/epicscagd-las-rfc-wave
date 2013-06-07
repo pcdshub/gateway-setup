@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-las-rfc
+#	/etc/rc.d/init.d/epicscagd-las-rfc-wave
 #
 # Starts the EPICS CAG daemon
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-las-rfc
+# processname: epicscagd-las-rfc-wave
 
 # Source function library.
 . /etc/init.d/functions
@@ -19,16 +19,16 @@ export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF3 $FEE_IF3 $CXI_IF3 $DEV_IF3 $SXR_IF3 $A
 
 case "$1" in
 start)
-	cagstart las-rfc NET:CAG:LASRFC
+	cagstart las-rfc-wave NET:CAG:LAS:RFC:WAVE
 	;;
 stop)
-	cagstop las-rfc
+	cagstop las-rfc-wave
 	;;
 restart)
-	cagrestart las-rfc
+	cagrestart las-rfc-wave
 	;;
 reload)
-	cagreload NET:CAG:LASRFC
+	cagreload NET:CAG:LAS:RFC:WAVE
 	;;
 *)
 	echo $"Usage: $0 {start|stop|restart}"
