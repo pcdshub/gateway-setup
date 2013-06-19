@@ -3,10 +3,10 @@ EVALUATION ORDER ALLOW, DENY
 # General UND read access
 UND:.* ALLOW
 
-# MCC R/W Access
-UND:R01:.* ALLOW RWMCC 1
-UND:R02:.* ALLOW RWMCC 1
-UND:R04:.* ALLOW RWMCC 1
+# MCC R/W Access goes through a different gateway
+UND:R01:.* DENY
+UND:R02:.* DENY
+UND:R04:.* DENY
 
 # RF Phase Cavity waveforms go through a different gateway
 UND:R04:IOC:01:WF.* DENY
