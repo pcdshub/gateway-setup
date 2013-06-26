@@ -1,0 +1,113 @@
+# Utility variables
+export DEV_IF1=134.79.165.20
+export MCC_IF1=172.21.40.20
+export LAS_IF1=172.21.35.20
+export FEE_IF1=172.21.36.20
+export THZ_IF1=172.21.57.20
+export AMO_IF1=172.21.37.20
+export SXR_IF1=172.21.39.20
+export XPP_IF1=172.21.38.20
+export XCS_IF1=172.21.43.20
+export CXI_IF1=172.21.44.20
+export MEC_IF1=172.21.45.20
+
+export DEV_IF2=134.79.165.19
+export MCC_IF2=172.21.40.19
+export LAS_IF2=172.21.35.19
+export FEE_IF2=172.21.36.19
+export THZ_IF2=172.21.57.19
+export AMO_IF2=172.21.37.19
+export SXR_IF2=172.21.39.19
+export XPP_IF2=172.21.38.19
+export XCS_IF2=172.21.43.19
+export CXI_IF2=172.21.44.19
+export MEC_IF2=172.21.45.19
+
+export DEV_IF3=134.79.165.57
+export MCC_IF3=172.21.40.21
+export LAS_IF3=172.21.35.251
+export FEE_IF3=172.21.36.251
+export THZ_IF3=172.21.57.251
+export AMO_IF3=172.21.37.251
+export SXR_IF3=172.21.39.251
+export XPP_IF3=172.21.38.251
+export XCS_IF3=172.21.43.251
+export CXI_IF3=172.21.44.251
+export MEC_IF3=172.21.45.251
+
+export DEV_BC=134.79.165.255
+export MCC_BC=172.27.11.255
+export LAS_BC=172.21.35.255
+export FEE_BC=172.21.36.255
+export THZ_BC=172.21.57.255
+export AMO_BC=172.21.37.255
+export SXR_BC=172.21.39.255
+export XPP_BC=172.21.38.255
+export XCS_BC=172.21.43.255
+export CXI_BC=172.21.44.255
+export MEC_BC=172.21.45.255
+
+export MCC_GW=172.27.224.220
+
+# Common to all
+export EPICS_CA_BEACON_PERIOD=20.0
+export EPICS_CA_CONN_TMO=60.0
+export EPICS_CA_MAX_ARRAY_BYTES=8000000
+export EPICS_CA_AUTO_ADDR_LIST=NO
+export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
+export EPICS_CAS_IGNORE_ADDR_LIST="\
+$DEV_IF1 $MCC_IF1 $LAS_IF1 $FEE_IF1 $THZ_IF1 $AMO_IF1 $SXR_IF1 $XPP_IF1 $XCS_IF1 $CXI_IF1 $MEC_IF1 \
+$DEV_IF2 $MCC_IF2 $LAS_IF2 $FEE_IF2 $THZ_IF2 $AMO_IF2 $SXR_IF2 $XPP_IF2 $XCS_IF2 $CXI_IF2 $MEC_IF2 \
+$DEV_IF3 $MCC_IF3 $LAS_IF3 $FEE_IF3 $THZ_IF3 $AMO_IF3 $SXR_IF3 $XPP_IF3 $XCS_IF3 $CXI_IF3 $MEC_IF3"
+
+export EPICS_CAS_BEACON_ADDR_LIST="\
+$DEV_BC:5065 $MCC_BC:5069 $LAS_BC:5065 $FEE_BC:5065 $THZ_BC:5065 $AMO_BC:5065 $SXR_BC:5065 $XPP_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065"
+export DAEMON_COREFILE_LIMIT="unlimited"
+
+# Common to most
+export EPICS_CA_SERVER_PORT=5064
+export EPICS_CAS_SERVER_PORT=5064
+
+# Need to be specified for each gateway
+# export EPICS_CA_ADDR_LIST=$AMO_BC
+# export EPICS_CAS_INTF_ADDR_LIST="$LAS_IF $FEE_IF $DEV_IF $XPP_IF $SXR_IF $XCS_IF $CXI_IF"
+
+cagvardir="/u1/gateway"
+cagcfgdir="/reg/g/pcds/gateway/config"
+caglockdir="/var/lock/subsys"
+cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/linux-x86_64/pvgwfd"
+caput="/reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64/caput"
+daemonuser="psca"
+
+cagstart() {
+	# Check if this gateway is already running
+	test -x $cagprogram || (echo "Program $cagprogram doesn't exist" && exit 0)
+	if [ ! -f $caglockdir/epicscagd-$1 ]; then
+            echo -n "Starting $1 gateway "
+	    daemon $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 -prefix $2 -server -command gateway.command
+	    RETVAL=$?
+	    [ $RETVAL -eq 0 ] && touch $caglockdir/epicscagd-$1
+	    echo
+	else
+		echo "Error: $1 gateway already running or stale lock file";
+	fi
+	return $RETVAL
+}
+
+cagstop() {
+	echo -n "Stopping $1 gateway "
+	source $cagvardir/$1/gateway.killer
+	RETVAL=$?
+	[ $RETVAL -eq 0 ] && rm -f $caglockdir/epicscagd-$1
+	echo
+        return $RETVAL
+}
+
+
+cagrestart() {
+	source $cagvardir/$1/gateway.restart
+}	
+
+cagreload() {
+ 	$caput $1:newAsFlag 1
+}

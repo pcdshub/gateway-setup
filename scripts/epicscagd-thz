@@ -10,7 +10,8 @@
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+#. /etc/init.d/epicscagd
+. /etc/init.d/epicscagd-3.14.12-pvgwfd
 
 RETVAL=0
 
