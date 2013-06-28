@@ -5,7 +5,6 @@ EVALUATION ORDER ALLOW, DENY
 # MCC R/W Access
 DMP:THZ:.* ALLOW RWMCC 1
 FCT:THZ:.* ALLOW RWMCC 1
-LAS:UND:MMS:.* ALLOW RWMCC 1
 
 # AMO R/W Access
 LAS:R51:.* ALLOW RWAMO 1
@@ -48,6 +47,8 @@ LAS:FS3:.* ALLOW RWINSTR 1
 
 # All Undulator hall PV's go through a different gateway
 UND:.* DENY
+# RF Phase Cavity phase control PV's go through a different gateway
+LAS:UND:MMS:.* DENY
 
 # fstiming unit 0 waveforms go through different gateway
 LAS:FS0:WAVE.* DENY
