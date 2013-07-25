@@ -1,41 +1,31 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-mcc
-#
-# Starts the EPICS CAG daemon
-#
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-mcc
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=mcc
+gwprefix=NET:CAG:MCC
+gwprocport=30002
 
 export EPICS_CA_ADDR_LIST=$MCC_GW
 export EPICS_CA_SERVER_PORT=5080
-export EPICS_CAS_BEACON_ADDR_LIST="$LAS_BC:5061 $FEE_BC:5065 $AMO_BC:5065 $DEV_BC:5065 $XPP_BC:5065 $SXR_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065"
 export EPICS_CAS_INTF_ADDR_LIST="$AMO_IF1 $LAS_IF1 $FEE_IF1 $DEV_IF1 $XPP_IF1 $SXR_IF1 $XCS_IF1 $CXI_IF1 $MEC_IF1"
 
 case "$1" in
 start)
-	cagstart mcc NET:CAG:MCC
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop mcc
-	;;
-restart)
-	cagrestart mcc
-	;;
-reload)
-	cagreload NET:CAG:MCC
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 
 exit $?
-

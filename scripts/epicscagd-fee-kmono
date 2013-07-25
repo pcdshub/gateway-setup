@@ -1,18 +1,16 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-fee
-#
-# Starts the EPICS CAG daemon
-#
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-fee-kmono
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=fee-kmono
+gwprefix=NET:CAG:FEE:KMONO
+gwprocport=30002
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF3 $MCC_IF3 $LAS_IF3 $THZ_IF3 $AMO_IF3 $SXR_IF3 $XPP_IF3 $XCS_IF3 $CXI_IF3 $MEC_IF3"
@@ -20,19 +18,13 @@ export EPICS_CA_MAX_ARRAY_BYTES=36000000
 
 case "$1" in
 start)
-	cagstart fee-kmono NET:CAG:FEEKMONO
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop fee-kmono
-	;;
-restart)
-	cagrestart fee-kmono
-	;;
-reload)
-	cagreload NET:CAG:FEEKMONO
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 

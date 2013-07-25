@@ -1,39 +1,30 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-las
-#
-# Starts the EPICS CAG daemon
-#
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-las
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=las
+gwprefix=NET:CAG:LAS
+gwprocport=30001
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $FEE_IF1 $CXI_IF1 $DEV_IF1 $SXR_IF1 $AMO_IF1 $XPP_IF1 $XCS_IF1 $MEC_IF1"
 
 case "$1" in
 start)
-	cagstart las NET:CAG:LAS
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop las
-	;;
-restart)
-	cagrestart las
-	;;
-reload)
-	cagreload NET:CAG:LAS
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 
 exit $?
-

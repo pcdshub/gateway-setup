@@ -1,0 +1,11 @@
+EVALUATION ORDER DENY, ALLOW
+
+.*         DENY
+
+# XPP R/W Access
+LAS:XPP:.* ALLOW RWXPP 1
+LAS:R54:.* ALLOW RWXPP 1
+
+# All instruments R/W Access
+LAS:FS3:.* ALLOW RWINSTR 1
+

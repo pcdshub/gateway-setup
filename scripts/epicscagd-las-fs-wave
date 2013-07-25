@@ -1,39 +1,30 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-las-fs-wave
-#
-# Starts the EPICS CAG daemon
-#
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-las-fs-wave
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=las-fs-wave
+gwprefix=NET:CAG:LAS:FS:WAVE
+gwprocport=30011
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF3 $FEE_IF3 $CXI_IF3 $DEV_IF3 $SXR_IF3 $AMO_IF3 $XPP_IF3 $XCS_IF3 $MEC_IF3"
 
 case "$1" in
 start)
-	cagstart las-fs-wave NET:CAG:LAS:FS:WAVE
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop las-fs-wave
-	;;
-restart)
-	cagrestart las-fs-wave
-	;;
-reload)
-	cagreload NET:CAG:LAS:FS:WAVE
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start}"
 	exit 1
 esac
 
 exit $?
-

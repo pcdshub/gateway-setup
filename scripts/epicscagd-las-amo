@@ -2,19 +2,18 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee-cam
+# processname: epicscagd-las-amo
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=fee-cam
-gwprefix=NET:CAG:FEECAM
-gwprocport=30001
+gwname=las-amo
+gwprefix=NET:CAG:LAS:AMO
+gwprocport=30003
 
-export EPICS_CA_ADDR_LIST=$FEE_BC
-export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF2 $MCC_IF2 $LAS_IF2 $THZ_IF2 $AMO_IF2 $SXR_IF2 $XPP_IF2 $XCS_IF2 $CXI_IF2 $MEC_IF2"
-export EPICS_CA_MAX_ARRAY_BYTES=36000000
+export EPICS_CA_ADDR_LIST=$LAS_BC
+export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $FEE_IF1 $CXI_IF1 $DEV_IF1 $SXR_IF1 $AMO_IF1 $XPP_IF1 $XCS_IF1 $MEC_IF1"
 
 case "$1" in
 start)
@@ -24,7 +23,7 @@ name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 
