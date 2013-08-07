@@ -70,6 +70,13 @@ ASG(RWINSTR) {
     }
 }
 
+ASG(RWHXR) {
+    RULE(1,READ)
+    RULE(1,WRITE){
+      HAG(xcshosts,cxihosts,mechosts)
+    }
+}
+
 ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE){
