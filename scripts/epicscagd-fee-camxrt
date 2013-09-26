@@ -10,7 +10,7 @@
 
 gwname=fee-camxrt
 gwprefix=NET:CAG:FEECAMXRT
-gwprocport=30002
+gwprocport=30073
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF2 $MCC_IF2 $LAS_IF2 $THZ_IF2 $AMO_IF2 $SXR_IF2 $XPP_IF2 $XCS_IF2 $CXI_IF2 $MEC_IF2"

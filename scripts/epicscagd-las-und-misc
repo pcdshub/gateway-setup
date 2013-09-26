@@ -10,7 +10,7 @@
 
 gwname=las-und-misc
 gwprefix=NET:CAG:LAS:UND:MISC
-gwprocport=30013
+gwprocport=30099
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF3 $FEE_IF3 $CXI_IF3 $DEV_IF3 $SXR_IF3 $AMO_IF3 $XPP_IF3 $XCS_IF3 $MEC_IF3"

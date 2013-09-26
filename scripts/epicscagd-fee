@@ -2,7 +2,7 @@
 #
 #	/etc/rc.d/init.d/epicscagd-fee
 #
-# Starts the EPICS CAG daemon
+# Starts the EPICS CAG gateway
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
@@ -10,9 +10,11 @@
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=fee
+gwprefix=NET:CAG:FEE
+gwprocport=30070
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $LAS_IF1 $CXI_IF1 $DEV_IF1 $SXR_IF1 $AMO_IF1 $XPP_IF1 $XCS_IF1 $MEC_IF1"
@@ -20,21 +22,14 @@ export EPICS_CA_MAX_ARRAY_BYTES=36000000
 
 case "$1" in
 start)
-	cagstart fee NET:CAG:FEE
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop fee
-	;;
-restart)
-	cagrestart fee
-	;;
-reload)
-	cagreload NET:CAG:FEE
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 
 exit $?
-

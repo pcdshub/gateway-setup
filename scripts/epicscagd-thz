@@ -2,39 +2,32 @@
 #
 #	/etc/rc.d/init.d/epicscagd-thz
 #
-# Starts the EPICS CAG daemon
+# Starts the EPICS CAG gateway
 #
-# chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-thz
 
 # Source function library.
 . /etc/init.d/functions
-#. /etc/init.d/epicscagd
-. /etc/init.d/epicscagd-3.14.12-pvgwfd
+. /etc/init.d/epicscagp
 
-RETVAL=0
+gwname=thz
+gwprefix=NET:CAG:THZ
+gwprocport=30080
 
 export EPICS_CA_ADDR_LIST=$THZ_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $DEV_IF1"
 
 case "$1" in
 start)
-	cagstart thz NET:CAG:THZ
+	cagstart $gwname $gwprefix $gwprocport
 	;;
-stop)
-	cagstop thz
-	;;
-restart)
-	cagrestart thz
-	;;
-reload)
-	cagreload NET:CAG:THZ
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
 	;;
 *)
-	echo $"Usage: $0 {start|stop|restart}"
+	echo $"Usage: $0 {start|name}"
 	exit 1
 esac
 
 exit $?
-
