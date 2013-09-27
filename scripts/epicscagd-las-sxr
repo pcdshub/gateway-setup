@@ -15,6 +15,7 @@ gwprocport=30092
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $FEE_IF1 $CXI_IF1 $DEV_IF1 $SXR_IF1 $AMO_IF1 $XPP_IF1 $XCS_IF1 $MEC_IF1"
 
+#cagprogram="/reg/neh/home/bhill/wa2/trunk/pcds/epics/extensions/current/bin/linux-x86_64/pvgwfd"
 case "$1" in
 start)
 	cagstart $gwname $gwprefix $gwprocport

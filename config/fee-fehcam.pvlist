@@ -2,6 +2,9 @@ EVALUATION ORDER DENY, ALLOW
 
 .* DENY
 
+# Allow Gateway stats
+NET:CAG:FEE:FEHCAM.*      ALLOW
+
 # Allow FEH cameras read-only to the world
 XCS:DG3:CVV:02:.*     ALLOW
 MEC:HXM:CVV:01:.*     ALLOW

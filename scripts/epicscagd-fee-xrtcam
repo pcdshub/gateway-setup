@@ -2,15 +2,15 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee-camfeh
+# processname: epicscagd-fee-xrtcam
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=fee-camfeh
-gwprefix=NET:CAG:FEECAMFEH
-gwprocport=30072
+gwname=fee-xrtcam
+gwprefix=NET:CAG:FEE:XRTCAM
+gwprocport=30073
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF2 $MCC_IF2 $LAS_IF2 $THZ_IF2 $AMO_IF2 $SXR_IF2 $XPP_IF2 $XCS_IF2 $CXI_IF2 $MEC_IF2"

@@ -2,6 +2,9 @@ EVALUATION ORDER DENY, ALLOW
 
 .*        DENY
 
+# Allow Gateway stats
+NET:CAG:LAS:AMO.*      ALLOW
+
 # AMO R/W Access
 LAS:R51:.* ALLOW RWAMO 1
 AMO:LAS:.* ALLOW RWAMO 1

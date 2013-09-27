@@ -2,6 +2,9 @@ EVALUATION ORDER DENY, ALLOW
 
 .*        DENY
 
+# Allow Gateway stats
+NET:CAG:LAS:SXR.*      ALLOW
+
 # SXR R/W Access
 SXR:LAS:DLS:01:MTR.* ALLOW RWSXR 1
 LAS:R52:.* ALLOW RWSXR 1
