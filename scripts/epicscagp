@@ -68,10 +68,6 @@ export DAEMON_COREFILE_LIMIT="unlimited"
 export EPICS_CA_SERVER_PORT=5064
 export EPICS_CAS_SERVER_PORT=5064
 
-# Need to be specified for each gateway
-# export EPICS_CA_ADDR_LIST=$AMO_BC
-# export EPICS_CAS_INTF_ADDR_LIST="$LAS_IF $FEE_IF $DEV_IF $XPP_IF $SXR_IF $XCS_IF $CXI_IF"
-
 cagvardir="/u1/gateway"
 cagcfgdir="/reg/g/pcds/gateway/config"
 cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/linux-x86_64/pvgwfd"
