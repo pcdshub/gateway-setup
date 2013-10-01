@@ -5,6 +5,7 @@ HAG(xcshosts) {xcs-daq,xcs-control,xcs-monitor,xcs-console,xcs-laptop01,xcs-lapt
 HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,daq-cxi-mon01,cxi-laptop1}
 HAG(mechosts) {mec-daq,mec-control,mec-monitor,mec-console,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04}
 HAG(seqhosts) {ioc-amo-vacuum,ioc-sxr-vacuum,ioc-xpp-osc01,ioc-xcs-misc1,ioc-cxi-misc1,ioc-mec-misc01}
+HAG(lashosts) {las-console,ioc-las-fstiming}
 
 HAG(matlabhosts) {psdev105}
 
@@ -63,10 +64,17 @@ ASG(RWMEC) {
     }
 }
 
+ASG(RWLAS) {
+    RULE(1,READ)
+    RULE(1,WRITE){
+      HAG(lashosts)
+    }
+}
+
 ASG(RWINSTR) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts)
+      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,lashosts)
     }
 }
 
@@ -80,7 +88,7 @@ ASG(RWHXR) {
 ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts)
+      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts)
     }
 }
 
