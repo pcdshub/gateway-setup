@@ -95,7 +95,7 @@ ASG(RWINSTRMCC) {
 ASG(RWMATLAB) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(matlabhosts,mcchosts)
+      HAG(matlabhosts,mcchosts,lashosts)
     }
 }
 
