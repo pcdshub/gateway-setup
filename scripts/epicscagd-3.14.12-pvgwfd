@@ -74,13 +74,14 @@ caglockdir="/var/lock/subsys"
 cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/linux-x86_64/pvgwfd"
 caput="/reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64/caput"
 daemonuser="psca"
+cagdbg=""
 
 cagstart() {
 	# Check if this gateway is already running
 	test -x $cagprogram || (echo "Program $cagprogram doesn't exist" && exit 0)
 	if [ ! -f $caglockdir/epicscagd-$1 ]; then
             echo -n "Starting $1 gateway "
-	    daemon $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 -prefix $2 -server -command gateway.command
+	    daemon $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -prefix $2 -server -command gateway.command
 	    RETVAL=$?
 	    [ $RETVAL -eq 0 ] && touch $caglockdir/epicscagd-$1
 	    echo
