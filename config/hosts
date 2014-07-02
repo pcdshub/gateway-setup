@@ -1,8 +1,8 @@
 HAG(amohosts) {amo-daq,amo-control,amo-monitor,amo-console,amo-laptop}
 HAG(sxrhosts) {sxr-daq,sxr-control,sxr-monitor,sxr-console,sxr-laptop,sxr-laptop2}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04}
-HAG(xcshosts) {xcs-daq,xcs-control,xcs-monitor,xcs-console,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04}
-HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,daq-cxi-mon01,cxi-laptop1}
+HAG(xcshosts) {xcs-daq,xcs-control,xcs-monitor,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04}
+HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-hutch01,daq-cxi-mon01,cxi-laptop1}
 HAG(mechosts) {mec-daq,mec-control,mec-monitor,mec-console,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,ioc-mec-misc01}
 HAG(seqhosts) {ioc-amo-vacuum,ioc-sxr-vacuum,ioc-xpp-osc01,ioc-xcs-misc1,ioc-cxi-misc1,ioc-mec-las01}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv02,ioc-las-srv03,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-mec-srv07}
