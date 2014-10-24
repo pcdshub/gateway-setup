@@ -7,5 +7,5 @@ SXR:YAG:IOC:01.* ALLOW RWINSTRMCC 1
 SXR:YAG:CVV:01.* ALLOW RWINSTRMCC 1
 HX2:SB1:IPM.* ALLOW RWXPP 1
 
-# Temporary for gateway testing. bhill 6/17/2014
-SXR:EXS:CVV.* ALLOW RWXPP 1
+# May enable as needed for gateway testing. bhill 7/2/2014
+# SXR:EXS:CVV.* ALLOW RWXPP 1

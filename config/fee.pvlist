@@ -3,9 +3,9 @@ EVALUATION ORDER ALLOW, DENY
 .* ALLOW
 .* ALLOW RWINSTRMCC 1
 
-# Set special access control for MEC devices: M3H switching mirror
+# Set special access control for MEC devices: M3H switching mirror, MEC YAG0 camera
 IOC:XRT:M3H:SWITCH:.* ALLOW RWMEC 1
-
+XRT:R04:EVR:33:.* ALLOW RWMEC 1
 
 # Deny other FEE Gateway stats
 NET:CAG:FEE:CAM.*   DENY
