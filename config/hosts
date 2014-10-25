@@ -92,6 +92,15 @@ ASG(RWINSTRMCC) {
     }
 }
 
+ASG(RWAMOMCC) {
+    RULE(1,READ) {
+      HAG(sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts)
+    }
+    RULE(1,WRITE) {
+      HAG(amohosts)
+    }
+}
+
 ASG(RWHXR) {
     RULE(1,READ)
     RULE(1,WRITE){
