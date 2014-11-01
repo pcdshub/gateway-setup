@@ -16,7 +16,7 @@ gwprefix=NET:CAG:THZ
 gwprocport=30080
 
 export EPICS_CA_ADDR_LIST=$THZ_BC
-export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $DEV_IF1"
+export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $DEV_IF1 $IP"
 
 case "$1" in
 start)

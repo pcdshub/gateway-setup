@@ -1,4 +1,5 @@
 # Utility variables
+export IP=`/sbin/ifconfig eth0 | /bin/grep 'inet addr:' | /bin/cut -d: -f2 | /bin/awk '{ print $1 }'`
 export DEV_IF1=134.79.165.20
 export LAS_IF1=172.21.35.20
 export FEE_IF1=172.21.36.20
@@ -43,6 +44,7 @@ export DET_IF3=172.21.58.251
 
 export DEV_BC=134.79.165.255
 export MCC_BC=172.27.11.255
+export SRV_BC=172.21.32.255
 export LAS_BC=172.21.35.255
 export FEE_BC=172.21.36.255
 export THZ_BC=172.21.57.255
