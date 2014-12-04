@@ -5,14 +5,15 @@ EVALUATION ORDER ALLOW, DENY
 
 # Set special access control for MEC devices: M3H switching mirror, MEC YAG0 camera
 IOC:XRT:M3H:SWITCH:.* ALLOW RWMEC 1
-XRT:R04:EVR:33:.* ALLOW RWMEC 1
+XRT:R04:EVR:33:.*     ALLOW RWMEC 1
 
 # Deny other FEE Gateway stats
-NET:CAG:FEE:CAM.*   DENY
-NET:CAG:FEE:FEHCAM.*   DENY
-NET:CAG:FEE:XRTCAM.*   DENY
-NET:CAG:FEE:GASDET.*   DENY
-NET:CAG:FEE:KMONO.*   DENY
+# These aren't needed and don't do anything
+# NET:CAG:FEE:CAM.*     DENY
+# NET:CAG:FEE:FEHCAM.*  DENY
+# NET:CAG:FEE:XRTCAM.*  DENY
+# NET:CAG:FEE:GASDET.*  DENY
+# NET:CAG:FEE:KMONO.*   DENY
 
 # Deny gas detector PVs
 DIAG:FEE1:202:.*      DENY
@@ -25,10 +26,13 @@ KMON:FEE1:.*          DENY
 IOC:FEE:KMONO:DAQ:.*  DENY
 EVR:FEE:KMONO:DAQ:.*  DENY
 
-# Deny FEE cameras
-DIAG:FEE1:481:.*      DENY
-CAMR:FEE1:.*          DENY
-CAMR:NEH1:.*          DENY
+# Deny FEE1, DIAG and NEH1 camera images
+DIAG:FEE1.*IMAGE.*    DENY
+CAMR:NEH1.*IMAGE.*    DENY
+CAMR:FEE1.*IMAGE.*    DENY
+CAMR:FEE1.*Image.*    ALLOW
+CAMR:NEH1.*Image.*    ALLOW
+DIAG:FEE1.*Image.*    ALLOW
 
 # Deny XRT cameras
 XRT:DIA:CVV:01:.*     DENY
