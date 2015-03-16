@@ -87,6 +87,6 @@ cagstart() {
   echo -n "Starting $1 gateway... "
   TIME=`date +%Y_%m_%d-%T`
   PROCSERV="/reg/g/pcds/package/procServ-2.5.1/procServ --allow --ignore ^D^C --logfile $cagvardir/$1/gateway.log.$TIME --name $1 $3"
-  $PROCSERV $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -prefix $2 -command $cagvardir/gateway.command
+  $PROCSERV $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -prefix $2 -command $cagvardir/gateway.command $4 $5
   echo " done"
 }

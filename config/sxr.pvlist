@@ -7,5 +7,9 @@ SXR:YAG:IOC:01.* ALLOW RWINSTRMCC 1
 SXR:YAG:CVV:01.* ALLOW RWINSTRMCC 1
 HX2:SB1:IPM.* ALLOW RWXPP 1
 
-# May enable as needed for gateway testing. bhill 7/2/2014
-# SXR:EXS:CVV.* ALLOW RWXPP 1
+# camera images handled by sxr-cam gateway
+SXR:.*IMAGE.*		DENY
+SXR:.*Image.*		DENY
+SXR:.*PROJ.*		DENY
+SXR:.*HPrj.*		DENY
+
