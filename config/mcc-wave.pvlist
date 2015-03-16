@@ -2,4 +2,14 @@ EVALUATION ORDER ALLOW, DENY
 
 .*	ALLOW RWINSTRMCC 1
 
-OTRS:DMP1:695:.*	DENY FROM ioc-und-rec01
+# Blocking these specific PV's that ioc-und-rec01
+# reads over a dedicated 10G connection to the XTCAV host
+OTRS:DMP1:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:MinX_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:MinY_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:SizeY_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:RESOLUTION.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:ArrayRate_RBV.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
