@@ -60,5 +60,9 @@ UND:.* DENY
 # RF Phase Cavity phase control PV's go through a different gateway
 LAS:UND:MMS:.* DENY
 
+# Deny fast history PVs
+LAS*_LAST_*	DENY
+
+
 # fstiming unit 0 waveforms go through different gateway
 LAS:FS0:WAVE.* DENY

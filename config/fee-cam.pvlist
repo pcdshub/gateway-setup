@@ -6,6 +6,9 @@ EVALUATION ORDER DENY, ALLOW
 # This isn't needed
 # NET:CAG:FEE:CAM.*      ALLOW
 
+# Allow fast history PVs
+*FEE*_LAST_*	ALLOW
+
 # Allow camera images read-only
 CAMR:FEE1.*Image.*    ALLOW
 CAMR:NEH1.*Image.*    ALLOW

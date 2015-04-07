@@ -21,6 +21,9 @@ GDET:FEE1:.*          DENY
 IOC:FEE:GASDET:DAQ:.* DENY
 EVR:FEE:GASDET:DAQ:.* DENY
 
+# Deny fast history PVs
+*FEE*_LAST_*	DENY
+
 # Deny KMONO PVs
 KMON:FEE1:.*          DENY
 IOC:FEE:KMONO:DAQ:.*  DENY
