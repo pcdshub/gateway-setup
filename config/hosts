@@ -9,6 +9,7 @@ HAG(mechosts) {mec-daq,mec-control,mec-monitor,mec-console,mec-laptop01,mec-lapt
 HAG(seqhosts) {ioc-amo-slits,ioc-sxr-vacuum,ioc-xpp-osc01,ioc-xcs-misc1,ioc-cxi-misc1,ioc-mec-las01}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv02,ioc-las-srv03,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-mec-srv08}
 HAG(tsthosts) {tst-daq,ioc-tst-rec01,ioc-tst-rec02}
+HAG(pcdshosts) {pscron}
 
 HAG(matlabhosts) {psdev105}
 HAG(xppicshosts) {xpp-control,blctl00.slac.stanford.edu,abbix08.nsls2.bnl.gov}
@@ -90,7 +91,7 @@ ASG(RWINSTR) {
 ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts)
+      HAG(amohosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,pcdshosts)
     }
 }
 
