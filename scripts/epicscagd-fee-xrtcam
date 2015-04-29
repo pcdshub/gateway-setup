@@ -20,7 +20,7 @@ export EPICS_CA_MAX_ARRAY_BYTES=40000000
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport
+	cagstart $gwname $gwprefix $gwprocport -no_cache
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
