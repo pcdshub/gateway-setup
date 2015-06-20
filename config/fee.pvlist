@@ -33,9 +33,9 @@ EVR:FEE:KMONO:DAQ:.*  DENY
 DIAG:FEE1.*IMAGE.*    DENY
 CAMR:NEH1.*IMAGE.*    DENY
 CAMR:FEE1.*IMAGE.*    DENY
-CAMR:FEE1.*Image.*    ALLOW
-CAMR:NEH1.*Image.*    ALLOW
-DIAG:FEE1.*Image.*    ALLOW
+CAMR:FEE1.*Image.*    DENY
+CAMR:NEH1.*Image.*    DENY
+DIAG:FEE1.*Image.*    DENY
 
 # Deny XRT cameras
 XRT:DIA:CVV:01:.*     DENY
