@@ -2,6 +2,9 @@ EVALUATION ORDER DENY, ALLOW
 
 .* DENY
 
+# Allow Gateway stats
+NET:CAG:SXR:CAM.*      ALLOW
+
 # Allow camera images read-only
 SXR:.*IMAGE.*		ALLOW
 SXR:.*Image.*		ALLOW

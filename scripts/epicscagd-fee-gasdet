@@ -13,8 +13,9 @@ gwprefix=NET:CAG:FEE:GASDET
 gwprocport=30074
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
-export EPICS_CAS_INTF_ADDR_LIST="$DEV_IF3 $MCC_IF3 $LAS_IF3 $THZ_IF3 $AMO_IF3 $SXR_IF3 $XPP_IF3 $TST_IF3 $XCS_IF3 $CXI_IF3 $MEC_IF3 $IP"
-export EPICS_CA_MAX_ARRAY_BYTES=40000000
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${FEE_IF3}%%"`
+# Add the eth0 interface so we can use ca clients from the gateway host
+export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
 case "$1" in
 start)

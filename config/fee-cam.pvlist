@@ -3,8 +3,7 @@ EVALUATION ORDER DENY, ALLOW
 .* DENY
 
 # Allow Gateway stats
-# This isn't needed
-# NET:CAG:FEE:CAM.*      ALLOW
+NET:CAG:FEE:CAM.*      ALLOW
 
 # Allow fast history PVs
 *FEE*_LAST_*	ALLOW

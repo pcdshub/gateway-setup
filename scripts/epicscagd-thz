@@ -16,7 +16,9 @@ gwprefix=NET:CAG:THZ
 gwprocport=30080
 
 export EPICS_CA_ADDR_LIST=$THZ_BC
-export EPICS_CAS_INTF_ADDR_LIST="$MCC_IF1 $DEV_IF1 $IP"
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${THZ_IF1}%%"`
+# Add the eth0 interface so we can use ca clients from the gateway host
+export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
 case "$1" in
 start)

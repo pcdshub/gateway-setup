@@ -1,22 +1,23 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-xpp
+#	/etc/rc.d/init.d/epicscagd-mfx
 #
-# Starts the EPICS CAG
+# Starts the EPICS CAG gateway
 #
+# chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-xpp
+# processname: epicscagd-mfx
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=xpp
-gwprefix=NET:CAG:XPP
-gwprocport=30030
+gwname=mfx
+gwprefix=NET:CAG:MFX
+gwprocport=30120
 
-export EPICS_CA_ADDR_LIST=$XPP_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${XPP_IF1}%%"`
+export EPICS_CA_ADDR_LIST=$MFX_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${MFX_IF2}%%"`
 # Add the eth0 interface so we can use ca clients from the gateway host
 export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
