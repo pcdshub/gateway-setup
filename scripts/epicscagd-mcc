@@ -14,7 +14,7 @@ gwprocport=30002
 
 export EPICS_CA_ADDR_LIST=$MCC_GW
 export EPICS_CA_SERVER_PORT=5080
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${MCC_GW}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${MCC_IF1}%%"`
 # Add the eth0 interface so we can use ca clients from the gateway host
 export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
