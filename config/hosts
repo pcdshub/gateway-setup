@@ -92,20 +92,20 @@ ASG(RWLAS) {
 ASG(RWINSTR) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(amohosts,mfxhosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,lashosts)
+      HAG(amohosts,sxrhosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts)
     }
 }
 
 ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(amohosts,mfxhosts,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,pcdshosts)
+      HAG(amohosts,sxrhosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,pcdshosts)
     }
 }
 
 ASG(RWAMOCTL) {
     RULE(1,READ) {
-      HAG(amohosts-noctl,sxrhosts,xpphosts,xcshosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts)
+      HAG(amohosts-noctl,sxrhosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts)
     }
     RULE(1,WRITE) {
       HAG(amohosts-ctl)
@@ -115,14 +115,14 @@ ASG(RWAMOCTL) {
 ASG(RWHXR) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(xpphosts,xcshosts,cxihosts,mechosts)
+      HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts)
     }
 }
 
 ASG(RWHXRMCC) {
     RULE(1,READ)
     RULE(1,WRITE){
-      HAG(xpphosts,xcshosts,cxihosts,mechosts,mcchosts)
+      HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts)
     }
 }
 
