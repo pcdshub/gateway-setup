@@ -1,3 +1,4 @@
 #!/bin/sh
 
-/reg/g/pcds/package/epics/3.14/base/current/bin/linux-x86_64/caRepeater &
+source /reg/g/pcds/setup/epicsenv-cur.sh
+caRepeater &

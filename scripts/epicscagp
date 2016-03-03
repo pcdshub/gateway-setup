@@ -1,5 +1,11 @@
+# Start w/ a standard PCDS epics environment
+source /reg/g/pcds/setup/epicsenv-cur.sh
+
 # Utility variables
-export IP=`/sbin/ifconfig eth0 | /bin/grep 'inet addr:' | /bin/cut -d: -f2 | /bin/awk '{ print $1 }'`
+#export IP=`/sbin/ifconfig eth0 | /bin/grep 'inet addr:' | /bin/cut -d: -f2 | /bin/awk '{ print $1 }'`
+export IP=`/sbin/ifconfig | /bin/grep -w inet | head -1 | sed -e 's/ *inet[^0-9]*\([0-9.]*\) .*/\1/'`
+export LO_IP=127.0.0.1
+export LO_BC=127.0.0.255
 
 # pscag1 interface ip addresses
 export AMO_IF1=172.21.37.20
@@ -18,6 +24,7 @@ export TST_IF1=172.21.42.20
 export XCS_IF1=172.21.43.20
 export XPP_IF1=172.21.38.20
 export PSCAG1_IFLIST="$AMO_IF1 $CXI_IF1 $DET_IF1 $DEV_IF1 $FEE_IF1 $LAS_IF1 $MCC_IF1 $MEC_IF1 $MFX_IF1 $SXR_IF1 $THZ_IF1 $TST_IF1 $XCS_IF1 $XPP_IF1"
+#export PSCAG1_IFLIST="$AMO_IF1 $CXI_IF1 $DET_IF1 $FEE_IF1 $LAS_IF1 $MCC_IF1 $MEC_IF1 $MFX_IF1 $SXR_IF1 $THZ_IF1 $TST_IF1 $XCS_IF1 $XPP_IF1"
 
 # pscag2 interface ip addresses
 export AMO_IF2=172.21.37.19
@@ -35,6 +42,7 @@ export TST_IF2=172.21.42.19
 export XCS_IF2=172.21.43.19
 export XPP_IF2=172.21.38.19
 export PSCAG2_IFLIST="$AMO_IF2 $CXI_IF2 $DET_IF2 $DEV_IF2 $FEE_IF2 $LAS_IF2 $MCC_IF2 $MEC_IF2 $MFX_IF2 $SXR_IF2 $THZ_IF2 $TST_IF2 $XCS_IF2 $XPP_IF2"
+#export PSCAG2_IFLIST="$AMO_IF2 $CXI_IF2 $DET_IF2 $FEE_IF2 $LAS_IF2 $MCC_IF2 $MEC_IF2 $MFX_IF2 $SXR_IF2 $THZ_IF2 $TST_IF2 $XCS_IF2 $XPP_IF2"
 
 # pscag3 interface ip addresses
 export AMO_IF3=172.21.37.251
@@ -53,11 +61,32 @@ export TST_IF3=172.21.42.251
 export XCS_IF3=172.21.43.251
 export XPP_IF3=172.21.38.251
 export PSCAG3_IFLIST="$AMO_IF3 $CXI_IF3 $DET_IF3 $DEV_IF3 $FEE_IF3 $LAS_IF3 $MCC_IF3 $MEC_IF3 $MFX_IF3 $SXR_IF3 $THZ_IF3 $TST_IF3 $XCS_IF3 $XPP_IF3"
+#export PSCAG3_IFLIST="$AMO_IF3 $CXI_IF3 $DET_IF3 $FEE_IF3 $LAS_IF3 $MCC_IF3 $MEC_IF3 $MFX_IF3 $SXR_IF3 $THZ_IF3 $TST_IF3 $XCS_IF3 $XPP_IF3"
+
+# pscag4 interface ip addresses
+export AMO_IF4=172.21.37.16
+export CXI_IF4=172.21.44.16
+# export DET_IF4=172.21.58.16	Not configured yet
+export DET_IF4=
+export DEV_IF4=134.79.165.16
+export FEE_IF4=172.21.36.16
+export LAS_IF4=172.21.35.16
+export MCC_IF4=172.21.40.16
+export MEC_IF4=172.21.45.16
+export MFX_IF4=172.21.62.16
+export SXR_IF4=172.21.39.16
+export THZ_IF4=172.21.57.16
+export TST_IF4=172.21.42.16
+export XCS_IF4=172.21.43.16
+export XPP_IF4=172.21.38.16
+export PSCAG4_IFLIST="$AMO_IF4 $CXI_IF4 $DET_IF4 $DEV_IF4 $FEE_IF4 $LAS_IF4 $MCC_IF4 $MEC_IF4 $MFX_IF4 $SXR_IF4 $THZ_IF4 $TST_IF4 $XCS_IF4 $XPP_IF4"
+
+export ALL_PSCAG_IFLIST="$PSCAG1_IFLIST $PSCAG2_IFLIST $PSCAG3_IFLIST $PSCAG4_IFLIST"
 
 # Broadcast addresses
 export DEV_BC=134.79.165.255
 export MCC_BC=172.27.11.255
-export SRV_BC=172.21.32.255
+#export SRV_BC=172.21.32.255
 export LAS_BC=172.21.35.255
 export FEE_BC=172.21.36.255
 export THZ_BC=172.21.57.255
@@ -70,7 +99,7 @@ export XCS_BC=172.21.43.255
 export CXI_BC=172.21.44.255
 export MEC_BC=172.21.45.255
 export MFX_BC=172.21.62.255
-export BC_LIST="$DEV_BC $MCC_BC $SRV_BC $LAS_BC $FEE_BC $THZ_BC $DET_BC $AMO_BC $SXR_BC $XPP_BC $TST_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
+export BC_LIST="$DEV_BC $MCC_BC $LAS_BC $FEE_BC $THZ_BC $DET_BC $AMO_BC $SXR_BC $XPP_BC $TST_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
 
 export MCC_GW=172.27.224.220
 
@@ -80,10 +109,10 @@ export EPICS_CA_CONN_TMO=60.0
 export EPICS_CA_MAX_ARRAY_BYTES=40000000
 export EPICS_CA_AUTO_ADDR_LIST=NO
 export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
-export EPICS_CAS_IGNORE_ADDR_LIST="$PSCAG1_IFLIST $PSCAG2_IFLIST $PSCAG3_IFLIST"
+export EPICS_CAS_IGNORE_ADDR_LIST="$ALL_PSCAG_IFLIST"
 
 export EPICS_CAS_BEACON_ADDR_LIST="\
-$DEV_BC:5065 $MCC_BC:5069 $LAS_BC:5065 $FEE_BC:5065 $THZ_BC:5065 $DET_BC:5065 $AMO_BC:5065 $SXR_BC:5065 $XPP_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065 $MFX_BC:5065"
+$DEV_BC:5065 $MCC_BC:5069 $LAS_BC:5065 $FEE_BC:5065 $THZ_BC:5065 $DET_BC:5065 $AMO_BC:5065 $SXR_BC:5065 $XPP_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065 $MFX_BC:5065 $LO_BC"
 export DAEMON_COREFILE_LIMIT="unlimited"
 
 # Common to most
@@ -92,7 +121,8 @@ export EPICS_CAS_SERVER_PORT=5064
 
 cagvardir="/u1/gateway"
 cagcfgdir="/reg/g/pcds/gateway/config"
-cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/linux-x86_64/pvgwfd"
+cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/pvgwfd"
+procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.6.0-SLAC/$EPICS_HOST_ARCH/bin/procServ"
 cagdbg=""
 
 cagstart() {
@@ -100,7 +130,7 @@ cagstart() {
   TIME=`date +%Y_%m_%d-%T`
   mkdir -p $cagvardir/$1
   /bin/rm -f $cagvardir/$1/gateway.log
-  PROCSERV="/reg/g/pcds/package/procServ-2.5.1/procServ --allow --ignore ^D^C --logfile $cagvardir/$1/gateway.log.$TIME --name $1 $3"
+  PROCSERV="$procServ --allow --ignore ^D^C --logfile $cagvardir/$1/gateway.log.$TIME --name $1 $3"
   $PROCSERV $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -prefix $2 -command $cagvardir/gateway.command $4 $5
   ln -s $cagvardir/$1/gateway.log.$TIME $cagvardir/$1/gateway.log
   echo " done"

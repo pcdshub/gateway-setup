@@ -17,9 +17,13 @@ gwprefix=NET:CAG:TST
 gwprocport=30110
 
 export EPICS_CA_ADDR_LIST=$TST_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${TST_IF3}%%"`
-# Add the eth0 interface so we can use ca clients from the gateway host
-export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${TST_IF4}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF1}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF2}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF3}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF4}%%"`
+# Add the LO interface so we can use ca clients from the gateway host
+# export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $LO_IP"
 
 case "$1" in
 start)
