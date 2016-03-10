@@ -14,8 +14,6 @@ gwprocport=30021
 
 export EPICS_CA_ADDR_LIST=$SXR_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${SXR_IF2}%%"`
-# Add the eth0 interface so we can use ca clients from the gateway host
-export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
 case "$1" in
 start)

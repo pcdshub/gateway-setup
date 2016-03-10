@@ -14,8 +14,6 @@ gwprocport=30097
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${LAS_IF3}%%"`
-# Add the eth0 interface so we can use ca clients from the gateway host
-export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
 case "$1" in
 start)

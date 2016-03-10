@@ -109,7 +109,14 @@ export EPICS_CA_CONN_TMO=60.0
 export EPICS_CA_MAX_ARRAY_BYTES=40000000
 export EPICS_CA_AUTO_ADDR_LIST=NO
 export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
+
+# Start out having the gateway servers ignore all the gateway interfaces
 export EPICS_CAS_IGNORE_ADDR_LIST="$ALL_PSCAG_IFLIST"
+# Strip out the dev interfaces so we have access from gateway hosts and usr machines
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF1}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF2}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF3}%%"`
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${DEV_IF4}%%"`
 
 export EPICS_CAS_BEACON_ADDR_LIST="\
 $DEV_BC:5065 $MCC_BC:5069 $LAS_BC:5065 $FEE_BC:5065 $THZ_BC:5065 $DET_BC:5065 $AMO_BC:5065 $SXR_BC:5065 $XPP_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065 $MFX_BC:5065 $LO_BC"
