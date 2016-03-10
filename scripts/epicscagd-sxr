@@ -4,6 +4,7 @@
 #
 # Starts the EPICS CAG gateway
 #
+# chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-sxr
 

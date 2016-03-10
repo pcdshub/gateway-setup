@@ -1,6 +1,10 @@
 #!/bin/bash
 #
 # description: Channel Access Gateway Test Script
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-test1
 
 . /reg/g/pcds/gateway/scripts/epicscagp
 

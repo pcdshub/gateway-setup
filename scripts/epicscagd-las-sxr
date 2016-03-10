@@ -17,7 +17,6 @@ export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${LAS_IF1}%%"`
 # Add the eth0 interface so we can use ca clients from the gateway host
 export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST $IP"
 
-#cagprogram="/reg/neh/home/bhill/wa2/trunk/pcds/epics/extensions/current/bin/linux-x86_64/pvgwfd"
 case "$1" in
 start)
 	cagstart $gwname $gwprefix $gwprocport
