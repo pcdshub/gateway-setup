@@ -1,6 +1,6 @@
-HAG(amohosts-noctl) {amo-daq,amo-monitor,amo-console,amo-laptop}
+HAG(amohosts-noctl) {amo-daq,amo-monitor,amo-console,amo-laptop,amo-hutch01}
 HAG(amohosts-ctl)   {amo-control}
-HAG(amohosts) {amo-daq,amo-control,amo-monitor,amo-console,amo-laptop}
+HAG(amohosts) {amo-daq,amo-control,amo-monitor,amo-console,amo-laptop,amo-hutch01}
 HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,mfx-ana,ioc-mfx-misc01,ioc-mfx-vacuum}
 HAG(sxrhosts) {sxr-daq,sxr-control,sxr-monitor,sxr-console,sxr-laptop,sxr-laptop2}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04}
