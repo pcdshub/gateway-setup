@@ -1,23 +1,23 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-sxr
+#	/etc/rc.d/init.d/epicscagd-sxr-gmd
 #
 # Starts the EPICS CAG gateway
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-sxr
+# processname: epicscagd-sxr-gmd
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=sxr
-gwprefix=NET:CAG:SXR
-gwprocport=30020
+gwname=sxr-gmd
+gwprefix=NET:CAG:SXR:GMD
+gwprocport=30022
 
 export EPICS_CA_ADDR_LIST=$SXR_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${SXR_IF1}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${SXR_IF4}%%"`
 # Here's how it was before
 #export EPICS_CAS_INTF_ADDR_LIST="$EPICS_CAS_INTF_ADDR_LIST ${IP}"
 #export EPICS_CAS_IGNORE_ADDR_LIST="$EPICS_CAS_IGNORE_ADDR_LIST ${DEV_IF1}"

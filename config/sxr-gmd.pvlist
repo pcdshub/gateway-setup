@@ -1,0 +1,10 @@
+EVALUATION ORDER DENY, ALLOW
+
+.* DENY
+
+# Allow Gateway stats
+NET:CAG:SXR:GMD.*      ALLOW
+
+# Allow SXR GMD PVs
+SXR:GMD:BLD:.*	ALLOW
+

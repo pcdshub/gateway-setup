@@ -7,6 +7,9 @@ SXR:YAG:IOC:01.* ALLOW RWINSTRMCC 1
 SXR:YAG:CVV:01.* ALLOW RWINSTRMCC 1
 HX2:SB1:IPM.* ALLOW RWXPP 1
 
+# GMD pv's handled by sxr-gmd gateway
+SXR:GMD:BLD:.*		DENY
+
 # camera images handled by sxr-cam gateway
 SXR:.*IMAGE.*		DENY
 SXR:.*Image.*		DENY
