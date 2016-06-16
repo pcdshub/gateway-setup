@@ -6,6 +6,7 @@ EVALUATION ORDER ALLOW, DENY
 # reads over a dedicated 10G connection to the XTCAV host
 OTRS:DMP1:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
 OTRS:DMP1:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:CAMERA.IRAW DENY from ioc-und-rec01
 OTRS:DMP1:695:MinX_RBV.*		DENY FROM ioc-und-rec01
 OTRS:DMP1:695:MinY_RBV.*		DENY FROM ioc-und-rec01
 OTRS:DMP1:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
