@@ -60,3 +60,6 @@ HFX:DG3:CVV:01:.*     DENY
 # Deny FEH cameras
 XCS:DG3:CVV:02:.*     DENY
 MEC:HXM:CVV:01:.*     DENY
+
+# Allow MFX TFLS
+#MFX:DIA:XFLS:.*       ALLOW RWMFX 1
