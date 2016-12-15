@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-xppics
+#
+# Starts the EPICS CAG
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-xppics
+
+# Source function library.
+. /etc/init.d/functions
+. ./epicscagp
+
+gwname=mfxics
+gwprefix=NET:CAG:MFXICS
+gwprocport=30334
+
+export MFX_BCICS=172.21.46.255
+export MFX_IFICS=172.21.46.185
+export MFX_IFMFX=172.21.62.56
+
+export EPICS_CA_ADDR_LIST=$MFX_BCICS
+export EPICS_CAS_INTF_ADDR_LIST=$MFX_IFMFX
+
+# cagdbg="-debug 9"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?
