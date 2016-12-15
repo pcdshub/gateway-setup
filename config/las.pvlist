@@ -59,6 +59,7 @@ LAS:FS3:.* DENY
 UND:.* DENY
 # RF Phase Cavity phase control PV's go through a different gateway
 LAS:UND:MMS:.* DENY
+LAS:BAT2:.* DENY
 LAS:PCAV:.* DENY
 
 # Deny fast history PVs

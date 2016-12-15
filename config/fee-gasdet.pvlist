@@ -1,6 +1,33 @@
-EVALUATION ORDER DENY, ALLOW
+# NOTE: Changed evaluation order from this
+# EVALUATION ORDER DENY, ALLOW
+# .* DENY
+# to ALLOW, DENY with no blanket .* DENY
+# thus allowing us to DENY subsets of the allowed PVs
+# Examining the code shows that for DENY, ALLOW the
+# DENY directives are not used at all.
+EVALUATION ORDER ALLOW, DENY
 
-.* DENY
+# TODO: Move BSA arrays to their own gateway and
+#       re-enable caching for fee-gasdet
+# *HST1.* DENY
+# *HST2.* DENY
+# *HST3.* DENY
+# *HST4.* DENY
+# *HST5.* DENY
+# *HST6.* DENY
+# *HST7.* DENY
+# *HST8.* DENY
+# *HST9.* DENY
+# *HSTTH.* DENY
+# *HSTBR.* DENY
+# *HSTF1.* DENY
+# *HSTF2.* DENY
+
+# TODO: Move image arrays to their own gateway
+# *IMAGE         DENY
+# *IMAGE.VAL 	 DENY
+# *ArrayData     DENY
+# *ArrayData.VAL DENY
 
 # Allow Gateway stats
 NET:CAG:FEE:GASDET.*      ALLOW
@@ -27,3 +54,4 @@ XCS:UND1:BUMP:REQUEST.*	ALLOW RWXCS
 MFX:UND1:BUMP:REQUEST.*	ALLOW RWMFX
 CXI:UND1:BUMP:REQUEST.*	ALLOW RWCXI
 MEC:UND1:BUMP:REQUEST.*	ALLOW RWMEC
+

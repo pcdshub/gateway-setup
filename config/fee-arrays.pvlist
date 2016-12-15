@@ -1,0 +1,7 @@
+EVALUATION ORDER ALLOW, DENY
+
+# Yes, these are on the fee subnet, ioc-xrt-rec02 on cds-fee
+XCS:DG1:IMB:01:SUMHST.* ALLOW
+XCS:DG1:IMB:01:SUMCNTHST.* ALLOW
+XCS:DG1:IMB:01:SUMRMSHST.* ALLOW
+
