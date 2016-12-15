@@ -18,10 +18,13 @@ gwprocport=30110
 
 export EPICS_CA_ADDR_LIST=$TST_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${TST_IF4}%%"`
+#export cagprogram=/reg/neh/home/bhill/wa2/trunk/pcds/epics/extensions/current/bin/${EPICS_HOST_ARCH}/gateway
+export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport
+	echo Running: cagstart $gwname $gwprefix $gwprocport
+	cagstart $gwname $gwprefix $gwprocport -putlog $cagvardir/$gwname/gateway-put.log 
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
