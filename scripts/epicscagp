@@ -9,7 +9,7 @@ export LO_BC=127.0.0.255
 
 # pscag1 interface ip addresses
 export AMO_IF1=172.21.37.20
-export CXI_IF1=172.21.44.20
+export CXI_IF1=172.21.68.20
 export DET_IF1=172.21.58.20
 export DEV_IF1=134.79.165.20
 export FEE_IF1=172.21.36.20
@@ -26,7 +26,7 @@ export PSCAG1_IFLIST="$AMO_IF1 $CXI_IF1 $DET_IF1 $DEV_IF1 $FEE_IF1 $LAS_IF1 $MCC
 
 # pscag2 interface ip addresses
 export AMO_IF2=172.21.37.19
-export CXI_IF2=172.21.44.19
+export CXI_IF2=172.21.68.19
 export DET_IF2=172.21.58.19
 export DEV_IF2=134.79.165.19
 export FEE_IF2=172.21.36.19
@@ -43,7 +43,7 @@ export PSCAG2_IFLIST="$AMO_IF2 $CXI_IF2 $DET_IF2 $DEV_IF2 $FEE_IF2 $LAS_IF2 $MCC
 
 # pscag3 interface ip addresses
 export AMO_IF3=172.21.37.251
-export CXI_IF3=172.21.44.251
+export CXI_IF3=172.21.68.251
 export DET_IF3=172.21.58.251
 export DEV_IF3=134.79.165.57
 export FEE_IF3=172.21.36.251
@@ -60,7 +60,7 @@ export PSCAG3_IFLIST="$AMO_IF3 $CXI_IF3 $DET_IF3 $DEV_IF3 $FEE_IF3 $LAS_IF3 $MCC
 
 # pscag4 interface ip addresses
 export AMO_IF4=172.21.37.16
-export CXI_IF4=172.21.44.16
+export CXI_IF4=172.21.68.16
 export DET_IF4=172.21.58.16
 export DEV_IF4=134.79.165.16
 export FEE_IF4=172.21.36.16
@@ -90,7 +90,7 @@ export SXR_BC=172.21.39.255
 export XPP_BC=172.21.38.255
 export TST_BC=172.21.42.255
 export XCS_BC=172.21.43.255
-export CXI_BC=172.21.44.255
+export CXI_BC=172.21.71.255
 export MEC_BC=172.21.45.255
 export MFX_BC=172.21.62.255
 export BC_LIST="$DEV_BC $MCC_BC $LAS_BC $FEE_BC $THZ_BC $DET_BC $AMO_BC $SXR_BC $XPP_BC $TST_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
