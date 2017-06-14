@@ -18,7 +18,7 @@ gwprocport=30070
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${FEE_IF2}%%"`
-export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
+#export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
 start)

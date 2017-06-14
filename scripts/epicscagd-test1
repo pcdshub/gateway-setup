@@ -9,7 +9,7 @@
 . /reg/g/pcds/gateway/scripts/epicscagp
 
 # Development testing alternate cagprogram
-cagprogram="/reg/neh/home2/bhill/wa2/trunk/pcds/epics/extensions/current/bin/linux-x86_64/pvgwfd"
+cagprogram="/reg/neh/home2/bhill/wa2/trunk/pcds/epics/extensions/current/bin/linux-x86_64/gateway"
 
 
 gwname=test1
