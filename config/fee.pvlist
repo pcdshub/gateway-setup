@@ -19,14 +19,6 @@ MEC:LTU1:BYKIK:REQUEST.*  ALLOW RWMEC 1
 # Deny BUMP:REQUEST PV's (handled by fee-gasdet gateway)
 .*:UND1:BUMP:REQUEST.*	DENY
 
-# Deny other FEE Gateway stats
-# These aren't needed and don't do anything
-# NET:CAG:FEE:CAM.*     DENY
-# NET:CAG:FEE:FEHCAM.*  DENY
-# NET:CAG:FEE:XRTCAM.*  DENY
-# NET:CAG:FEE:GASDET.*  DENY
-# NET:CAG:FEE:KMONO.*   DENY
-
 # Deny gas detector PVs
 DIAG:FEE1:202:.*      DENY
 GDET:FEE1:.*          DENY
@@ -42,12 +34,9 @@ IOC:FEE:KMONO:DAQ:.*  DENY
 EVR:FEE:KMONO:DAQ:.*  DENY
 
 # Deny FEE1, DIAG and NEH1 camera images
-DIAG:FEE1.*IMAGE.*    DENY
-CAMR:NEH1.*IMAGE.*    DENY
-CAMR:FEE1.*IMAGE.*    DENY
-CAMR:FEE1.*Image.*    DENY
-CAMR:NEH1.*Image.*    DENY
-DIAG:FEE1.*Image.*    DENY
+CAMR:DIAG1:.*:ArrayData.* DENY
+CAMR:FEE1:.*:ArrayData.* DENY
+CAMR:NEH1:.*:ArrayData.* DENY
 
 # Deny XRT cameras
 XRT:DIA:CVV:01:.*     DENY

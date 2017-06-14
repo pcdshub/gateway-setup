@@ -1,4 +1,9 @@
-EVALUATION ORDER ALLOW, DENY
+EVALUATION ORDER DENY, ALLOW
+
+.* DENY
+
+# Allow Gateway stats
+NET:CAG:FEE:ARRAYS.* ALLOW
 
 # Yes, these are on the fee subnet, ioc-xrt-rec02 on cds-fee
 XCS:DG1:IMB:01:SUMHST.* ALLOW

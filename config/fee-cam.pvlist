@@ -9,12 +9,10 @@ NET:CAG:FEE:CAM.*      ALLOW
 *FEE*_LAST_*	ALLOW
 
 # Allow camera images read-only
-CAMR:FEE1.*Image.*    ALLOW
-CAMR:NEH1.*Image.*    ALLOW
-DIAG:FEE1.*Image.*    ALLOW
-CAMR:FEE1.*IMAGE.*    ALLOW
-CAMR:NEH1.*IMAGE.*    ALLOW
-DIAG:FEE1.*IMAGE.*    ALLOW
+CAMR:FEE1:.*:ArrayData.*  ALLOW
+CAMR:DIAG1:.*:ArrayData.* ALLOW
+CAMR:NEH1:.*:ArrayData.*  ALLOW
 
 # FEE Orca Spectrometer IMAGE1 specifically blocked
-CAMR:FEE1:441:IMAGE1:ArrayData	ALLOW NOACCESS 1
+CAMR:FEE1:441:IMAGE1:ArrayData	    ALLOW NOACCESS 1
+CAMR:FEE1:441:IMAGE1:ArrayData.VAL	ALLOW NOACCESS 1
