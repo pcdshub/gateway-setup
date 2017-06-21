@@ -4,7 +4,7 @@ EVALUATION ORDER ALLOW, DENY
 UND:.* ALLOW
 
 # Allow Gateway stats
-NET:CAG:LAS:UND:MISC.*      ALLOW
+NET:CAG:LAS:UND:MISC.*      ALLOW RWALL 1
 
 # MCC R/W Access goes through a different gateway
 UND:R01:.* DENY

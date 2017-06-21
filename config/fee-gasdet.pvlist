@@ -30,7 +30,7 @@ EVALUATION ORDER ALLOW, DENY
 # *ArrayData.VAL DENY
 
 # Allow Gateway stats
-NET:CAG:FEE:GASDET.*      ALLOW
+NET:CAG:FEE:GASDET.*      ALLOW RWALL 1
 
 # Allow gas detector read-only to the world
 DIAG:FEE1:202:.*      ALLOW

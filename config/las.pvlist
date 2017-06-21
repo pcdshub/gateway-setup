@@ -2,6 +2,8 @@ EVALUATION ORDER ALLOW, DENY
 
 .*         ALLOW
 
+NET:CAG:LAS.*   	ALLOW RWALL 1
+
 # Deny other LAS Gateway stats
 NET:CAG:LAS:AMO.*   	DENY
 NET:CAG:LAS:SXR.*   	DENY

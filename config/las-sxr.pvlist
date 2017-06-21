@@ -3,7 +3,7 @@ EVALUATION ORDER DENY, ALLOW
 .*        DENY
 
 # Allow Gateway stats
-NET:CAG:LAS:SXR.*      ALLOW
+NET:CAG:LAS:SXR.*      ALLOW RWALL 1
 
 # Allow read access to all LAS:FS2 PV's 
 LAS:FS2.* ALLOW
