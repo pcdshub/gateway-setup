@@ -1,18 +1,20 @@
-EVALUATION ORDER DENY, ALLOW
-
-.* DENY
+EVALUATION ORDER ALLOW, DENY
 
 # Allow Gateway stats
-NET:CAG:FEE:CAM.*      ALLOW
+NET:CAG:FEE:CAM.*      ALLOW RWALL 1
 
 # Allow fast history PVs
 *FEE*_LAST_*	ALLOW
 
-# Allow camera images read-only
-CAMR:FEE1:.*:ArrayData.*  ALLOW
-CAMR:DIAG1:.*:ArrayData.* ALLOW
-CAMR:NEH1:.*:ArrayData.*  ALLOW
+# Allow FEE1, DIAG and NEH1 camera scalar pvs
+CAMR:NEH1:.*	 ALLOW RWALL 1
+CAMR:FEE1:.*	 ALLOW RWALL 1
+DIAG:FEE1:481.*	 ALLOW RWALL 1
+DIAG:FEE1:482.*	 ALLOW RWALL 1
 
-# FEE Orca Spectrometer IMAGE1 specifically blocked
-CAMR:FEE1:441:IMAGE1:ArrayData	    ALLOW NOACCESS 1
-CAMR:FEE1:441:IMAGE1:ArrayData.VAL	ALLOW NOACCESS 1
+# Deny FEE1, DIAG and NEH1 camera images
+CAMR:NEH1:.*:ArrayData.* DENY
+CAMR:FEE1:.*:ArrayData.* DENY
+DIAG:FEE1:.*:ArrayData.* DENY
+DIAG:FEE1:.*:DISPLAYWF.* DENY
+

@@ -3,6 +3,9 @@ EVALUATION ORDER ALLOW, DENY
 .* ALLOW
 .* ALLOW RWINSTRMCC 1
 
+# Allow Gateway stats
+NET:CAG:FEE.*      ALLOW RWALL 1
+
 # Set special access control for MEC devices: M3H switching mirror, MEC YAG0 camera
 IOC:XRT:M3H:SWITCH:.* ALLOW RWMEC 1
 XRT:R04:EVR:33:.*     ALLOW RWMEC 1
@@ -33,10 +36,11 @@ KMON:FEE1:.*          DENY
 IOC:FEE:KMONO:DAQ:.*  DENY
 EVR:FEE:KMONO:DAQ:.*  DENY
 
-# Deny FEE1, DIAG and NEH1 camera images
-CAMR:DIAG1:.*:ArrayData.* DENY
-CAMR:FEE1:.*:ArrayData.* DENY
-CAMR:NEH1:.*:ArrayData.* DENY
+# Deny FEE1, DIAG and NEH1 camera pvs
+CAMR:FEE1:.*	 DENY
+CAMR:NEH1:.*	 DENY
+DIAG:FEE1:481.*	 DENY
+DIAG:FEE1:482.*	 DENY
 
 # Deny XRT cameras
 XRT:DIA:CVV:01:.*     DENY

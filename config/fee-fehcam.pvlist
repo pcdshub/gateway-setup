@@ -1,9 +1,7 @@
-EVALUATION ORDER DENY, ALLOW
-
-.* DENY
+EVALUATION ORDER ALLOW, DENY
 
 # Allow Gateway stats
-NET:CAG:FEE:FEHCAM.*      ALLOW
+NET:CAG:FEE:FEHCAM.*      ALLOW RWALL 1
 
 # Allow FEH cameras read-only to the world
 XCS:DG3:CVV:02:.*     ALLOW
@@ -12,3 +10,7 @@ MEC:HXM:CVV:01:.*     ALLOW
 # Allow FEH cameras read-write to the consoles
 XCS:DG3:CVV:02:.*     ALLOW RWINSTRMCC 1
 MEC:HXM:CVV:01:.*     ALLOW RWINSTRMCC 1
+
+# Deny camera images
+XCS:DG3:CVV:02:.*IMAGE.*  DENY
+MEC:HXM:CVV:01:.*IMAGE.*  DENY
