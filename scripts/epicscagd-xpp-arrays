@@ -22,7 +22,7 @@ export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${XPP_IF4}%%"`
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport -putlog $cagvardir/$gwname/gateway-put.log -no_cache 
+	cagstart $gwname $gwprefix $gwprocport -no_cache 
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"

@@ -15,9 +15,11 @@ gwprocport=30071
 export EPICS_CA_ADDR_LIST=$FEE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${FEE_IF2}%%"`
 
+#cagdbg="-debug 5"
+
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport -no_cache
+	cagstart $gwname $gwprefix $gwprocport
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
