@@ -29,6 +29,10 @@ SXR:.* DENY
 LAS:XPP:.* DENY
 LAS:R54:.* DENY
 
+# XCS R/W Access
+LAS:XCS:.* DENY
+XCS:LAS:.* DENY
+
 # CXI R/W Access
 LAS:FS5:.* ALLOW RWCXI 1
 LAS:R52B:EVR:31.* ALLOW RWCXI 1
@@ -56,6 +60,7 @@ LAS:FS2:REG:kp_vcxo:wr DENY
 LAS:FS1:bt_.* DENY
 LAS:FS2:bt_.* DENY
 LAS:FS3:.* DENY
+LAS:FS4:.* DENY
 
 # All Undulator hall PV's go through a different gateway
 UND:.* DENY

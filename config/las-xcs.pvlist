@@ -1,0 +1,14 @@
+EVALUATION ORDER DENY, ALLOW
+
+.*         DENY
+
+# Allow Gateway stats
+NET:CAG:LAS:XCS.*      ALLOW RWALL 1
+
+# XPP R/W Access
+LAS:XCS:.* ALLOW RWXCS 1
+XCS:LAS:.* ALLOW RWXCS 1
+
+# All instruments R/W Access
+LAS:FS4:.* ALLOW RWINSTR 1
+
