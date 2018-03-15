@@ -13,7 +13,7 @@
 . ./epicscagp
 
 gwname=mfxsmb
-gwprefix=NET:CAG:MFXICS
+gwprefix=NET:CAG:MFXSMB
 gwprocport=30332
 
 export MFX_BCICS=172.21.46.255
