@@ -10,10 +10,10 @@
 
 gwname=det
 gwprefix=NET:CAG:DET
-gwprocport=30079
+gwprocport=30074
 
 export EPICS_CA_ADDR_LIST=$DET_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${DET_IF3}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${DET_IF2}%%"`
 
 case "$1" in
 start)

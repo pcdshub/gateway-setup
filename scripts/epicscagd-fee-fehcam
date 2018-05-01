@@ -13,7 +13,7 @@ gwprefix=NET:CAG:FEE:FEHCAM
 gwprocport=30072
 
 export EPICS_CA_ADDR_LIST=$FEE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${FEE_IF3}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${FEE_IF2}%%"`
 
 case "$1" in
 start)
