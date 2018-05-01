@@ -17,7 +17,7 @@ gwprefix=NET:CAG:AMO
 gwprocport=30010
 
 export EPICS_CA_ADDR_LIST=$AMO_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${AMO_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${AMO_IF1}%%"`
 
 case "$1" in
 start)

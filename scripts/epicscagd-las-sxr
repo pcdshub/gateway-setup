@@ -13,7 +13,7 @@ gwprefix=NET:CAG:LAS:SXR
 gwprocport=30092
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${LAS_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${LAS_IF1}%%"`
 
 case "$1" in
 start)

@@ -17,7 +17,7 @@ gwprefix=NET:CAG:SXR
 gwprocport=30020
 
 export EPICS_CA_ADDR_LIST=$SXR_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${SXR_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${SXR_IF1}%%"`
 
 case "$1" in
 start)
