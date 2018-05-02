@@ -1,0 +1,8 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*     ALLOW
+
+.*     ALLOW RWCXIICS 1
+
+.*     DENY FROM cxi-hutch01
+
