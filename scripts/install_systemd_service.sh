@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Create soft links in /usr/lib/systemd/system for all epics gateways
+# Create systemd service files in /usr/lib/systemd/system for all epics gateways
 # 
 
 if [ ! -d /usr/lib/systemd/system ]; then
@@ -12,18 +12,20 @@ if [ ! -e /etc/init.d/epicscagp ]; then
 	echo ln -s /reg/g/pcds/gateway/epicscagp /etc/init.d/epicscagp
 	ln -s /reg/g/pcds/gateway/epicscagp /etc/init.d/epicscagp
 fi
+
+export GW_EXAMPLE_SERVICE=/reg/g/pcds/gateway/scripts/systemd-example.service
 for i in $GW_TOP/scripts/epicscagd-*;
 do
 	SCRIPT_NAME=`basename $i`
-	if [ -e /usr/lib/systemd/system/$SCRIPT_NAME ]; then
+	if [ -e /usr/lib/systemd/system/$SCRIPT_NAME.service ]; then
 		continue
 	fi
-    echo ln -s $i /usr/lib/systemd/system/$SCRIPT_NAME;
-    ln -s $i /usr/lib/systemd/system/$SCRIPT_NAME;
+    echo Installing $GW_EXAMPLE_SERVICE /usr/lib/systemd/system/$SCRIPT_NAME.service
+	sed -e "s/epicscagd-aaa/$SCRIPT_NAME/" $GW_EXAMPLE_SERVICE  > /usr/lib/systemd/system/$SCRIPT_NAME.service
 done
 
 echo -e
-echo All epics gateway systemd soft links are installed.
+echo All epics gateway systemd service files are installed.
 echo -e
 echo Be sure a gateway is configured for the correct host before enabling via
 echo % sudo systemctl enable epicscagd-amo
