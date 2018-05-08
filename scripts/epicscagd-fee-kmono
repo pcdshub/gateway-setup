@@ -17,7 +17,7 @@ export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${FEE_IF3}%%"`
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport
+	cagstart $gwname $gwprefix $gwprocport -no_cache
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
