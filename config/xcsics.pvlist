@@ -1,0 +1,8 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*     ALLOW
+
+# Add write permission for gateway diagnostic pvs
+NET:CAG:XCSICS.*      ALLOW RWALL 1
+
+.* ALLOW RWXCSICS 1
