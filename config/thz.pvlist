@@ -1,6 +1,10 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*         ALLOW
+.*THZ.*         ALLOW
+
+# Add write permission for gateway diagnostic pvs
+NET:CAG:THZ.*      ALLOW RWALL 1
+
 DMP:THZ:.* ALLOW RWMCC 1
 FCT:THZ:.* ALLOW RWMCCFCT 1
 THZ:.* ALLOW RWMCC 1

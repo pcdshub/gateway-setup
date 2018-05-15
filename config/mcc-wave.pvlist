@@ -1,6 +1,23 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*	ALLOW RWINSTRMCC 1
+# Add write permission for RWINSTRMCC 
+NET:CAG:MCC:WAVE.*      ALLOW RWINSTRMCC 1
+
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MCC:WAVE.*      ALLOW RWALL 1
+GWESWF:.*				ALLOW 
+
+# RWINSTRMCC access to camera iocs
+# NOTE: Can't enable here unless we also add these to LCLS gateway config file
+#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
+#OTRS:.*   ALLOW	RWINSTRMCC
+#PROF:.*   ALLOW	RWINSTRMCC
+
+# Read/only access to camera iocs
+# NOTE: Can't enable here unless we also add these to LCLS gateway config file
+#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
+#OTRS:.*   ALLOW
+#PROF:.*   ALLOW
 
 # Blocking these specific PV's that ioc-und-rec01
 # reads over a dedicated 10G connection to the XTCAV host

@@ -1,6 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*         ALLOW
+.*LAS.*         ALLOW
+.*UND.*         ALLOW
 
 NET:CAG:LAS.*   	ALLOW RWALL 1
 

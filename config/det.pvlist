@@ -1,6 +1,9 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*  ALLOW
+.*DET.*  ALLOW
+
+# Add write permission for gateway diagnostic pvs
+NET:CAG:DET.*      ALLOW RWALL 1
 
 .*	ALLOW RWINSTR 1
 

@@ -1,6 +1,9 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*	ALLOW
+.*MEC.*	ALLOW
+
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MEC.*      ALLOW RWALL 1
 
 MEC:USR:AIN.*	 ALLOW RWMATLAB 1
 MEC:USR:AOUT.*	 ALLOW RWMATLAB 1
