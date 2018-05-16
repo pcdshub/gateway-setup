@@ -2,6 +2,9 @@ EVALUATION ORDER ALLOW, DENY
 
 .*     ALLOW
 
+# Add write permission for gateway diagnostic pvs
+NET:CAG:CXIICS.*      ALLOW RWALL 1
+
 .*     ALLOW RWCXIICS 1
 
 .*     DENY FROM cxi-hutch01

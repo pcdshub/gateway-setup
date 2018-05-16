@@ -2,7 +2,11 @@ EVALUATION ORDER ALLOW, DENY
 
 .*     ALLOW
 
+# Add write permission for gateway diagnostic pvs
+NET:CAG:XPPICS.*      ALLOW RWALL 1
+
 .* ALLOW RWALL 1
+# Do we really want .* ALLOW RWALL?  Everything after this is moot
 
 XPP:DAQ:.*        ALLOW RWXPPICS 1
 XPP:VARS:.*       ALLOW RWXPPICS 1
