@@ -39,3 +39,10 @@ MFX:.*   DENY
 MEC:.*   DENY
 TST:.*   DENY
 CXI:.*   DENY
+
+# DENY these PVs when using B34 Dev EVG
+ECS:SYS0:.*  DENY
+EDEF:SYS0:.* DENY
+EVNT:SYS0:.* DENY
+PATT:SYS0:.* DENY
+TRIG:SYS0:.* DENY
