@@ -9,8 +9,8 @@ if [ ! -d /usr/lib/systemd/system ]; then
 fi
 export GW_TOP=/reg/g/pcds/gateway
 if [ ! -e /etc/init.d/epicscagp ]; then
-	echo ln -s /reg/g/pcds/gateway/epicscagp /etc/init.d/epicscagp
-	ln -s /reg/g/pcds/gateway/epicscagp /etc/init.d/epicscagp
+	echo ln -s /reg/g/pcds/gateway/scripts/epicscagp /etc/init.d/epicscagp
+	ln -s /reg/g/pcds/gateway/scripts/epicscagp /etc/init.d/epicscagp
 fi
 
 export GW_EXAMPLE_SERVICE=/reg/g/pcds/gateway/scripts/systemd-example.service
