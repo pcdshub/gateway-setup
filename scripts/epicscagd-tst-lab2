@@ -19,9 +19,13 @@ gwprefix=NET:CAG:TST:LAB2
 gwprocport=30130
 
 export EPICS_CA_ADDR_LIST=$LAB2_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAGLAB2_IFLIST | sed -e "s%${TST_IFLAB2}%%"`
+export EPICS_CA_SERVER_PORT=5066
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAGLAB2_IFLIST | sed -e "s%${B34_IFLAB2}%%"`
+# Allow client connections from tst gateway on pscag4
+export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%${TST_IF4}%%"`
+
+#cagdbg="-debug 9"
 #export cagprogram=/reg/neh/home/bhill/wa2/trunk/pcds/epics/extensions/current/bin/${EPICS_HOST_ARCH}/gateway
-#export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
 start)

@@ -32,8 +32,8 @@ echo % sudo systemctl enable epicscagd-amo
 echo  or starting via 
 echo % sudo systemctl start epicscagd-sxr
 echo -e
-echo grep for IF in /usr/lib/systemd/system/epicscagd-xxx before starting it
+echo grep for IF in $GW_TOP/scripts/epicscagd-xxx before starting it.
 echo to make sure its configured for that gateway host.
 echo This example is configured for pscag3
-echo % grep IF /usr/lib/systemd/system/epicscagd-fee-kmono
+echo % grep IF $GW_TOP/scripts/epicscagd-fee-kmono
 echo export EPICS_CAS_INTF_ADDR_LIST= echo \$PSCAG3_IFLIST \\\| sed -e  s%\${FEE_IF3}%%
