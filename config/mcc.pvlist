@@ -30,15 +30,17 @@ OTRS:DMP1:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
 # Deny PCDS related PV's
 # See mcc-mps.pvlist for MPS related PV's starting w/ hutch prefixes
 AMO:.*   DENY
-SXR:.*   DENY
-XPP:.*   DENY
-XCS:.*   DENY
-LAS:.*   DENY
-DET:.*   DENY
-MFX:.*   DENY
-MEC:.*   DENY
-TST:.*   DENY
 CXI:.*   DENY
+DET:.*   DENY
+HFX:.*   DENY
+HXX:.*   DENY
+LAS:.*   DENY
+MEC:.*   DENY
+MFX:.*   DENY
+SXR:.*   DENY
+TST:.*   DENY
+XCS:.*   DENY
+XPP:.*   DENY
 
 # DENY these PVs when using B34 Dev EVG
 #ECS:SYS0:.*  DENY
