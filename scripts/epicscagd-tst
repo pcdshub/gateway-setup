@@ -24,7 +24,7 @@ export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${TST_IF4}%%"`
 case "$1" in
 start)
 	echo Running: cagstart $gwname $gwprefix $gwprocport
-	cagstart $gwname $gwprefix $gwprocport 
+	cagstart $gwname $gwprefix $gwprocport
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"

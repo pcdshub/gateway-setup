@@ -1,16 +1,17 @@
 #!/bin/bash
 #
 # description: Channel Access Gateway Test Script
+#	/etc/rc.d/init.d/epicscagd-test1
+#
+# Starts the EPICS CAG gateway
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-test1
 
-. /reg/g/pcds/gateway/scripts/epicscagp
-
-# Development testing alternate cagprogram
-cagprogram="/reg/neh/home2/bhill/wa2/trunk/pcds/epics/extensions/current/bin/linux-x86_64/gateway"
-
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
 
 gwname=test1
 gwprefix=NET:CAG:TEST1
@@ -20,28 +21,25 @@ gwprocport=30920
 cagvardir=/tmp/gateway
 mkdir -p $cagvardir/$gwname
 
-# Get the eth0 IP addr
-export IP=`/sbin/ifconfig eth0 | /bin/grep 'inet addr:' | /bin/cut -d: -f2 | /bin/awk '{ print $1 }'`
-
-export EPICS_CA_AUTO_ADDR_LIST=YES
-unset EPICS_CA_ADDR_LIST
-export EPICS_CAS_SERVER_PORT=5081
-export EPICS_CAS_INTF_ADDR_LIST="127.0.0.1 $IP"
+#export EPICS_CA_AUTO_ADDR_LIST=YES
+export EPICS_CA_ADDR_LIST=$CXI_BC
+#unset EPICS_CA_ADDR_LIST
+#export EPICS_CAS_INTF_ADDR_LIST="127.0.0.1 $DEV_IF4"
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${CXI_IF4}%%"`
 #export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
 #export EPICS_CAS_IGNORE_ADDR_LIST="$LAS_IF1 $LAS_IF2 ... $MEC_IF3"
 #export EPICS_CAS_BEACON_ADDR_LIST="$DEV_BC:5065 $MCC_BC:5069 $FEE_BC:5065 $AMO_BC:5065 ... $MEC_BC:5065"
 
-cagstart() {
-  echo -n "Starting $1 gateway... "
-  TIME=`date +%s`
-  PROCSERV="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/linux-x86_64/procServ --allow --ignore ^D^C --logfile gateway.log.$TIME --name $1 $3"
-  $PROCSERV $cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/test1.pvlist -home $cagvardir/$1 -prefix $2 
-  echo " done"
-}
+# Use a test port to avoid other gateways
+export EPICS_CAS_SERVER_PORT=5081
+
+# Development testing alternate cagprogram
+cagprogram="/reg/neh/home5/bhill/git-wa-neh/extensions/ca-gateway-git/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport
+	echo Running: cagstart $gwname $gwprefix $gwprocport
+	cagstart $gwname $gwprefix $gwprocport -no_cache
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
