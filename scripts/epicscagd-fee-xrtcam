@@ -12,7 +12,7 @@ gwname=fee-xrtcam
 gwprefix=NET:CAG:FEE:XRTCAM
 gwprocport=30073
 
-export EPICS_CA_ADDR_LIST=$FEE_BC
+export EPICS_CA_ADDR_LIST=$HXR_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${FEE_IF2}%%"`
 
 case "$1" in

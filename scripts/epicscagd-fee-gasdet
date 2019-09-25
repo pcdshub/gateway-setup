@@ -12,7 +12,7 @@ gwname=fee-gasdet
 gwprefix=NET:CAG:FEE:GASDET
 gwprocport=30074
 
-export EPICS_CA_ADDR_LIST=$FEE_BC
+export EPICS_CA_ADDR_LIST=$HXR_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${FEE_IF3}%%"`
 
 case "$1" in
