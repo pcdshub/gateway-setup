@@ -2,6 +2,36 @@ EVALUATION ORDER ALLOW, DENY
 
 # Note: We need to match lots of different PV patterns as there was
 # no consistency whatsover in how the FEE PV names were chosen.
+
+############################
+#Additions for LCLSII & L2SI
+#Components
+RTDSL0.* ALLOW
+IM1L0-XTES.* ALLOW
+SL1L0-POWER.* ALLOW
+EM1L0-GEM.* ALLOW
+AT1L0-GAS.* ALLOW
+EM2L0-GEM.* ALLOW
+AT1L0-SOLID.* ALLOW
+AT2L0-SOLID.* ALLOW
+PF1L0-WFS.* ALLOW
+IM2L0-XTES.* ALLOW
+SL2L0-POWER.* ALLOW
+SP1L0-KMONO.* ALLOW
+MR1L0-HOMS.* ALLOW
+MR2L0-HOMS.* ALLOW
+IM3L0-PPM.* ALLOW
+IM4L0-XTES.* ALLOW
+
+.*L0.* ALLOW
+
+#Vacuum
+IOC and other LFE catchall.*LFE.* ALLOW
+
+#IOC and other LFE catchall
+.*LFE.* ALLOW
+###########################
+
 BEAM.* ALLOW
 CXI:R48:.* ALLOW
 .*DMP1.* ALLOW
