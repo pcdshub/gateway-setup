@@ -5,23 +5,8 @@ EVALUATION ORDER ALLOW, DENY
 
 ############################
 #Additions for LCLSII & L2SI
-#Components
+# Special cases (please minimize these)
 RTDSL0.* ALLOW
-IM1L0-XTES.* ALLOW
-SL1L0-POWER.* ALLOW
-EM1L0-GEM.* ALLOW
-AT1L0-GAS.* ALLOW
-EM2L0-GEM.* ALLOW
-AT1L0-SOLID.* ALLOW
-AT2L0-SOLID.* ALLOW
-PF1L0-WFS.* ALLOW
-IM2L0-XTES.* ALLOW
-SL2L0-POWER.* ALLOW
-SP1L0-KMONO.* ALLOW
-MR1L0-HOMS.* ALLOW
-MR2L0-HOMS.* ALLOW
-IM3L0-PPM.* ALLOW
-IM4L0-XTES.* ALLOW
 
 # Allow L0 devices w/ naming conventions
 # starting w/ 2 char device code and device number,
