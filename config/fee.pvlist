@@ -23,13 +23,18 @@ MR2L0-HOMS.* ALLOW
 IM3L0-PPM.* ALLOW
 IM4L0-XTES.* ALLOW
 
-.*L0.* ALLOW
+# Allow L0 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by L0:
+[A-Z][A-Z][0-9]L0:.*       ALLOW
 
-#Vacuum
-IOC and other LFE catchall.*LFE.* ALLOW
+# Allow L1 devices w/ naming conventions
+# starting w/ 2 char device code and device number
+# followed by L1:
+[A-Z][A-Z][0-9]L1:.*       ALLOW
 
 #IOC and other LFE catchall
-.*LFE.* ALLOW
+.*LFE:.* ALLOW
 ###########################
 
 BEAM.* ALLOW
