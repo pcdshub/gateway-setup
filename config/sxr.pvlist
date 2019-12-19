@@ -4,6 +4,9 @@ EVALUATION ORDER ALLOW, DENY
 .*LJE.*	ALLOW
 HX2:SB1:IPM.* ALLOW
 
+# SXR subnet being renamed to KFE 
+.*KFE:.*	ALLOW
+
 # Add write permission for gateway diagnostic pvs
 NET:CAG:SXR.*      ALLOW RWALL 1
 
