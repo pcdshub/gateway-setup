@@ -1,27 +1,28 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:FEE:ARRAYS.* ALLOW RWALL 1
-
 # Yes, these are on the fee subnet, ioc-xrt-rec02 on cds-fee
 XCS:DG1:IMB:01:SUMHST.* ALLOW
 XCS:DG1:IMB:01:SUMCNTHST.* ALLOW
 XCS:DG1:IMB:01:SUMRMSHST.* ALLOW
 
-# Allow camera images read-only
+# Allow FEE1 and NEH1 camera images read-only
 CAMR:FEE1:.*:ArrayData.*  ALLOW
 CAMR:NEH1:.*:ArrayData.*  ALLOW
 DIAG:FEE1:.*:ArrayData.*  ALLOW
 DIAG:FEE1:.*:DISPLAYWF.*  ALLOW
+
+# Allow XRT camera images read-only
 XRT:DIA:CVV:01:.*IMAGE.*  ALLOW
 HXX:UM6:CVV:01:.*ArrayData.*  ALLOW
 HXX:HXM:CVV:01:.*ArrayData.*  ALLOW
 HFX:MON:CVV:01:.*IMAGE.*  ALLOW
 HFX:DG2:CVV:01:.*IMAGE.*  ALLOW
 HFX:DG3:CVV:01:.*ArrayData.*  ALLOW
-XCS:DG3:CVV:02:.*ArrayData.*  ALLOW
-MEC:HXM:CVV:01:.*ArrayData.*  ALLOW
 
 # FEE Orca Spectrometer IMAGE1 specifically blocked
 CAMR:FEE1:441:IMAGE1:ArrayData	    ALLOW NOACCESS 1
 CAMR:FEE1:441:IMAGE1:ArrayData.VAL	ALLOW NOACCESS 1
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:FEE:ARRAYS.* ALLOW RWALL 1

@@ -1,7 +1,5 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:SXR:CAM.*      ALLOW RWALL 1
 
 # Allow camera images read-only
 SXR:.*IMAGE.*		ALLOW
@@ -15,3 +13,7 @@ SXR:.*HPrj.*		ALLOW
 # Just the lookup seems to make the gateway monitor it.
 #SXR:EXS:CVV:01:IMAGE_CMPX.*			ALLOW NOACCESS 1
 #SXR:EXS:CVV:01:LIVE_IMAGE_FAST.*	ALLOW NOACCESS 1
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:SXR:CAM.*      ALLOW RWALL 1

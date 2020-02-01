@@ -3,8 +3,6 @@ EVALUATION ORDER ALLOW, DENY
 # Add write permission for RWINSTRMCC 
 NET:CAG:MCC:WAVE.*      ALLOW RWINSTRMCC 1
 
-# Add write permission for gateway diagnostic pvs
-NET:CAG:MCC:WAVE.*      ALLOW RWALL 1
 GWESWF:.*				ALLOW 
 
 # RWINSTRMCC access to camera iocs
@@ -35,3 +33,7 @@ OTRS:DMP1:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
 OTRS:DMP1:695:CAMERA.CCOL      ALLOW
 OTRS:DMP1:695:CAMERA.CROW      ALLOW
 OTRS:DMP1:695:CAMERA.ISLO      ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MCC:WAVE.*      ALLOW RWALL 1

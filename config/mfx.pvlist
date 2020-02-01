@@ -4,5 +4,7 @@ EVALUATION ORDER ALLOW, DENY
 HXX:MXT:.*	ALLOW
 B999:R45:.*	ALLOW
 
+
+# Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:MFX.*      ALLOW RWALL 1

@@ -5,8 +5,6 @@ EVALUATION ORDER ALLOW, DENY
 
 NET:CAG:LAS.*   	ALLOW RWALL 1
 
-# Deny other LAS Gateway stats
-NET:CAG:LAS:AMO.*   	DENY
 NET:CAG:LAS:SXR.*   	DENY
 NET:CAG:LAS:XPP.*   	DENY
 NET:CAG:LAS:FS:WAVE.*   DENY
@@ -77,3 +75,7 @@ LAS*_LAST_*	DENY
 
 # fstiming unit 0 waveforms go through different gateway
 LAS:FS0:WAVE.* DENY
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:AMO.*   	DENY

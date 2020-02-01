@@ -1,8 +1,5 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:FEE:KMONO.*      ALLOW RWALL 1
-
 # Allow KMONO read-only to the world
 KMON:FEE1:.*          ALLOW
 IOC:FEE:KMONO:DAQ:.*  ALLOW
@@ -12,3 +9,7 @@ EVR:FEE:KMONO:DAQ:.*  ALLOW
 KMON:FEE1:.*          ALLOW RWINSTRMCC 1
 IOC:FEE:KMONO:DAQ:.*  ALLOW RWINSTRMCC 1
 EVR:FEE:KMONO:DAQ:.*  ALLOW RWINSTRMCC 1
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:FEE:KMONO.*      ALLOW RWALL 1

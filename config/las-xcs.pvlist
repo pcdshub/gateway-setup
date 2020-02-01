@@ -1,7 +1,5 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:LAS:XCS.*      ALLOW RWALL 1
 
 # XPP R/W Access
 LAS:XCS:.* ALLOW RWXCS 1
@@ -10,3 +8,7 @@ XCS:LAS:.* ALLOW RWXCS 1
 # All instruments R/W Access
 LAS:FS4:.* ALLOW RWINSTR 1
 
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:XCS.*      ALLOW RWALL 1

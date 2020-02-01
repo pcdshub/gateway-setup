@@ -3,8 +3,6 @@ EVALUATION ORDER ALLOW, DENY
 # General UND read access
 UND:.* ALLOW
 
-# Allow Gateway stats
-NET:CAG:LAS:UND:MISC.*      ALLOW RWALL 1
 
 # MCC R/W Access goes through a different gateway
 UND:R01:.* DENY
@@ -14,3 +12,7 @@ UND:R04:.* DENY
 # RF Phase Cavity waveforms go through a different gateway
 UND:R04:IOC:01:WF.* DENY
 UND:R02:IOC:16:dig1:WAV.* DENY
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:UND:MISC.*      ALLOW RWALL 1

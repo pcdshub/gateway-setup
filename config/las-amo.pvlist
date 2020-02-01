@@ -1,7 +1,5 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:LAS:AMO.*      ALLOW RWALL 1
 LAS:FS1:VIT:.*  	   ALLOW
 
 # AMO R/W Access
@@ -26,3 +24,7 @@ LAS:FS1:REG:kp_vcxo:wr ALLOW RWINSTR 1
 LAS:FS1:bt_.* ALLOW RWINSTR 1
 LAS:FS2:bt_.* ALLOW RWINSTR 1
 
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:AMO.*      ALLOW RWALL 1

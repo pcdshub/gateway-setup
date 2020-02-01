@@ -22,9 +22,6 @@ EVALUATION ORDER ALLOW, DENY
 # *ArrayData     DENY
 # *ArrayData.VAL DENY
 
-# Allow Gateway stats
-NET:CAG:FEE:GASDET.*      ALLOW RWALL 1
-
 # Allow gas detector read-only to the world
 DIAG:FEE1:202:.*      ALLOW
 GDET:FEE1:.*          ALLOW
@@ -48,3 +45,6 @@ MFX:UND1:BUMP:REQUEST.*	ALLOW RWMFX
 CXI:UND1:BUMP:REQUEST.*	ALLOW RWCXI
 MEC:UND1:BUMP:REQUEST.*	ALLOW RWMEC
 
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:FEE:GASDET.*      ALLOW RWALL 1

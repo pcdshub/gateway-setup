@@ -2,8 +2,6 @@ EVALUATION ORDER ALLOW, DENY
 
 .*XCS.*	ALLOW
 
-# Add write permission for gateway diagnostic pvs
-NET:CAG:XCS.*      ALLOW RWALL 1
 
 XCS:NAV:DG1:01:DES_ZOOM ALLOW RWHXR 1
 XCS:NAV:DG2:01:DES_ZOOM ALLOW RWHXR 1
@@ -12,3 +10,7 @@ XCS:NAV:DG3:02:DES_ZOOM ALLOW RWHXR 1
 
 XCS:LTU1:BYKIK:REQUEST.*  DENY
 
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:XCS.*      ALLOW RWALL 1

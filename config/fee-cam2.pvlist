@@ -1,8 +1,5 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow Gateway stats
-NET:CAG:FEE:CAM2.*      ALLOW RWALL 1
-
 # Allow fast history PVs
 #*FEE*_LAST_*	ALLOW
 
@@ -36,3 +33,6 @@ CAMR:NEH1:2124:.*ArrayData.*	DENY
 #DIAG:FEE1:481:.*DISPLAYWF.*		DENY
 DIAG:FEE1:482:.*:ArrayData.*	DENY
 
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:FEE:CAM2.*      ALLOW RWALL 1
