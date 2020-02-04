@@ -32,5 +32,5 @@ cagdbg="-debug 5"
 cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.0.6.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
 
 mkdir --parents /tmp/$gwname
-$cagprogram -access $cagcfgdir/hosts -pvlist $cagcfgdir/$gwname.pvlist -home /tmp/$gwname $cagdbg 2>&1 | tee /tmp/$gwname/gateway.log
+$cagprogram -access $cagcfgdir/pcds-access.acf -pvlist $cagcfgdir/$gwname.pvlist -home /tmp/$gwname $cagdbg 2>&1 | tee /tmp/$gwname/gateway.log
 #cagstart $gwname $gwprefix $gwprocport

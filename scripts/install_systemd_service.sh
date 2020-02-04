@@ -36,4 +36,4 @@ echo grep for IF in $GW_TOP/scripts/epicscagd-xxx before starting it.
 echo to make sure its configured for that gateway host.
 echo This example is configured for pscag3
 echo % grep IF $GW_TOP/scripts/epicscagd-fee-kmono
-echo export EPICS_CAS_INTF_ADDR_LIST= echo \$PSCAG3_IFLIST \\\| sed -e  s%\${FEE_IF3}%%
+echo export EPICS_CAS_INTF_ADDR_LIST= echo \$PSCAG3_IFLIST \\\| sed -e  s%\${KFE_IF3}%%
