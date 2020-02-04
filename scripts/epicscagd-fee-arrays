@@ -17,7 +17,7 @@ gwprefix=NET:CAG:FEE:ARRAYS
 gwprocport=30077
 
 export EPICS_CA_ADDR_LIST=$HXR_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${HXR_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${LFE_IF4}%%"`
 #export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
