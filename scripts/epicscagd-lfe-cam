@@ -2,14 +2,14 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee-cam
+# processname: epicscagd-lfe-cam
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=fee-cam
-gwprefix=NET:CAG:FEE:CAM
+gwname=lfe-cam
+gwprefix=NET:CAG:LFE:CAM
 gwprocport=30071
 
 export EPICS_CA_ADDR_LIST=$LFE_BC

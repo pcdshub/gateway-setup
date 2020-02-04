@@ -14,13 +14,14 @@
 
 gwname=kfe
 gwprefix=NET:CAG:KFE
-gwprocport=30020
+gwprocport=30023
 
 export EPICS_CA_ADDR_LIST=$KFE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG1_IFLIST | sed -e "s%${KFE_IF1}%%"`
 
 case "$1" in
 start)
+	TIME=`date +%Y_%m_%d-%T`
 	cagstart $gwname $gwprefix $gwprocport
 	;;
 name)

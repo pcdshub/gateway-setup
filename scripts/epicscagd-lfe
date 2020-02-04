@@ -1,19 +1,19 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/epicscagd-fee
+#	/etc/rc.d/init.d/epicscagd-lfe
 #
 # Starts the EPICS CAG gateway
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee
+# processname: epicscagd-lfe
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=fee
-gwprefix=NET:CAG:FEE
+gwname=lfe
+gwprefix=NET:CAG:LFE
 gwprocport=30070
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
