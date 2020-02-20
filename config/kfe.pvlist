@@ -5,8 +5,8 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow L0 devices w/ naming conventions
 # starting w/ 2 char device code and device number,
-# followed by K0:
-[A-Z][A-Z][0-9]K[0134]:.*       ALLOW
+# followed by K0, K1, K2, ...
+[A-Z][A-Z][0-9]K[01234]:.*       ALLOW
 
 # Special case names
 RTDSK0:.*                  ALLOW
