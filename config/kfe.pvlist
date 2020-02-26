@@ -7,6 +7,7 @@ EVALUATION ORDER ALLOW, DENY
 # starting w/ 2 char device code and device number,
 # followed by K0, K1, K2, ...
 [A-Z][A-Z][0-9]K[01234]:.*       ALLOW
+[A-Z][A-Z][A-Z]:KFE:.*       ALLOW
 
 # Special case names
 RTDSK0:.*                  ALLOW
