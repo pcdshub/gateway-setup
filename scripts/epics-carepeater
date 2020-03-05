@@ -1,0 +1,4 @@
+#!/bin/sh
+
+source /reg/g/pcds/setup/epicsenv-cur.sh
+caRepeater &

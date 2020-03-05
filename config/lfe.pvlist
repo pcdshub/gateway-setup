@@ -1,0 +1,144 @@
+EVALUATION ORDER ALLOW, DENY
+
+# Note: We need to match lots of different PV patterns as there was
+# no consistency whatsover in how the FEE PV names were chosen.
+
+############################
+#Additions for LCLSII & L2SI
+# Special cases (please minimize these)
+RTDSL0.* ALLOW
+RTDSL0.* ALLOW RWXPP 1
+
+# Allow L0 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by L0:
+[A-Z][A-Z][0-9]L0:.*       ALLOW
+[A-Z][A-Z][0-9]L0:.*       ALLOW RWXPP 1
+
+# Allow L1 devices w/ naming conventions
+# starting w/ 2 char device code and device number
+# followed by L1:
+[A-Z][A-Z][0-9]L1:.*       ALLOW
+[A-Z][A-Z][0-9]L1:.*       ALLOW RWXPP 1
+
+#IOC and other LFE catchall
+.*LFE:.* ALLOW
+
+###########################
+## Old LCLS1 patterns    ##
+###########################
+
+BEAM.* ALLOW
+CXI:R48:.* ALLOW
+.*DMP1.* ALLOW
+.*FEE.* ALLOW
+.*HF4.* ALLOW
+.*HFA.* ALLOW
+.*HFX.* ALLOW
+.*HX2.* ALLOW
+.*HX3.* ALLOW
+.*HXM.* ALLOW
+.*HXN.* ALLOW
+.*HXX.* ALLOW
+LIGHT:.* ALLOW
+.*LTU.* ALLOW
+MCC:USR:PHOTON:.* ALLOW
+MEC:ATT:.* ALLOW
+MEC:IOC:PULSEPICKER:.* ALLOW
+MEC:IPMI.* ALLOW
+MEC:PIM1.* ALLOW
+.*MFX.* ALLOW
+.*NEH.* ALLOW
+STEP:M1H:.* ALLOW
+STEP:M2H:.* ALLOW
+XCS.* ALLOW
+XFS:MON:MMS:.* ALLOW
+XPP:MON:MMS:.* ALLOW
+XRAY_DESTINATIONS ALLOW
+.*XRT.* ALLOW
+.*XTOD.* ALLOW
+
+BEAM.* ALLOW RWINSTRMCC 1
+CXI:R48:.* ALLOW RWINSTRMCC 1
+.*DMP1.* ALLOW RWINSTRMCC 1
+.*FEE.* ALLOW RWINSTRMCC 1
+.*HF4.* ALLOW RWINSTRMCC 1
+.*HFA.* ALLOW RWINSTRMCC 1
+.*HFX.* ALLOW RWINSTRMCC 1
+.*HX2.* ALLOW RWINSTRMCC 1
+.*HX3.* ALLOW RWINSTRMCC 1
+.*HXM.* ALLOW RWINSTRMCC 1
+.*HXN.* ALLOW RWINSTRMCC 1
+.*HXX.* ALLOW RWINSTRMCC 1
+LIGHT:.* ALLOW RWINSTRMCC 1
+MCC:USR:PHOTON:.* ALLOW RWINSTRMCC 1
+MEC:ATT:.* ALLOW RWINSTRMCC 1
+MEC:IOC:PULSEPICKER:.* ALLOW RWINSTRMCC 1
+MEC:IPMI.* ALLOW RWINSTRMCC 1
+MEC:PIM1.* ALLOW RWINSTRMCC 1
+MEC:PPS:S6.* ALLOW RWINSTRMCC 1
+.*MFX.* ALLOW RWINSTRMCC 1
+.*NEH.* ALLOW RWINSTRMCC 1
+.*LTU.* ALLOW RWINSTRMCC 1
+STEP:M1H:.* ALLOW RWINSTRMCC 1
+STEP:M2H:.* ALLOW RWINSTRMCC 1
+#.*XCS.* ALLOW RWINSTRMCC 1
+XFS:MON:MMS:.* ALLOW RWINSTRMCC 1
+XPP:MON:MMS:.* ALLOW RWINSTRMCC 1
+XRAY_DESTINATIONS ALLOW
+.*XRT.* ALLOW RWINSTRMCC 1
+.*XTOD.* ALLOW RWINSTRMCC 1
+
+# Set special access control for MEC devices: M3H switching mirror, MEC YAG0 camera
+IOC:XRT:M3H:SWITCH:.* ALLOW RWMEC 1
+XRT:R04:EVR:33:.*     ALLOW RWMEC 1
+
+# Allow read access to BYKIK:REQUEST PVs
+.*:LTU1:BYKIK:REQUEST.*  ALLOW
+
+# Allow each hutch read-write to it's BYKIK:REQUEST
+XPP:LTU1:BYKIK:REQUEST.*  ALLOW RWXPP 1
+XCS:LTU1:BYKIK:REQUEST.*  ALLOW RWXCS 1
+MFX:LTU1:BYKIK:REQUEST.*  ALLOW RWMFX 1
+CXI:LTU1:BYKIK:REQUEST.*  ALLOW RWCXI 1
+MEC:LTU1:BYKIK:REQUEST.*  ALLOW RWMEC 1
+
+# Deny BUMP:REQUEST PV's (handled by fee-gasdet gateway)
+#.*:UND1:BUMP:REQUEST.*	DENY
+
+# Deny gas detector PVs
+DIAG:FEE1:.*      DENY
+GDET:FEE1:.*          DENY
+IOC:FEE:GASDET:DAQ:.* DENY
+EVR:FEE:GASDET:DAQ:.* DENY
+
+# Deny fast history PVs
+*FEE*_LAST_*	DENY
+
+# Deny KMONO PVs
+KMON:FEE1:.*          DENY
+IOC:FEE:KMONO:DAQ:.*  DENY
+EVR:FEE:KMONO:DAQ:.*  DENY
+
+# Deny FEE1, DIAG and NEH1 camera pvs
+CAMR:FEE1:.*	 DENY
+CAMR:NEH1:.*	 DENY
+DIAG:FEE1.*	     DENY
+
+# Deny XRT cameras
+XRT:DIA:CVV:01:.*     DENY
+HXX:UM6:CVV:01:.*     DENY
+HXX:HXM:CVV:01:.*     DENY
+HFX:MON:CVV:01:.*     DENY
+HFX:DG2:CVV:01:.*     DENY
+HFX:DG3:CVV:01:.*     DENY
+
+# Deny FEH cameras
+XCS:DG3:CVV:02:.*     DENY
+MEC:HXM:CVV:01:.*     DENY
+
+# Keep this as the last pattern please
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LFE.*      ALLOW RWALL 1

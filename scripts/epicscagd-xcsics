@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-xcsics
+#
+# Starts the EPICS CAG
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-xcxics
+
+# Source function library.
+. /etc/init.d/functions
+. ./epicscagp
+
+gwname=xcsics
+gwprefix=NET:CAG:XCSICS
+gwprocport=30333
+
+export XCS_BCICS=172.21.46.255
+export XCS_IFICS=172.21.46.53
+export XCS_IFXCS=172.21.43.22
+export XCS_IFFEZ=172.21.22.22
+
+export EPICS_CA_ADDR_LIST=$XCS_BCICS
+#export EPICS_CAS_INTF_ADDR_LIST="$XCS_IFICS $IP"
+export EPICS_CAS_INTF_ADDR_LIST="$XCS_IFXCS"
+export EPICS_CA_BEACON_PERIOD=20.0
+export EPICS_CA_CONN_TMO=60.0
+export EPICS_CA_MAX_ARRAY_BYTES=40000000
+export EPICS_CA_AUTO_ADDR_LIST=NO
+export EPICS_CAS_AUTO_BEACON_ADDR_LIST=NO
+export EPICS_CAS_IGNORE_ADDR_LIST="$XCS_IFXCS $XCS_IFFEZ"
+export EPICS_CAS_BEACON_ADDR_LIST=$XCS_BCICS:5065
+export DAEMON_COREFILE_LIMIT="unlimited"
+export EPICS_CA_SERVER_PORT=5064
+export EPICS_CAS_SERVER_PORT=5064
+
+# cagdbg="-debug 9"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

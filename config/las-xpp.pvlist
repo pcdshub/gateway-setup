@@ -1,0 +1,14 @@
+EVALUATION ORDER ALLOW, DENY
+
+
+# XPP R/W Access
+LAS:XPP:.* ALLOW RWXPP 1
+LAS:R54:.* ALLOW RWXPP 1
+
+# All instruments R/W Access
+LAS:FS3:.* ALLOW RWINSTR 1
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:XPP.*      ALLOW RWALL 1

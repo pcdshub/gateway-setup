@@ -1,0 +1,81 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*LAS.*         ALLOW
+.*UND.*         ALLOW
+
+NET:CAG:LAS.*   	ALLOW RWALL 1
+
+NET:CAG:LAS:SXR.*   	DENY
+NET:CAG:LAS:XPP.*   	DENY
+NET:CAG:LAS:FS:WAVE.*   DENY
+NET:CAG:LAS:RFC:WAVE.*  DENY
+NET:CAG:LAS:UND:MISC.*  DENY
+
+# AMO R/W Access
+LAS:FS1:VIT:.* DENY
+LAS:R51:.* DENY
+AMO:LAS:.* DENY
+LAS:LH1:.* DENY
+
+# SXR R/W Access
+SXR:LAS:DLS:01:MTR.* DENY
+AMO:LAS:DLS:06:MTR.* DENY
+LAS:R52:.* DENY
+LAS:FS2.* DENY
+SXR:.* DENY
+
+# XPP R/W Access
+LAS:XPP:.* DENY
+LAS:R54:.* DENY
+
+# XCS R/W Access
+LAS:XCS:.* DENY
+XCS:LAS:.* DENY
+
+# CXI R/W Access
+CXI:.* ALLOW RWCXI 1
+LAS:FS5:.* ALLOW RWCXI 1
+LAS:R52B:EVR:31.* ALLOW RWCXI 1
+LAS:R52B:IOC:31.* ALLOW RWCXI 1
+LAS:R52B:AIN.* ALLOW RWCXI 1
+LAS:R52B:AOU.* ALLOW RWCXI 1
+
+# MEC R/W Access
+MEC:.* ALLOW RWMEC 1
+LAS:MEC:.* ALLOW RWMEC 1
+LAS:FS6:.* ALLOW RWMEC 1
+LAS:SR62:.* ALLOW RWMEC 1
+LAS:SR63:.* ALLOW RWMEC 1
+LAS:SR63:EVR.*   ALLOW RWMEC_MATLAB 1
+
+# All instruments R/W Access
+AMO:LAS:DLS:05:MTR.* DENY
+AMO:LAS:DLS:05:MTR.* DENY
+LAS:FS1:Angle:Shift:Ramp:Target DENY
+LAS:FS2:Angle:Shift:Ramp:Target DENY
+LAS:FS1:.*_vcxo_loop DENY
+LAS:FS2:.*_vcxo_loop DENY
+LAS:FS1:REG:kp_vcxo:wr DENY
+LAS:FS2:REG:kp_vcxo:wr DENY
+LAS:FS1:bt_.* DENY
+LAS:FS2:bt_.* DENY
+LAS:FS3:.* DENY
+LAS:FS4:.* DENY
+
+# All Undulator hall PV's go through a different gateway
+UND:.* DENY
+# RF Phase Cavity phase control PV's go through a different gateway
+LAS:UND:MMS:.* DENY
+LAS:BAT2:.* DENY
+LAS:PCAV:.* DENY
+
+# Deny fast history PVs
+LAS*_LAST_*	DENY
+
+
+# fstiming unit 0 waveforms go through different gateway
+LAS:FS0:WAVE.* DENY
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:AMO.*   	DENY

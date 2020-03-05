@@ -1,0 +1,8 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*     ALLOW
+
+.*     ALLOW RWMFXICS 1
+
+.*     DENY FROM mfx-control mfx-daq mfx-console mfx-monitor daq-mfx-cspad01
+

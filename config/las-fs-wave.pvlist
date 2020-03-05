@@ -1,0 +1,9 @@
+EVALUATION ORDER ALLOW, DENY
+
+
+LAS:FS0:WAVE.* ALLOW
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:FS:WAVE.*      ALLOW RWALL 1

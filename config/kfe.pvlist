@@ -1,0 +1,45 @@
+EVALUATION ORDER ALLOW, DENY
+
+###########################################################
+# LCLS-I Naming convention patterns
+
+# Allow L0 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by K0, K1, K2, ...
+[A-Z][A-Z][0-9]K[01234]:.*       ALLOW
+[A-Z][A-Z][A-Z]:KFE:.*       ALLOW
+
+# Special case names
+RTDSK0:.*                  ALLOW
+PCPM3B:.*                  ALLOW
+
+# Allow KFE:.* for all cds-kfe subnet named PVs
+# Do we have any of these?
+KFE:.*	ALLOW
+
+###########################################################
+# LCLS-I Naming convention patterns
+# Are we ready to drop these since SXR hutch is no more?
+
+SXR.*	ALLOW
+.*LJE.*	ALLOW
+HX2:SB1:IPM.* ALLOW
+SXR:YAG:EVR:01.* ALLOW RWINSTRMCC 1
+SXR:YAG:IOC:01.* ALLOW RWINSTRMCC 1
+SXR:YAG:CVV:01.* ALLOW RWINSTRMCC 1
+HX2:SB1:IPM.* ALLOW RWXPP 1
+
+# GMD pv's handled by sxr-gmd gateway
+SXR:GMD:BLD:.*		DENY
+
+# camera images handled by sxr-cam gateway
+SXR:.*IMAGE.*		DENY
+SXR:.*Image.*		DENY
+SXR:.*PROJ.*		DENY
+SXR:.*HPrj.*		DENY
+
+# Keep this as the last pattern please
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:KFE.*      ALLOW RWALL 1

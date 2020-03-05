@@ -1,0 +1,15 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*AMO.*	ALLOW
+
+AMO:SAS:MMS:01.*   ALLOW RWMCC 1
+AMO:SAS:YAG:GO     ALLOW RWMCC 1
+
+# All instruments R/W Access
+SXR:LAS:H1:DLS:01.* ALLOW RWINSTR 1
+
+AMO:LMP:ENC:.*:ENC_PWR_SW ALLOW RWDET 1
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:AMO.*      ALLOW RWALL 1

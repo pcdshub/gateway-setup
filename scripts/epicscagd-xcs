@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-xcs
+#
+# Starts the EPICS CAG
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-xcs
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=xcs
+gwprefix=NET:CAG:XCS
+gwprocport=30040
+
+export EPICS_CA_ADDR_LIST=$XCS_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${XCS_IF4}%%"`
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

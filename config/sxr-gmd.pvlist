@@ -1,0 +1,10 @@
+EVALUATION ORDER ALLOW, DENY
+
+
+# Allow SXR GMD PVs
+SXR:GMD:BLD:.*	ALLOW
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:SXR:GMD.*      ALLOW RWALL 1

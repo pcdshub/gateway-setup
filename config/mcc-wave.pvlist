@@ -1,0 +1,39 @@
+EVALUATION ORDER ALLOW, DENY
+
+# Add write permission for RWINSTRMCC 
+NET:CAG:MCC:WAVE.*      ALLOW RWINSTRMCC 1
+
+GWESWF:.*				ALLOW 
+
+# RWINSTRMCC access to camera iocs
+# NOTE: Can't enable here unless we also add these to LCLS gateway config file
+#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
+#OTRS:.*   ALLOW	RWINSTRMCC
+#PROF:.*   ALLOW	RWINSTRMCC
+
+# Read/only access to camera iocs
+# NOTE: Can't enable here unless we also add these to LCLS gateway config file
+#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
+#OTRS:.*   ALLOW
+#PROF:.*   ALLOW
+
+# Blocking these specific PV's that ioc-und-rec01
+# reads over a dedicated 10G connection to the XTCAV host
+OTRS:DMP1:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:CAMERA.IRAW DENY from ioc-und-rec01
+OTRS:DMP1:695:MinX_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:MinY_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:SizeY_RBV.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:RESOLUTION.*		DENY FROM ioc-und-rec01
+OTRS:DMP1:695:ArrayRate_RBV.*	DENY FROM ioc-und-rec01
+OTRS:DMP1:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
+
+OTRS:DMP1:695:CAMERA.CCOL      ALLOW
+OTRS:DMP1:695:CAMERA.CROW      ALLOW
+OTRS:DMP1:695:CAMERA.ISLO      ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MCC:WAVE.*      ALLOW RWALL 1

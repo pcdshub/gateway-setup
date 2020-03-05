@@ -1,0 +1,12 @@
+[Unit]
+Description=epicscagd-aaa
+After=multi-user.target
+Requires=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/reg/g/pcds/gateway/scripts/epicscagd-aaa start
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

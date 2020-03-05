@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-mcc
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=mcc-wave
+gwprefix=NET:CAG:MCC:WAVE
+gwprocport=30003
+
+export EPICS_CA_ADDR_LIST=$MCC_GW
+export EPICS_CA_SERVER_PORT=5079
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${MCC_IF3}%%"`
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

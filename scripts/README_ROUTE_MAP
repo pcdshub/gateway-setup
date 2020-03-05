@@ -1,0 +1,23 @@
+pscag4 was responding to CA traffic from
+lcls-daemon2 (172.27.8.31), but not from
+lcls-daemon1 (172.27.0.24).
+
+Used a test gateway on port 5083 w/ tcpdump to track down the problem.
+Ran queries from both lcls hosts.
+EPICS_CA_ADDR_LIST=172.21.40.63:5083 caget PV:FEE
+
+A missing entry on the route map meant that tcpdump could see CA UDP
+search requests to port 5083 because I knew which adapter that tcpdump should be monitoring.
+The gateway couldn't see the search request due to a missing route for 172.27.0.*
+% ip route | egrep 172.27.
+172.27.8.0/22 via 172.21.40.2 dev enp2s0f0.650
+172.27.224.192/26 via 172.21.40.2 dev enp2s0f0.650 
+
+I added the mising route manually via
+sudo ip route add 172.27.0.0/22 via 172.21.40.2 dev enp2s0f0.650
+
+gateway is now responding to CA search requests from both ACCEL subnets.
+
+Permanent fix is to add route in
+/etc/sysconfig/network-scripts/route-enp2s0f0.650
+

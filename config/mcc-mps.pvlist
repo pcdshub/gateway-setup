@@ -1,0 +1,50 @@
+EVALUATION ORDER ALLOW, DENY
+
+
+# RWINSTRMCC MPS related PV's
+# We need this gateway and these entries to allow these
+# Accelerator MPS PVs from ioc-bsy0-mp01 and other IOCs
+# which look like photon hutch PVs
+AMO:.*_MPS.*   ALLOW RWINSTRMCC 1
+CXI:.*_MPS.*   ALLOW RWINSTRMCC 1
+DET:.*_MPS.*   ALLOW RWINSTRMCC 1
+HFX:.*_MPS.*   ALLOW RWINSTRMCC 1
+HXX:.*_MPS.*   ALLOW RWINSTRMCC 1
+LAS:.*_MPS.*   ALLOW RWINSTRMCC 1
+MEC:.*_MPS.*   ALLOW RWINSTRMCC 1
+MFX:.*_MPS.*   ALLOW RWINSTRMCC 1
+SXR:.*_MPS.*   ALLOW RWINSTRMCC 1
+XCS:.*_MPS.*   ALLOW RWINSTRMCC 1
+XPP:.*_MPS.*   ALLOW RWINSTRMCC 1
+
+# Allow MPS related PV's
+AMO:.*_MPS.*   ALLOW
+CXI:.*_MPS.*   ALLOW
+DET:.*_MPS.*   ALLOW
+HFX:.*_MPS.*   ALLOW
+HXX:.*_MPS.*   ALLOW
+LAS:.*_MPS.*   ALLOW
+MEC:.*_MPS.*   ALLOW
+MFX:.*_MPS.*   ALLOW
+SXR:.*_MPS.*   ALLOW
+TST:.*_MPS.*   ALLOW
+XCS:.*_MPS.*   ALLOW
+XPP:.*_MPS.*   ALLOW
+
+AMO:.*_BYPS.*   ALLOW
+CXI:.*_BYPS.*   ALLOW
+DET:.*_BYPS.*   ALLOW
+HFX:.*_BYPS.*   ALLOW
+HXX:.*_BYPS.*   ALLOW
+LAS:.*_BYPS.*   ALLOW
+MEC:.*_BYPS.*   ALLOW
+MFX:.*_BYPS.*   ALLOW
+SXR:.*_BYPS.*   ALLOW
+TST:.*_BYPS.*   ALLOW
+XCS:.*_BYPS.*   ALLOW
+XPP:.*_BYPS.*   ALLOW
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MCC:MPS.*    ALLOW RWALL 1

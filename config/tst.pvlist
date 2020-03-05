@@ -1,0 +1,10 @@
+EVALUATION ORDER ALLOW, DENY
+
+.* ALLOW
+
+
+.* ALLOW RWALL 1
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:TST.*      ALLOW RWALL 1

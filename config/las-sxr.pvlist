@@ -1,0 +1,28 @@
+EVALUATION ORDER ALLOW, DENY
+
+
+# Allow read access to all LAS:FS2 PV's 
+LAS:FS2.* ALLOW
+
+# SXR R/W Access
+SXR:LAS:DLS:01:MTR.* ALLOW RWSXR 1
+LAS:R52:.* ALLOW RWSXR 1
+LAS:FS2:Angle.* ALLOW RWSXR 1
+SXR:.* ALLOW RWSXR 1
+LAS:FS2:VIT:AUTO_MODE_ENABLE.*  ALLOW RWSXR 1
+LAS:FS2:VIT:FREQ_SEARCH.*       ALLOW RWSXR 1
+LAS:FS2:VIT:FREQ_SP.*           ALLOW RWSXR 1
+LAS:FS2:VIT:FS_TGT_TIME.*       ALLOW RWSXR 1
+LAS:FS2:VIT:FS_TIMING.*         ALLOW RWSXR 1
+LAS:FS2:VIT:RF_LOCK_ENABLE.*    ALLOW RWSXR 1
+
+# All instruments R/W Access
+LAS:FS2:Angle:Shift:Ramp:Target ALLOW RWINSTR 1
+LAS:FS2:.*_vcxo_loop ALLOW RWINSTR 1
+LAS:FS2:REG:kp_vcxo:wr ALLOW RWINSTR 1
+LAS:FS2:bt_.* ALLOW RWINSTR 1
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LAS:SXR.*      ALLOW RWALL 1
