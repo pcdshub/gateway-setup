@@ -18,8 +18,6 @@ gwprocport=30110
 
 export EPICS_CA_ADDR_LIST=$TST_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${TST_IF4}%%"`
-#export cagprogram=/reg/neh/home/bhill/wa2/trunk/pcds/epics/extensions/current/bin/${EPICS_HOST_ARCH}/gateway
-#export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 #cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in
