@@ -13,9 +13,10 @@ EVALUATION ORDER ALLOW, DENY
 RTDSK0:.*                  ALLOW
 PCPM3B:.*                  ALLOW
 
-# Allow KFE:.* for all cds-kfe subnet named PVs
-# Do we have any of these?
-KFE:.*	ALLOW
+# Allow read only access to KFE:.*
+KFE:.*	        ALLOW
+# Allow R/W access for INSTR to KFE:.*
+KFE:.*	        ALLOW RWINSTR 1
 
 RTDSK0:.*		ALLOW RWXPP 1
 PC1K0:.*		ALLOW RWXPP 1

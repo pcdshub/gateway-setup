@@ -24,6 +24,9 @@ RTDSL0.* ALLOW RWXPP 1
 #IOC and other LFE catchall
 .*LFE:.* ALLOW
 
+# Allow R/W access for INSTR to KFE:.*
+HFX:.*	        ALLOW RWINSTR 1
+
 ###########################
 ## Old LCLS1 patterns    ##
 ###########################
