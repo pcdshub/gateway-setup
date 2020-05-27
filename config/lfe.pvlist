@@ -118,29 +118,17 @@ EVR:FEE:GASDET:DAQ:.* DENY
 # Deny fast history PVs
 *FEE*_LAST_*	DENY
 
-# Deny KMONO PVs
-KMON:FEE1:.*          DENY
-IOC:FEE:KMONO:DAQ:.*  DENY
-EVR:FEE:KMONO:DAQ:.*  DENY
-
-# Deny FEE1, DIAG and NEH1 camera pvs
-CAMR:FEE1:.*	 DENY
-CAMR:NEH1:.*	 DENY
-DIAG:FEE1.*	     DENY
-
 # Deny XRT cameras
-XRT:DIA:CVV:01:.*     DENY
-HXX:UM6:CVV:01:.*     DENY
-HXX:HXM:CVV:01:.*     DENY
-HFX:MON:CVV:01:.*     DENY
-HFX:DG2:CVV:01:.*     DENY
-HFX:DG3:CVV:01:.*     DENY
+#XRT:DIA:CVV:01:.*     DENY
+#HXX:UM6:CVV:01:.*     DENY
+#HXX:HXM:CVV:01:.*     DENY
+#HFX:MON:CVV:01:.*     DENY
+#HFX:DG2:CVV:01:.*     DENY
+#HFX:DG3:CVV:01:.*     DENY
 
 # Deny FEH cameras
-XCS:DG3:CVV:02:.*     DENY
-MEC:HXM:CVV:01:.*     DENY
-
-# Keep this as the last pattern please
+#XCS:DG3:CVV:02:.*     DENY
+#MEC:HXM:CVV:01:.*     DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
