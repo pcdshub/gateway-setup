@@ -1,5 +1,22 @@
 EVALUATION ORDER ALLOW, DENY
 
+
+# Allow gas detector PVs
+DIAG:FEE1:.*          ALLOW
+GDET:FEE1:.*          ALLOW
+IOC:FEE:GASDET:DAQ:.* ALLOW
+EVR:FEE:GASDET:DAQ:.* ALLOW
+
+# gas detector PVs read-write for instruments
+DIAG:FEE1:.*		  ALLOW RWINSTR 1
+GDET:FEE1:.*          ALLOW RWINSTR 1
+IOC:FEE:GASDET:DAQ:.* ALLOW RWINSTR 1
+EVR:FEE:GASDET:DAQ:.* ALLOW RWINSTR 1
+
+# Allow KMONO PVs
+KMON:FEE1:.*          ALLOW
+IOC:FEE:KMONO:DAQ:.*  ALLOW
+EVR:FEE:KMONO:DAQ:.*  ALLOW
 # Allow XRT cameras read-only
 XRT:DIA:CVV:01:.*     ALLOW
 HXX:UM6:CVV:01:.*     ALLOW
