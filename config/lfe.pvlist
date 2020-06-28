@@ -32,6 +32,11 @@ HFX:.*	        ALLOW RWINSTR 1
 ## Old LCLS1 patterns    ##
 ###########################
 
+XCS:DG1:IMB:01.*	ALLOW
+XCS:DG1:IMB:02.*	ALLOW
+XCS:R04:EVR:34.*	ALLOW
+XCS:R04:IOC:34.*	ALLOW
+
 BEAM.* ALLOW
 CXI:R48:.* ALLOW
 .*DMP1.* ALLOW
