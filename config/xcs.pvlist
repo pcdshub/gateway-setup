@@ -11,10 +11,16 @@ XCS:NAV:DG3:02:DES_ZOOM ALLOW RWHXR 1
 XCS:LTU1:BYKIK:REQUEST.*  DENY
 
 # These PVs are on lfe subnet
+# ioc-xrt-xcsimb1
 XCS:DG1:IMB:01.*	DENY
 XCS:DG1:IMB:02.*	DENY
 XCS:R04:EVR:34.*	DENY
 XCS:R04:IOC:34.*	DENY
+# ioc-xrt-xcsimb3
+XCS:DG3:IMB:03:.*	DENY
+XCS:DG3:IMB:04:.*	DENY
+XCS:R38:EVR:43:.*	DENY
+XCS:R38:IOC:43:.*	DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
