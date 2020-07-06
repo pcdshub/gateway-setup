@@ -7,14 +7,14 @@ EVALUATION ORDER ALLOW, DENY
 #Additions for LCLSII & L2SI
 # Special cases (please minimize these)
 RTDSL0.* ALLOW
-RTDSL0.* ALLOW RWXPP 1
+RTDSL0.* ALLOW RWHXRMCC 1
 
 # Allow L0 devices w/ naming conventions
 # starting w/ 2 char device code and device number,
 # followed by L0, L1, L2, ...
 [A-Z][A-Z][0-9]L[01234]:.* ALLOW
-[A-Z][A-Z][0-9]L0:.*       ALLOW RWXPP 1
-[A-Z][A-Z][0-9]L1:.*       ALLOW RWXPP 1
+[A-Z][A-Z][0-9]L0:.*       ALLOW RWHXRMCC 1
+[A-Z][A-Z][0-9]L1:.*       ALLOW RWHXRMCC 1
 
 # Allow devices w/ stand naming convention
 # starting w/ line code L0, L1, L2, ...
