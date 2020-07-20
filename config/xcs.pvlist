@@ -21,6 +21,10 @@ XCS:DG3:IMB:03:.*	DENY
 XCS:DG3:IMB:04:.*	DENY
 XCS:R38:EVR:43:.*	DENY
 XCS:R38:IOC:43:.*	DENY
+# ioc-xrt-xcs-dg3-p6740
+XCS:DG3:CVV:02.*		DENY
+XCS:EVR:DG3:CVV:02.*	DENY
+XCS:IOC:DG3:CVV:02.*	DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
