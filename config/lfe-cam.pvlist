@@ -17,6 +17,10 @@ EVR:FEE:GASDET:DAQ:.* ALLOW RWINSTRMCC 1
 KMON:FEE1:.*          ALLOW
 IOC:FEE:KMONO:DAQ:.*  ALLOW
 EVR:FEE:KMONO:DAQ:.*  ALLOW
+
+# Allow LFE camera arrays
+IM[0-9]L[0-9]:.*:ArrayData ALLOW
+
 # Allow XRT cameras read-only
 XRT:DIA:CVV:01:.*     ALLOW
 HXX:UM6:CVV:01:.*     ALLOW

@@ -142,6 +142,9 @@ EVR:FEE:GASDET:DAQ:.* DENY
 # Deny fast history PVs
 *FEE*_LAST_*	DENY
 
+# Deny LFE camera arrays, see lfe-cam gateway
+IM[0-9]L[0-9]:.*:ArrayData DENY
+
 # Deny XRT cameras, see lfe-cam gateway
 XRT:DIA:CVV:01:.*     DENY
 HXX:UM6:CVV:01:.*     DENY
