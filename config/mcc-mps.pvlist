@@ -44,6 +44,21 @@ TST:.*_BYPS.*   ALLOW
 XCS:.*_BYPS.*   ALLOW
 XPP:.*_BYPS.*   ALLOW
 
+# Need to allow all these hutch prefixes as the Accel LCLS-II naming convention
+# is now overlapping w/ LCLS-I hutch based PV naming convention.
+# Too much similarity between PVs makes it hard to craft rules that would
+# distinguish between them.   Thus PV search requests that start w/ a
+# hutch prefix will be passed on to Accel subnet as well as the hutch gateway.
+AMO:.*   ALLOW
+CXI:.*   ALLOW
+HFX:.*   ALLOW
+HXX:.*   ALLOW
+LAS:.*   ALLOW
+MEC:.*   ALLOW
+MFX:.*   ALLOW
+SXR:.*   ALLOW
+XCS:.*   ALLOW
+XPP:.*   ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
