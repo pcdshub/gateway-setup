@@ -1,4 +1,6 @@
 EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#	caput NET:CAG:LFE:newAsFlag 1
 
 # Note: We need to match lots of different PV patterns as there was
 # no consistency whatsover in how the FEE PV names were chosen.
@@ -54,6 +56,10 @@ XCS:R38:IOC:43:.*	ALLOW
 # XCS:DG3:CVV:02.* is in lfe-cam
 XCS:EVR:DG3:CVV:02.*	ALLOW
 XCS:IOC:DG3:CVV:02.*	ALLOW
+
+# ioc-xrt-mon-pico
+XCS:MON:PIC.*				ALLOW
+XRT:R40:IOC:44:MON:MCF.*	ALLOW
 
 BEAM.* ALLOW
 CXI:R48:.* ALLOW
@@ -160,3 +166,5 @@ MEC:HXM:CVV:01:.*     DENY
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LFE.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:LFE:newAsFlag 1
