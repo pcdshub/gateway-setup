@@ -1,4 +1,6 @@
 EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#	caput NET:CAG:XPP:newAsFlag 1
 
 .*XPP.*	ALLOW
 .*HX2.*	ALLOW
@@ -6,6 +8,7 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow all on shared SB1
 HX2:SB1:.* ALLOW RWHXRMCC 1
+XPP:GIGE:01:.* ALLOW RWHXRMCC 1
 
 # Allow various XPP Hutch things
 XPP:NAV:SB1:01:DES_ZOOM ALLOW RWHXRMCC 1
@@ -38,3 +41,5 @@ XPP:SB2:IPM:01:SUMRMSHST.*  DENY
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:XPP.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:XPP:newAsFlag 1
