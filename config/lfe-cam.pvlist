@@ -19,7 +19,7 @@ IOC:FEE:KMONO:DAQ:.*  ALLOW
 EVR:FEE:KMONO:DAQ:.*  ALLOW
 
 # Allow LFE camera arrays
-IM[0-9]L[0-9]:.*:ArrayData ALLOW
+IM[0-9]L[0-9]:.*:ArrayData.* ALLOW
 
 # Allow XRT cameras read-only
 XRT:DIA:CVV:01:.*     ALLOW
