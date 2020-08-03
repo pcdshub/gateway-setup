@@ -1,5 +1,6 @@
 EVALUATION ORDER ALLOW, DENY
-
+# To reread config file:
+#	caput NET:CAG:LFE:CAM:newAsFlag 1
 
 # Allow gas detector PVs
 DIAG:FEE1:.*          ALLOW
@@ -19,32 +20,22 @@ IOC:FEE:KMONO:DAQ:.*  ALLOW
 EVR:FEE:KMONO:DAQ:.*  ALLOW
 
 # Allow LFE camera arrays
-IM[0-9]L[0-9]:.*:ArrayData.* ALLOW
+IM[0-9]L[0-9]:.*:ArrayData ALLOW
 
-# Allow XRT cameras read-only
-XRT:DIA:CVV:01:.*     ALLOW
-HXX:UM6:CVV:01:.*     ALLOW
-HXX:HXM:CVV:01:.*     ALLOW
-HFX:MON:CVV:01:.*     ALLOW
-HFX:DG2:CVV:01:.*     ALLOW
-HFX:DG3:CVV:01:.*     ALLOW
+# Allow XRT camera arrays
+XRT:DIA:CVV:01:.*:ArrayData     ALLOW
+HXX:UM6:CVV:01:.*:ArrayData     ALLOW
+HXX:HXM:CVV:01:.*:ArrayData     ALLOW
+HFX:MON:CVV:01:.*:ArrayData     ALLOW
+HFX:DG2:CVV:01:.*:ArrayData     ALLOW
+HFX:DG3:CVV:01:.*:ArrayData     ALLOW
 
 # Allow FEH cameras read-only to the world
-XCS:DG3:CVV:02:.*     ALLOW
-MEC:HXM:CVV:01:.*     ALLOW
-
-# Allow FEH cameras read-write to the consoles
-XCS:DG3:CVV:02:.*     ALLOW RWINSTRMCC 1
-MEC:HXM:CVV:01:.*     ALLOW RWINSTRMCC 1
-
-# Allow XRT cameras read-write to operator consoles
-XRT:DIA:CVV:01:.*     ALLOW RWINSTRMCC 1
-HXX:UM6:CVV:01:.*     ALLOW RWINSTRMCC 1
-HXX:HXM:CVV:01:.*     ALLOW RWINSTRMCC 1
-HFX:MON:CVV:01:.*     ALLOW RWINSTRMCC 1
-HFX:DG2:CVV:01:.*     ALLOW RWINSTRMCC 1
-HFX:DG3:CVV:01:.*     ALLOW RWINSTRMCC 1
+XCS:DG3:CVV:02:.*:ArrayData     ALLOW
+MEC:HXM:CVV:01:.*:ArrayData     ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LFE:CAM.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:LFE:CAM:newAsFlag 1
