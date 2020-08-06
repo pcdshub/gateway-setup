@@ -8,6 +8,9 @@ GDET:FEE1:.*          ALLOW
 IOC:FEE:GASDET:DAQ:.* ALLOW
 EVR:FEE:GASDET:DAQ:.* ALLOW
 
+# but deny the BeamRte BSA buffers which are now on lfe-gdet
+GDET:FEE1:.*HSTBR     DENY
+
 # gas detector PVs read-write for instruments
 DIAG:FEE1:.*		  ALLOW RWINSTRMCC 1
 GDET:FEE1:.*          ALLOW RWINSTRMCC 1
