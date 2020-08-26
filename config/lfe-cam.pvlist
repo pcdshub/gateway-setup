@@ -37,6 +37,16 @@ HFX:DG3:CVV:01:.*:ArrayData     ALLOW
 XCS:DG3:CVV:02:.*:ArrayData     ALLOW
 MEC:HXM:CVV:01:.*:ArrayData     ALLOW
 
+
+# FEE Orca Spectrometer, readable by all, writable by INSTR and MCC
+# FEE Orca Spectrometer IMAGE2 is readable by all by bandwidth reduced
+CAMR:FEE1:441:.*:ArrayData	 ALLOW
+CAMR:FEE1:441:.*:ArrayData	 ALLOW RWINSTRMCC 1
+# FEE Orca Spectrometer IMAGE1 data specifically blocked
+# Use camrecorder to record full resolution IMAGE1 data
+CAMR:FEE1:441:IMAGE1:ArrayData	    ALLOW NOACCESS 1
+CAMR:FEE1:441:IMAGE1:ArrayData.VAL	ALLOW NOACCESS 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LFE:CAM.*      ALLOW RWALL 1
