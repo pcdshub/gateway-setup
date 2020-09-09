@@ -1,5 +1,6 @@
 HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,ioc-mfx-misc01,ioc-mfx-vacuum,ioc-mfx-table,ioc-mfx-tfs,daq-mfx-mon01,daq-mfx-mon02,daq-mfx-mon03,daq-mfx-mon04,daq-mfx-mon05,daq-mfx-mon06}
 # HAG(sxrhosts) {sxr-daq,sxr-control,sxr-monitor,sxr-console,sxr-laptop,sxr-laptop02}
+HAG(tmohosts) {tmo-console}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01}
 HAG(xcshosts) {xcs-daq,xcs-control,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04}
 HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,daq-cxi-mon01,daq-cxi-mon02,daq-cxi-mon03,daq-cxi-mon04,daq-cxi-mon05,daq-cxi-mon06,daq-cxi-mon07,daq-cxi-mon08,daq-cxi-mon09,daq-cxi-mon10,daq-cxi-mon11,daq-cxi-mon12,daq-cxi-mon13,cxi-laptop1,ioc-cxi-usr1,daq-cxi-usrcam01}
@@ -45,12 +46,20 @@ ASG(RWMFX) {
     }
 }
 
-#ASG(RWSXR) {
-#    RULE(1,READ)
-#    RULE(1,WRITE,TRAPWRITE){
-#      HAG(sxrhosts)
-#    }
-#}
+ASG(RWSXR) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE){
+      #HAG(sxrhosts)
+      HAG(kfehosts,tmohosts)
+    }
+}
+
+ASG(RWSXRMCC) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE){
+      HAG(kfehosts,tmohosts,mcchosts)
+    }
+}
 
 ASG(RWXPP) {
     RULE(1,READ)
