@@ -2,7 +2,7 @@
 # Setup EPICS command line environment for PCDS gateway machines
 
 # Source standard EPICS environment
-. /reg/g/pcds/setup/epicsenv-3.14.12.sh
+. /reg/g/pcds/setup/epicsenv-cur.sh
 
 # Source gateway port and interface definitions
 . /reg/g/pcds/gateway/scripts/epicscagp
