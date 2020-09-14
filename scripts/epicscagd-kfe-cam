@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+#	/etc/rc.d/init.d/epicscagd-kfe
+#
+# Starts the EPICS CAG gateway
+#
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
 # processname: epicscagd-kfe-cam
@@ -10,14 +14,15 @@
 
 gwname=kfe-cam
 gwprefix=NET:CAG:KFE:CAM
-gwprocport=30021
+gwprocport=30024
 
 export EPICS_CA_ADDR_LIST=$KFE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${KFE_IF2}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${KFE_IF4}%%"`
 
 case "$1" in
 start)
-	cagstart $gwname $gwprefix $gwprocport -no_cache
+	TIME=`date +%Y_%m_%d-%T`
+	cagstart $gwname $gwprefix $gwprocport
 	;;
 name)
 	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"

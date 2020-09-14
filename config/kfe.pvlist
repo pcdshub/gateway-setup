@@ -9,6 +9,10 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][0-9]K[01234]:.* ALLOW
 [A-Z][A-Z][A-Z]:KFE:.*     ALLOW
 
+# Deny KFE camera images
+[A-Z][A-Z][0-9]K[01234]:.*:ArrayData DENY
+[A-Z][A-Z][A-Z]:KFE:.*:ArrayData     DENY
+
 # Allow devices w/ stand naming convention
 # starting w/ line code K0, K1, K2, ...
 # followed by stand number, S0, S3, S3A, S10, ...

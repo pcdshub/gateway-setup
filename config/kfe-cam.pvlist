@@ -1,0 +1,16 @@
+EVALUATION ORDER ALLOW, DENY
+
+###########################################################
+# LCLS-I Naming convention patterns
+
+# Allow K0 camera images w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by K0, K1, K2, ...
+[A-Z][A-Z][0-9]K[01234]:.*:ArrayData ALLOW
+[A-Z][A-Z][A-Z]:KFE:.*:ArrayData     ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:KFE:CAM:newAsFlag 1
+NET:CAG:KFE:CAM.*      ALLOW RWALL 1
