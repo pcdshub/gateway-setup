@@ -3,8 +3,8 @@ HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,ioc-mfx-misc01,ioc-mf
 HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01}
 HAG(xcshosts) {xcs-daq,xcs-control,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04}
-HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,daq-cxi-mon01,daq-cxi-mon02,daq-cxi-mon03,daq-cxi-mon04,daq-cxi-mon05,daq-cxi-mon06,daq-cxi-mon07,daq-cxi-mon08,daq-cxi-mon09,daq-cxi-mon10,daq-cxi-mon11,daq-cxi-mon12,daq-cxi-mon13,cxi-laptop1,ioc-cxi-usr1,daq-cxi-usrcam01}
-HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,ioc-mec-misc01,ioc-mec-ipimb01}
+HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,daq-cxi-mon01,daq-cxi-mon02,daq-cxi-mon03,daq-cxi-mon04,daq-cxi-mon05,daq-cxi-mon06,daq-cxi-mon07,daq-cxi-mon08,daq-cxi-mon09,daq-cxi-mon10,daq-cxi-mon11,daq-cxi-mon12,daq-cxi-mon13,cxi-laptop1,ioc-cxi-usr1,daq-cxi-usrcam01,daq-cxi-usrcam02}
+HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01}
 HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv02,ioc-las-srv03,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-xcs-srv04}
 HAG(kfehosts) {kfe-console}
@@ -21,7 +21,7 @@ HAG(mfxicshosts) {mfx-hutch01,cfel-ftsc02}
 HAG(cxiicshosts) {mfx-hutch01,cfel-ftsc02}
 HAG(xcsicshosts) {xcs-control,xcs-daq}
 
-HAG(mcchosts) {xtod-console,lcls-dev2,lcls-dev3,lcls-daemon0,lcls-daemon1,lcls-daemon2,lcls-daemon3,lcls-daemon4,lcls-daemon5,lcls-daemon6,lcls-daemon7,lcls-daemon8,lcls-daemon9,lcls-daemon10,lcls-srv01,lcls-srv02,lcls-srv03,lcls-srv04,lcls-srv05,lcls-opi01,lcls-opi02,lcls-opi03,lcls-opi04,lcls-opi05,lcls-opi06,lcls-opi07,lcls-opi08,lcls-opi09,lcls-opi12,lcls-opi13,lcls-opi30,opi10,opi11,opi12,opi13,opi14,opi15,opi16,opi17,opi20,opi21,opi22,opi23,opi24,opi25,opi26,opi30,opi31,opi32,opi33,opi34,opi35,opi40,opi41,opi42,opi43,opi44,opi45,opi46,opi47}
+HAG(mcchosts) {xtod-console,lcls-dev2,lcls-dev3,lcls-daemon0,lcls-daemon1,lcls-daemon2,lcls-daemon3,lcls-daemon4,lcls-daemon5,lcls-daemon6,lcls-daemon7,lcls-daemon8,lcls-daemon9,lcls-daemon10,lcls-srv01,lcls-srv02,lcls-srv03,lcls-srv04,lcls-srv05,lcls-opi01,lcls-opi02,lcls-opi03,lcls-opi04,lcls-opi05,lcls-opi06,lcls-opi07,lcls-opi08,lcls-opi09,lcls-opi12,lcls-opi13,lcls-opi30,opi10,opi11,opi12,opi13,opi14,opi15,opi16,opi17,opi20,opi21,opi22,opi23,opi24,opi25,opi26,opi30,opi31,opi32,opi33,opi34,opi35,opi40,opi41,opi42,opi43,opi44,opi45,opi46,opi47,cpu-fees-sp01}
 
 ASG(DEFAULT) {
     RULE(1,READ)
@@ -49,7 +49,6 @@ ASG(RWMFX) {
 ASG(RWSXR) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
-      #HAG(sxrhosts)
       HAG(kfehosts,tmohosts)
     }
 }
@@ -114,7 +113,6 @@ ASG(RWINSTR) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
       HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts,kfehosts,lfehosts)
-#     HAG(sxrhosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts)
     }
 }
 
@@ -122,7 +120,6 @@ ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
       HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,kfehosts,lfehosts,pcdshosts)
-#     HAG(sxrhosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,pcdshosts)
     }
 }
 
