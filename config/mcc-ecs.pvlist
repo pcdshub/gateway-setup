@@ -1,57 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*	ALLOW RWINSTRMCC 1
-
-
-PPS:NEH1:1:S1STOPPER.*	ALLOW RWAMOCTL 1
-PPS:NEH1:1:S2STOPPER.*	ALLOW RWAMOCTL 1
-
-# DENY access to camera iocs, see mcc-wave gateway
-# NOTE: Can't enable here unless we also add these to LCLS gateway config file
-#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
-#OTRS:.*   DENY
-#PROF:.*   DENY
-
-# Blocking these specific PV's that ioc-und-rec01
-# reads over a dedicated 10G connection to the XTCAV host
-OTRS:DMPH:695:RAW:ArrayData.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:RAW:ArraySize.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:CAMERA.IRAW DENY from ioc-und-rec01
-OTRS:DMPH:695:MinX_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:MinY_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:SizeY_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:RESOLUTION.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:ArrayRate_RBV.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:FLT1_PNEU.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:FLT2_PNEU.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:PNEUMATIC.*	DENY FROM ioc-und-rec01
-
-# Deny PCDS related PV's
-# See mcc-mps.pvlist for MPS related PV's starting w/ hutch prefixes
-AMO:.*   DENY
-CXI:.*   DENY
-DET:.*   DENY
-HFX:.*   DENY
-HXX:.*   DENY
-LAS:.*   DENY
-MEC:.*   DENY
-MFX:.*   DENY
-SXR:.*   DENY
-TST:.*   DENY
-XCS:.*   DENY
-XPP:.*   DENY
-
-# DENY these PVs when using B34 Dev EVG
-#ECS:SYS0:.*  DENY
-#EDEF:SYS0:.* DENY
-#EVNT:SYS0:.* DENY
-#PATT:SYS0:.* DENY
-#TRIG:SYS0:.* DENY
+ECS:SYS0:.*	ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
-NET:CAG:MCC.*      		ALLOW RWALL 1
+NET:CAG:MCC:ECS.*      		ALLOW RWALL 1
