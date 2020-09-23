@@ -1,7 +1,0 @@
-EVALUATION ORDER ALLOW, DENY
-
-ECS:SYS0:.*	ALLOW RWINSTRMCC 1
-
-# Keep this as the last pattern please
-# Add write permission for gateway diagnostic pvs
-NET:CAG:MCC:ECS.*      		ALLOW RWALL 1

@@ -12,9 +12,6 @@ PPS:NEH1:1:S2STOPPER.*	ALLOW RWAMOCTL 1
 #OTRS:.*   DENY
 #PROF:.*   DENY
 
-# DENY access to accelerator event sequencer PVs, see mcc-ecs gateway
-ECS:SYS0:.*	DENY
-
 # Blocking these specific PV's that ioc-und-rec01
 # reads over a dedicated 10G connection to the XTCAV host
 OTRS:DMPH:695:RAW:ArrayData.*	DENY FROM ioc-und-rec01
