@@ -16,12 +16,13 @@ TMO:.*	        ALLOW
 # Allow R/W access for INSTR to KFE:.*
 TMO:.*	        ALLOW RWINSTR 1
 
-AL1K4:.*		ALLOW RWXPP 1
-AT1K4:.*		ALLOW RWXPP 1
-IM1K4:.*		ALLOW RWXPP 1
-IM2K4:.*		ALLOW RWXPP 1
-SL1K4:.*		ALLOW RWXPP 1
-ST1K4:.*		ALLOW RWXPP 1
+AL1K4:.*		ALLOW RWINSTR 1
+AT1K4:.*		ALLOW RWINSTR 1
+IM1K4:.*		ALLOW RWINSTR 1
+IM2K4:.*		ALLOW RWINSTR 1
+IM3K4:.*		ALLOW RWINSTR 1
+SL1K4:.*		ALLOW RWINSTR 1
+ST1K4:.*		ALLOW RWINSTR 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
