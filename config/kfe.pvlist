@@ -1,7 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
 ###########################################################
-# LCLS-I Naming convention patterns
+# LCLS-II Naming convention patterns
 
 # Allow K0 devices w/ naming conventions
 # starting w/ 2 char device code and device number,
@@ -21,6 +21,7 @@ K[01234]S[0-9]+:.*         ALLOW
 # Special case names
 RTDSK0:.*                  ALLOW
 PCPM3B:.*                  ALLOW
+PMPS.*                     ALLOW
 
 # Allow read only access to KFE:.*
 KFE:.*	        ALLOW
@@ -47,6 +48,8 @@ MR1K4:.*		ALLOW RWINSTRMCC 1
 MR2K1:.*		ALLOW RWINSTRMCC 1
 SP1K1:.*		ALLOW RWINSTRMCC 1
 TV3K0:.*		ALLOW RWINSTRMCC 1
+
+.*FFO.*		ALLOW RWINSTRMCC 1
 
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
