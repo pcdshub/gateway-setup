@@ -26,6 +26,8 @@ L[01234]S[0-9]+:.*         ALLOW
 
 #IOC and other LFE catchall
 .*LFE:.* ALLOW
+PMPS:LFE:.* ALLOW
+.*FFO.* ALLOW
 
 # Allow R/W access for INSTR to KFE:.*
 HFX:.*	        ALLOW RWINSTR 1
