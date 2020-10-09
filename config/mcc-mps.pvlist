@@ -1,6 +1,15 @@
 EVALUATION ORDER ALLOW, DENY
 
 
+# Temporary workaround for issue delete later
+IOC:BSY0:MP01:BYKIK_RATE.*   	ALLOW RWINSTRMCC 1
+IOC:BSY0:MP01:BYKIKS_RATE.*	ALLOW RWINSTRMCC 1
+USEG:UNDH:.*50:K.*		ALLOW RWINSTRMCC 1
+USEG:UNDS:.*50:K.*		ALLOW RWINSTRMCC 1
+BEND:DMPH:400:BDES.*		ALLOW RWINSTRMCC 1
+BEND:DMPS:400:BACT.*		ALLOW RWINSTRMCC 1
+
+
 # RWINSTRMCC MPS related PV's
 # We need this gateway and these entries to allow these
 # Accelerator MPS PVs from ioc-bsy0-mp01 and other IOCs
