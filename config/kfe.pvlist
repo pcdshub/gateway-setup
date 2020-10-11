@@ -53,6 +53,7 @@ TV3K0:.*		ALLOW RWINSTRMCC 1
 IM1K4:.*		ALLOW RWINSTRMCC 1
 ST1K4:.*		ALLOW RWINSTRMCC 1
 AT1K4:.*		ALLOW RWINSTRMCC 1
+AL1K4:.*		ALLOW RWINSTRMCC 1
 MR2K4:.*		ALLOW RWINSTRMCC 1
 MR3K4:.*		ALLOW RWINSTRMCC 1
 
@@ -60,6 +61,9 @@ IM1K1:.*		ALLOW RWINSTRMCC 1
 IM2K1:.*		ALLOW RWINSTRMCC 1
 
 .*FFO.*		ALLOW RWINSTRMCC 1
+
+# Allow write access to PMPS Configuration Params from SX control rooms:
+PMPS:KFE:BeamParamCntl.*	ALLOW RWSXR 1
 
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
