@@ -1,0 +1,51 @@
+/* Test configuration for kfe gateway on pscag1 */
+/* Changes should be made to scripts/epicscagp or scripts/genPvaConf.py */
+{
+    "version":1,
+    "readOnly":false,
+	"statsdb":"pscag1-kfe.sql",
+    "clients":[
+        {
+            "name":"kfeClient",
+            "provider":"pva",
+            "addrlist":"172.21.92.20 172.21.95.255",
+            "autoaddrlist":false
+        }
+    ],
+    "servers":
+	[
+        /* Create a server with an interface for each subnet we want to serve */
+        {
+            "name":"kfeServer",
+            "clients":["kfeClient"],
+            "interface":[	"172.21.37.20",
+							"172.21.68.20",
+							"172.21.58.20",
+							"134.79.165.20",
+							"172.21.156.20",
+							"172.21.35.20",
+							"172.21.88.20",
+							"172.21.40.20",
+							"172.21.76.20",
+							"172.21.72.20",
+							"172.21.57.20",
+							"172.21.132.20",
+							"172.21.148.20",
+							"172.21.80.20",
+							"172.21.84.20" ],
+            "autoaddrlist":true,
+            "access":"/reg/g/pcds/gateway/config/pcds-access.acf",
+            "pvlist":"/reg/g/pcds/gateway/config/kfe.pvlist",
+            "statusprefix":"PVAG:KFE:"
+        },
+        /* allow client side to access GW status PVs */
+        {
+            "name":"kfe-gwstatus",
+            "clients":[], /* status PVs only */
+            "interface":["pscag1-cdskfe"],
+            "addrlist":"172.21.95.255",
+            "autoaddrlist":false,
+            "statusprefix":"PVAG:KFE:"
+        }
+    ]
+}
