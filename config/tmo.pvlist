@@ -11,9 +11,13 @@ EVALUATION ORDER ALLOW, DENY
 
 # Special case names
 
-# Allow read only access to KFE:.*
+# Allow read only access to TMO:.* and similar PVs
 TMO:.*	        ALLOW
-# Allow R/W access for INSTR to KFE:.*
+LAMP:.*		ALLOW
+KTOF:.*		ALLOW
+PLC:.*		ALLOW
+
+# Allow R/W access for INSTR to TMO:.*
 TMO:.*	        ALLOW RWINSTR 1
 PLC:TMO:.*	        ALLOW RWINSTR 1
 
