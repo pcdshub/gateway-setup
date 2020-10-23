@@ -1,5 +1,6 @@
 # Start w/ a standard PCDS epics environment
-source /reg/g/pcds/setup/epicsenv-cur.sh
+export SETUP_SITE_TOP=/reg/g/pcds/setup
+source $SETUP_SITE_TOP/epicsenv-cur.sh
 
 # Utility variables
 #export IP=`/sbin/ifconfig eth0 | /bin/grep 'inet addr:' | /bin/cut -d: -f2 | /bin/awk '{ print $1 }'`
@@ -151,14 +152,16 @@ export EPICS_CAS_SERVER_PORT=5064
 export EPICS_PVA_SERVER_PORT=5075
 export EPICS_PVA_BROADCAST_PORT=5076
 
-cagvardir="/reg/g/pcds/gateway/logs"
-cagcfgdir="/reg/g/pcds/gateway/config"
+GW_TOP="/reg/g/pcds/gateway"
+cagvardir="$GW_TOP/logs"
+cagcfgdir="$GW_TOP/config"
+cagscriptdir="$GW_TOP/scripts"
 cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
 procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.3.0/$EPICS_HOST_ARCH/bin/procServ"
 cagdbg=""
 
 cagstart() {
-  echo -n "Starting $1 gateway... "
+  echo -n "Starting $1 CA gateway... "
   TIME=`date +%Y_%m_%d-%T`
   mkdir -p $cagvardir/$1
   /bin/rm -f $cagvardir/$1/gateway.log
