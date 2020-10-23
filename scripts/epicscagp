@@ -172,3 +172,21 @@ cagstart() {
   $PROCSERV $cagprogram -access $cagcfgdir/pcds-access.acf -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -prefix $2 -command $cagvardir/gateway.command -putlog $cagvardir/$gwname/gateway-put.log $4 $5 $6 $7 
   echo " done"
 }
+
+PYTHON_EXE=`which python`
+pvavardir="$GW_TOP/pva-logs"
+P4P_TOP=/reg/g/pcds/epics-dev/bhill/extensions/p4p-git
+pvastart() {
+  echo "Starting $1 PVA gateway... "
+  TIME=`date +%Y_%m_%d-%T`
+  mkdir -p $pvavardir/$1
+  /bin/rm -f $pvavardir/$1/pva.log
+  /bin/rm -f $pvavardir/$1/pva-put.log
+  ln -s $pvavardir/$1/pva.log.$TIME $pvavardir/$1/pva.log
+  ln -s $pvavardir/$1/pva-put.log.$TIME $pvavardir/$1/pva-put.log
+  cd $pvavardir/$1
+  PROCSERV="$procServ --allow --ignore ^D^C --logfile $pvavardir/$1/pva.log.$TIME --name pva-$1 $3"
+  #$PROCSERV $PYTHON_EXE -m p4p.gw --logging $GW_TOP/scripts/pva-logging.yaml $pvavardir/$1/pvagw-$1.json
+  $PROCSERV $PYTHON_EXE -m p4p.gw $pvavardir/$1/pvagw-$1.json
+  echo " done"
+}

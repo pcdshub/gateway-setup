@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "disable_existing_loggers": "False",
+    "formatters": {
+        "default": {
+            "format": "%(asctime)s: %(name)s: #%(lineno)d: %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "stream_handler": {
+            "level": "DEBUG",
+            "formatter": "default",
+            "class": "logging.handlers.StreamHandler",
+            "stream": "ext://sys.stdout"
+        }
+#        ,
+#        "file_handler": {
+#            "level": "DEBUG",
+#            "class": "logging.handlers.TimedRotatingFileHandler",
+#            "formatter": "default",
+#            "filename": "pvagw.log",
+#            "when": "W2",
+#            "interval": "1",
+#            "backupCount": "8"
+#        }
+    },
+    "loggers": {
+        " ": {
+#            "handlers": ["stream_handler","file_handler"],
+            "handlers": ["stream_handler"],
+            "level": "DEBUG",
+            "propagate": "True"
+        }
+    }
+}
