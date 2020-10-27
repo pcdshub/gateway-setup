@@ -1,5 +1,6 @@
 .svn
 logs/
+pva-logs/
 *~
 *.old
 *.bak

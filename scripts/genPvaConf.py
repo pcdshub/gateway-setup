@@ -114,10 +114,10 @@ def parseArgs():
     parser = argparse.ArgumentParser( description='''This script creates a p4p configuration file for the current environment.
  ''')
     parser.add_argument( '-v', '--verbose',  action="store_true", help='show more verbose output.' )
-    parser.add_argument( '-n', '--name',     help='name of git repo.' )
-    parser.add_argument('--template', help='Template for config file')
-    parser.add_argument('--hutch', help='Hutch or subnet name.  Ex. xpp')
+    parser.add_argument( '-n', '--name',     help='PVA gateway name.' )
     parser.add_argument('--gwNum', help='Gateway host number. Ex. 3 for pscag3')
+    parser.add_argument('--hutch', help='Hutch or subnet name.  Ex. xpp')
+    parser.add_argument('--template', help='Template for config file')
     parser.add_argument('--top', default=gatewayTop, help='''Top dir for gateway.
     Subdirs should include: scripts, config
     ''')
@@ -135,7 +135,7 @@ if __name__ == '__main__':
     gwDict = {}
     gwDict['TOP']	= args.top
     gwDict['XXX']	= args.hutch.upper()
-    gwDict['xxx']	= args.hutch.lower()
+    gwDict['xxx']	= args.name.lower()
     gwDict['N']		= int(args.gwNum)
     gwDict['verbose'] = args.verbose
     gwConfig = loadConfig( args.template )
@@ -152,5 +152,5 @@ if __name__ == '__main__':
     gwConfigPath = os.path.join( gwDict['TOP'], 'pva-logs', xxx, 'pvagw-%s.json' % xxx )
     dumpConfig( gwConfig, gwDict, gwConfigPath )
 
-    print( "Done generating %s." % gwConfigPath )
+    print( "Updated %s for host pscag%d" % ( gwConfigPath, gwDict['N'] ) )
 

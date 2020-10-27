@@ -2,12 +2,12 @@
 {
     "version":1,
     "readOnly":false,
-	"statsdb":"pscag$(N)-$(xxx).sql",
+	"statsdb":"statsdb.sql",
     "clients":[
         {
             "name":"theClient",
             "provider":"pva",
-            "addrlist":"$(XXX_IF$(N)) $(XXX_BC)",
+            "addrlist":"$(XXX)_IF$(N) $(XXX)_BC",
             "autoaddrlist":false
         }
     ],
@@ -17,21 +17,21 @@
         {
             "name":"theServer",
             "clients":["theClient"],
-            /* "interface":[	','.join($(PSCAG$(N)_IFLIST) - $(XXX_IF$(N)) ) ], */
+            /* "interface":[	','.join(PSCAG$(N)_IFLIST - $(XXX)_IF$(N)) ], */
             "interface":[],
             "autoaddrlist":true,
             "access":"/reg/g/pcds/gateway/config/pcds-access.acf",
             "pvlist":"/reg/g/pcds/gateway/config/$(xxx).pvlist",
-            "statusprefix":"PVAG:XXX:"
+            "statusprefix":"PVAG:$(XXX):"
         },
         /* allow client side to access GW status PVs */
         {
-            "name":"cxi-gwstatus",
+            "name":"statusServer",
             "clients":[], /* status PVs only */
-            "interface":["$(XXX_IF$(N))"],
-            "addrlist":"$(XXX_BC)",
+            "interface":["$(XXX)_IF$(N)"],
+            "addrlist":"$(XXX)_BC",
             "autoaddrlist":false,
-            "statusprefix":"PVAG:XXX:"
+            "statusprefix":"PVAG:$(XXX):"
         }
     ]
 }

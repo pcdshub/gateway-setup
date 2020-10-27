@@ -1,0 +1,12 @@
+[Unit]
+Description=pvagw-aaa
+After=multi-user.target
+Requires=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/cds/group/pcds/gateway/scripts/pvagw-aaa.sh start
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

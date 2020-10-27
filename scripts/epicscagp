@@ -1,5 +1,5 @@
 # Start w/ a standard PCDS epics environment
-export SETUP_SITE_TOP=/reg/g/pcds/setup
+export SETUP_SITE_TOP=/cds/group/pcds/setup
 source $SETUP_SITE_TOP/epicsenv-cur.sh
 
 # Utility variables
@@ -152,12 +152,12 @@ export EPICS_CAS_SERVER_PORT=5064
 export EPICS_PVA_SERVER_PORT=5075
 export EPICS_PVA_BROADCAST_PORT=5076
 
-GW_TOP="/reg/g/pcds/gateway"
+GW_TOP="/cds/group/pcds/gateway"
 cagvardir="$GW_TOP/logs"
 cagcfgdir="$GW_TOP/config"
 cagscriptdir="$GW_TOP/scripts"
-cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
-procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.3.0/$EPICS_HOST_ARCH/bin/procServ"
+cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
+procServ="/cds/group/pcds/pkg_mgr/release/procServ/2.7.0-1.3.0/$EPICS_HOST_ARCH/bin/procServ"
 cagdbg=""
 
 cagstart() {
@@ -174,19 +174,26 @@ cagstart() {
 }
 
 PYTHON_EXE=`which python`
-pvavardir="$GW_TOP/pva-logs"
-P4P_TOP=/reg/g/pcds/epics-dev/bhill/extensions/p4p-git
-pvastart() {
-  echo "Starting $1 PVA gateway... "
-  TIME=`date +%Y_%m_%d-%T`
-  mkdir -p $pvavardir/$1
-  /bin/rm -f $pvavardir/$1/pva.log
-  /bin/rm -f $pvavardir/$1/pva-put.log
-  ln -s $pvavardir/$1/pva.log.$TIME $pvavardir/$1/pva.log
-  ln -s $pvavardir/$1/pva-put.log.$TIME $pvavardir/$1/pva-put.log
-  cd $pvavardir/$1
-  PROCSERV="$procServ --allow --ignore ^D^C --logfile $pvavardir/$1/pva.log.$TIME --name pva-$1 $3"
-  #$PROCSERV $PYTHON_EXE -m p4p.gw --logging $GW_TOP/scripts/pva-logging.yaml $pvavardir/$1/pvagw-$1.json
-  $PROCSERV $PYTHON_EXE -m p4p.gw $pvavardir/$1/pvagw-$1.json
-  echo " done"
+pvaLogsDir="$GW_TOP/pva-logs"
+P4P_TOP=/cds/group/pcds/epics/extensions/p4p/R3.5.1-1.0.0
+P4P_ARGS=""
+#P4P_ARGS="--logging $GW_TOP/scripts/pva-logging.yaml"
+
+pvaStart() {
+	echo "Starting $1 PVA gateway... "
+
+	# Configure environment for p4p.gw
+	source $P4P_TOP/pcds_setup_env.sh
+	PYTHON_EXE=`which python`
+
+	TIME=`date +%Y_%m_%d-%T`
+	mkdir -p $pvaLogsDir/$1
+	/bin/rm -f $pvaLogsDir/$1/pva.log
+	/bin/rm -f $pvaLogsDir/$1/pva-put.log
+	ln -s $pvaLogsDir/$1/pva.log.$TIME $pvaLogsDir/$1/pva.log
+	ln -s $pvaLogsDir/$1/pva-put.log.$TIME $pvaLogsDir/$1/pva-put.log
+	cd $pvaLogsDir/$1
+	PROCSERV="$procServ --allow --ignore ^D^C --logfile $pvaLogsDir/$1/pva.log.$TIME --name pva-$1 $2"
+	$PROCSERV $PYTHON_EXE -m p4p.gw $P4P_ARGS $pvaLogsDir/$1/pvagw-$1.json
+	echo " done"
 }
