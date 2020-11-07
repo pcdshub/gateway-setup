@@ -4,15 +4,15 @@
 #
 # chkconfig: - 99 1
 # description: EPICS PVA Gateway
-# processname: pvagw-tst
+# processname: pvagw-mec
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=tst
-gwprocport=40110
-export gwHostNum=4
+gwname=mec
+gwprocport=40060
+export gwHostNum=1
 
 case "$1" in
 start)
