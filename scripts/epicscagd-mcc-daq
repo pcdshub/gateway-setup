@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-mcc-daq
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=mcc-daq
+gwprefix=NET:CAG:MCC:DAQ
+gwprocport=30445
+
+export EPICS_CA_ADDR_LIST=$MCC_GW
+export EPICS_CA_SERVER_PORT=5080
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${MCC_IF4}%%"`
+
+# Add -no_cache to gwargs to disable caching in gateway
+# With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
+#gwargs="$gwargs -no_cache"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport $gwargs
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

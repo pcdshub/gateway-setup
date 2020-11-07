@@ -1,0 +1,8 @@
+EVALUATION ORDER ALLOW, DENY
+
+# mcc-daq gateway
+# Reserved for essential data acquisition PVs
+
+EM1K0:GMD:HPS:STR0:STREAM_SHORT.*	ALLOW 1
+EM2K0:XGMD:HPS:STR0:STREAM_SHORT.*	ALLOW 1
+
