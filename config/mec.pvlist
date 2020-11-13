@@ -2,6 +2,8 @@ EVALUATION ORDER ALLOW, DENY
 
 .*MEC.*	ALLOW
 
+# FiberOven access to it's EVR trigger
+EVR:MEC:REC01:TRIG6.*	ALLOW RWLAS 1
 
 MEC:USR:AIN.*	 ALLOW RWMATLAB 1
 MEC:USR:AOUT.*	 ALLOW RWMATLAB 1
@@ -10,4 +12,6 @@ MEC:LAS:XPWCTRL:UOUT:.*  ALLOW RWMATLAB 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:MEC:newAsFlag 1
 NET:CAG:MEC.*      ALLOW RWALL 1

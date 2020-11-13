@@ -2,6 +2,7 @@ EVALUATION ORDER ALLOW, DENY
 
 .*LAS.*         ALLOW
 .*UND.*         ALLOW
+ztec1.*         ALLOW
 
 NET:CAG:LAS.*   	ALLOW RWALL 1
 
@@ -76,6 +77,9 @@ LAS*_LAST_*	DENY
 # fstiming unit 0 waveforms go through different gateway
 LAS:FS0:WAVE.* DENY
 
+NET:CAG:LAS:AMO.*   	DENY
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
-NET:CAG:LAS:AMO.*   	DENY
+# To reread config file:
+#	caput NET:CAG:LAS:newAsFlag 1
+NET:CAG:LAS.*      ALLOW RWALL 1

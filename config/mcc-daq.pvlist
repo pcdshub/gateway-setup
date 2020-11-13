@@ -6,3 +6,8 @@ EVALUATION ORDER ALLOW, DENY
 EM1K0:GMD:HPS:STR0:STREAM_SHORT.*	ALLOW 1
 EM2K0:XGMD:HPS:STR0:STREAM_SHORT.*	ALLOW 1
 
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:MCC:DAQ:newAsFlag 1
+NET:CAG:MCC:DAQ.*    ALLOW RWALL 1
