@@ -62,6 +62,7 @@ LAS:FS1:bt_.* DENY
 LAS:FS2:bt_.* DENY
 LAS:FS3:.* DENY
 LAS:FS4:.* DENY
+LAS:FS11:.* DENY
 
 # All Undulator hall PV's go through a different gateway
 UND:.* DENY
