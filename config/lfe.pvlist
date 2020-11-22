@@ -64,6 +64,9 @@ XRT:R40:IOC:44:MON:MCF.*	ALLOW
 XCS:MON:PIC.*				ALLOW
 XCS:MON:PIC.*				ALLOW	RWXCS	1
 
+# ioc-xrt-hfx-mon-lodcm-ims
+XCS:LODCM:.*             ALLOW   RWXCS   1
+
 # Allow XCS to configure IPIMB PVs on ioc-xrt-xcsimb3
 HFX:DG2:IMB:01.*	ALLOW	RWXCS	1
 HFX:DG2:IMB:02.*	ALLOW	RWXCS	1
