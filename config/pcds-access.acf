@@ -1,11 +1,11 @@
-HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,ioc-mfx-misc01,ioc-mfx-vacuum,ioc-mfx-table,ioc-mfx-tfs,daq-mfx-mon01,daq-mfx-mon02,daq-mfx-mon03,daq-mfx-mon04,daq-mfx-mon05,daq-mfx-mon06,daq-mfx-pgp01}
+HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,mfx-hutch01,ioc-mfx-misc01,ioc-mfx-vacuum,ioc-mfx-table,ioc-mfx-tfs,daq-mfx-mon01,daq-mfx-mon02,daq-mfx-mon03,daq-mfx-mon04,daq-mfx-mon05,daq-mfx-mon06,daq-mfx-pgp01}
 # HAG(sxrhosts) {sxr-daq,sxr-control,sxr-monitor,sxr-console,sxr-laptop,sxr-laptop02}
-HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console}
-HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01}
+HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console,ctl-tmo-misc-01}
+HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01,ioc-xpp-usr01}
 HAG(xcshosts) {xcs-daq,xcs-control,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04,daq-xcs-pgp01}
 HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,daq-cxi-mon01,daq-cxi-mon02,daq-cxi-mon03,daq-cxi-mon04,daq-cxi-mon05,daq-cxi-mon06,daq-cxi-mon07,daq-cxi-mon08,daq-cxi-mon09,daq-cxi-mon10,daq-cxi-mon11,daq-cxi-mon12,daq-cxi-mon13,cxi-laptop1,ioc-cxi-usr1,daq-cxi-usrcam01,daq-cxi-usrcam02}
-HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01}
-HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1}
+HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laser,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01}
+HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1,ctl-tmo-misc-01}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv02,ioc-las-srv03,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-xcs-srv04}
 HAG(kfehosts) {kfe-console}
 HAG(lfehosts) {lfe-console}
