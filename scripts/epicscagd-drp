@@ -17,7 +17,7 @@ gwprefix=NET:CAG:DRP
 gwprocport=30180
 
 export EPICS_CA_ADDR_LIST=$DRP_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${DRP_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${DRP_IF3}%%"`
 
 case "$1" in
 start)
