@@ -62,7 +62,10 @@ LAS:FS1:bt_.* DENY
 LAS:FS2:bt_.* DENY
 LAS:FS3:.* DENY
 LAS:FS4:.* DENY
-LAS:FS11:.* DENY
+
+# Laser hall bays R/W Access
+LAS:FS11:.* ALLOW RWXPP 1
+LAS:FS14:.* ALLOW RWTMO 1
 
 # All Undulator hall PV's go through a different gateway
 UND:.* DENY

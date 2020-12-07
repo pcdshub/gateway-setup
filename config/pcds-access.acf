@@ -47,6 +47,13 @@ ASG(RWMFX) {
     }
 }
 
+ASG(RWTMO) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE){
+      HAG(tmohosts)
+    }
+}
+
 ASG(RWSXR) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
