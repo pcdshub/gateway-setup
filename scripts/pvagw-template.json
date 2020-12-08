@@ -7,7 +7,7 @@
         {
             "name":"theClient",
             "provider":"pva",
-            "addrlist":"$(XXX)_IF$(N) $(XXX)_BC",
+            "addrlist":"$(SUBNET)_IF$(N) $(SUBNET)_BC",
             "autoaddrlist":false
         }
     ],
@@ -17,7 +17,7 @@
         {
             "name":"theServer",
             "clients":["theClient"],
-            /* "interface":[	','.join(PSCAG$(N)_IFLIST - $(XXX)_IF$(N)) ], */
+            /* "interface":[	','.join(PSCAG$(N)_IFLIST - $(SUBNET)_IF$(N)) ], */
             "interface":[],
             "autoaddrlist":true,
             "access":"/reg/g/pcds/gateway/config/pcds-access.acf",
@@ -28,8 +28,8 @@
         {
             "name":"statusServer",
             "clients":[], /* status PVs only */
-            "interface":["$(XXX)_IF$(N)"],
-            "addrlist":"$(XXX)_BC",
+            "interface":["$(SUBNET)_IF$(N)"],
+            "addrlist":"$(SUBNET)_BC",
             "autoaddrlist":false,
             "statusprefix":"PVAG:$(XXX):"
         }

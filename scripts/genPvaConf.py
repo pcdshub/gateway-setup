@@ -75,9 +75,10 @@ def getEnv( envVarName, verbose=False ):
 
 def updateConfig( gwConfig, gwDict ):
     verbose	= gwDict['verbose']
+    SUBNET	= gwDict['SUBNET']
     XXX		= gwDict['XXX']
-    gwIntf	= getEnv( "%s_IF%d" % (XXX, gwDict['N']), verbose=verbose )
-    gwBcast	= getEnv( "%s_BC" % (XXX), verbose=verbose )
+    gwIntf	= getEnv( "%s_IF%d" % (SUBNET, gwDict['N']), verbose=verbose )
+    gwBcast	= getEnv( "%s_BC" % (SUBNET), verbose=verbose )
     gwHostIntfList = getEnv( "PSCAG%d_IFLIST" % gwDict['N'], verbose=verbose ).split()
     gwIntfList = [ intf for intf in gwHostIntfList if intf != gwIntf ]
 
@@ -143,7 +144,8 @@ if __name__ == '__main__':
 
     gwDict = {}
     gwDict['TOP']	= args.top
-    gwDict['XXX']	= args.hutch.upper()
+    gwDict['SUBNET']= args.hutch.upper()
+    gwDict['XXX']	= re.sub(r'[-]', ':', args.name.upper())
     gwDict['xxx']	= args.name.lower()
     gwDict['N']		= int(args.gwNum)
     gwDict['verbose'] = args.verbose
