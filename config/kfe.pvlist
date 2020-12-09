@@ -9,6 +9,9 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][0-9]K[01234]:.* ALLOW
 [A-Z][A-Z][A-Z]:KFE:.*     ALLOW
 
+# Some RIX devices temporarily on KFE subnet
+[A-Z][A-Z][A-Z]:RIX:.*     ALLOW
+
 # Deny KFE camera images
 [A-Z][A-Z][0-9]K[01234]:.*:ArrayData.* DENY
 [A-Z][A-Z][A-Z]:KFE:.*:ArrayData.*     DENY
