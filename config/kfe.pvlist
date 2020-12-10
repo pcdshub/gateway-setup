@@ -26,6 +26,9 @@ RTDSK0:.*                  ALLOW
 PCPM3B:.*                  ALLOW
 PMPS.*                     ALLOW
 
+# Special case - ioc-archstats runs here
+ARCH:.*                    ALLOW
+
 # Allow read only access to KFE:.*
 KFE:.*	        ALLOW
 # Allow R/W access for INSTR to KFE:.*
