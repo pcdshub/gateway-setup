@@ -5,7 +5,7 @@ UND:R04:IOC:01:WF.* ALLOW
 UND:R02:IOC:16:dig1:WAV.* ALLOW
 
 # Allow fast history PVs
-*LAS*_LAST_*	ALLOW
+.*LAS*_LAST_*	ALLOW
 
 # General read Access
 UND:R01:.* ALLOW
