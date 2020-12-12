@@ -8,7 +8,7 @@
 
 # Source function library.
 . /etc/init.d/functions
-. /etc/init.d/epicscagp
+. /cds/group/pcds/gateway/scripts/epicscagp
 
 gwname=tst
 gwprocport=40110
