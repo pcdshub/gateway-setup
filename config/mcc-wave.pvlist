@@ -23,7 +23,7 @@ OTRS:DMPH:695:RAW:ArrayData.*	DENY FROM ioc-und-rec01
 OTRS:DMPH:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
 OTRS:DMPH:695:RAW:ArraySize.*	DENY FROM ioc-und-rec01
 OTRS:DMPH:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:CAMERA.IRAW DENY from ioc-und-rec01
+OTRS:DMPH:695:CAMERA.IRAW DENY FROM ioc-und-rec01
 OTRS:DMPH:695:MinX_RBV.*		DENY FROM ioc-und-rec01
 OTRS:DMPH:695:MinY_RBV.*		DENY FROM ioc-und-rec01
 OTRS:DMPH:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
