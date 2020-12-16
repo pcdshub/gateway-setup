@@ -29,6 +29,11 @@ PMPS.*                     ALLOW
 # Special case - ioc-archstats runs here
 ARCH:.*                    ALLOW
 
+# Special case - vacuum system overrides, etc
+PLC:KFE:VAC:.*		ALLOW RWINSTRMCC 1
+RIX:FEE:VAC:.*		ALLOW RWINSTRMCC 1
+RIX:HUT:VAC:.*		ALLOW RWINSTRMCC 1
+
 # Allow read only access to KFE:.*
 KFE:.*	        ALLOW
 # Allow R/W access for INSTR to KFE:.*
