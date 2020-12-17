@@ -55,6 +55,7 @@ SXR:.*   DENY
 TST:.*   DENY
 XCS:.*   DENY
 XPP:.*   DENY
+[A-Z][A-Z][0-9][KL][01234]:.* DENY
 
 # DENY these PVs when using B34 Dev EVG
 #ECS:SYS0:.*  DENY
