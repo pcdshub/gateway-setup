@@ -84,6 +84,9 @@ ST1K4:.*		ALLOW RWINSTRMCC 1
 
 .*FFO.*		ALLOW RWINSTRMCC 1
 
+# Deny RIX PVs w/ same naming convention as kfe
+SL1K2:EXIT:CAM:.*   DENY
+
 # Allow write access to PMPS Configuration Params from SX control rooms:
 PMPS:KFE:BeamParamCntl.*	ALLOW RWSXR 1
 
