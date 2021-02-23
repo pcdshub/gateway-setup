@@ -55,7 +55,22 @@ SXR:.*   DENY
 TST:.*   DENY
 XCS:.*   DENY
 XPP:.*   DENY
-[A-Z][A-Z][0-9][KL][01234]:.* DENY
+
+# These DENY patterns are needed to allow GMD
+# and XGMD PVs on accelerator IOC's
+# sioc-fees-gd01 and sioc-fees-gd02 to pass
+# yet block other K and L beamline PVs in PCDS subnets.
+# Specifically, we need to not deny these patterns
+# EM1K0:GMD:.*
+# EM2K0:XGMD:.*
+# Test PVs:
+# EM1K0:GMD:HPS:milliJoulesPerPulse
+# EM2K0:XGMD:HPS:milliJoulesPerPulse
+# TODO: Test these when TMO isn't operating
+#[A-Z][A-Z][0-9][KL][01234]:[^GX].* DENY
+#[A-Z][A-Z][0-9][KL][01234]:X[^G].* DENY
+#[A-Z][A-Z][0-9][KL][01234]:G[^M].* DENY
+#[A-Z][A-Z][0-9][KL][01234]:GM[^D].* DENY
 
 # DENY these PVs when using B34 Dev EVG
 #ECS:SYS0:.*  DENY
