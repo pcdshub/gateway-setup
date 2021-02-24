@@ -1,6 +1,8 @@
 #!/bin/sh
 #
 # Create systemd service files in /usr/lib/systemd/system for all epics gateways
+# Supports both CA and PVA gateways
+# Individual gateways must be enabled and started manually
 # 
 
 if [ ! -d /usr/lib/systemd/system ]; then
@@ -37,22 +39,26 @@ do
 done
 
 echo -e
-echo All epics gateway systemd service files are installed.
+echo All epics gateway systemd service files have been installed.
+echo If new gateways are added, you can run this script again.
 echo -e
-echo Be sure a gateway is configured for the correct host before enabling via
-echo % sudo systemctl enable epicscagd-amo
-echo  or starting via 
-echo % sudo systemctl start epicscagd-sxr
-echo -e
-echo grep for IF in $GW_TOP/scripts/epicscagd-xxx before starting it
+echo Check the appropriate launch script before starting it
 echo to make sure its configured for that gateway host.
-echo This example is configured for pscag3
-echo % grep IF $GW_TOP/scripts/epicscagd-fee-kmono
+echo CA:  grep _IFLIST    $GW_TOP/scripts/epicscagd-xxx
+echo PVA: grep gwHostNum= $GW_TOP/scripts/pvagw-xxx.sh
+echo -e
+echo This example CA script for fee-mono is configured for pscag3
+echo % grep _IFLIST $GW_TOP/scripts/epicscagd-fee-kmono
 echo export EPICS_CAS_INTF_ADDR_LIST= echo \$PSCAG3_IFLIST \\\| sed -e  s%\${KFE_IF3}%%
 echo -e
+echo For EPICS CA Gateways:
+echo % sudo systemctl enable epicscagd-tmo
+echo % sudo systemctl start  epicscagd-tmo
+echo -e
 echo For EPICS PVA Gateways:
-echo grep for gwHostNum= in $GW_TOP/scripts/pvagw--xxx before starting it.
-echo to make sure its configured for that gateway host.
 echo % sudo systemctl enable pvagw-kfe
-echo  or starting via 
-echo % sudo systemctl start pvagw-kfe
+echo % sudo systemctl start  pvagw-kfe
+echo -e
+echo After starting each gateway, check for errors in the gateway log files.
+echo '/cds/group/pcds/gateway/logs/xxx/gateway.log'
+echo '/cds/group/pcds/gateway/pva-logs/xxx/pva.log'
