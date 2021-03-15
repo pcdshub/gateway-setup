@@ -45,6 +45,9 @@ MR5K4:.*		ALLOW RWINSTR 1
 # Timetool access for DRP
 TMO:TIMETOOL:.*	ALLOW RWDRP 1
 
+# FIM Wave8 access for DRP
+MR2K4:FIM:W8:.* ALLOW RWDRP 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 # To reread config file:
