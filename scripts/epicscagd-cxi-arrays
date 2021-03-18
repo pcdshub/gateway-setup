@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-cxi-arrays
+#
+# Starts the EPICS CAG gateway
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-cxi-arrays
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=cxi-arrays
+gwprefix=NET:CAG:CXI:ARRAYS
+gwprocport=30051
+
+export EPICS_CA_ADDR_LIST=$CXI_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${CXI_IF02}%%"`
+
+# Add -no_cache to gwargs to disable caching in gateway
+# With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
+gwargs="$gwargs -no_cache"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport $gwargs
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?
