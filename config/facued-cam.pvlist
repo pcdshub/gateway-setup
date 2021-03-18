@@ -1,0 +1,7 @@
+EVALUATION ORDER DENY, ALLOW
+# To reread config file:
+#       caput NET:CAG:FACUED:CAM:newAsFlag 1
+
+.* DENY
+
+.*:ArrayData   ALLOW RWALL 1

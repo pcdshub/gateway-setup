@@ -1,0 +1,7 @@
+EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#       caput NET:CAG:UEDFAC:newAsFlag 1
+
+.* ALLOW RWALL 1
+
+.*:ArrayData   DENY

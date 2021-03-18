@@ -1,0 +1,5 @@
+EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#       caput NET:CAG:UED:newAsFlag 1
+
+.* ALLOW
