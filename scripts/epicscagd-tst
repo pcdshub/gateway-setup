@@ -14,10 +14,10 @@
 
 gwname=tst
 gwprefix=NET:CAG:TST
-gwprocport=30110
+gwprocport=30610
 
 export EPICS_CA_ADDR_LIST=$TST_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${TST_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${TST_IF06}%%"`
 #cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
 
 # Add -no_cache to gwargs to disable caching in gateway

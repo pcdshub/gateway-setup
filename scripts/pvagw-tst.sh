@@ -11,8 +11,8 @@
 . /cds/group/pcds/gateway/scripts/epicscagp
 
 gwname=tst
-gwprocport=40110
-export gwHostNum=4
+gwprocport=40610
+export gwHostNum=06
 
 case "$1" in
 start)
