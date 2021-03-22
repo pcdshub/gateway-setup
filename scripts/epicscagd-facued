@@ -18,6 +18,7 @@ gwprocport=30202
 
 export EPICS_CA_ADDR_LIST=$FAC_BC
 export EPICS_CAS_INTF_ADDR_LIST=$PSCAGUED_UEDIF
+export EPICS_CAS_IGNORE_ADDR_LIST="$PSCAGUED_FACIF $PSCAGUED_UEDIF"
 #export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in

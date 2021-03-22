@@ -17,7 +17,7 @@ gwprefix=NET:CAG:KFE:CAM
 gwprocport=30024
 
 export EPICS_CA_ADDR_LIST=$KFE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG4_IFLIST | sed -e "s%${KFE_IF4}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${KFE_IF04}%%"`
 
 case "$1" in
 start)

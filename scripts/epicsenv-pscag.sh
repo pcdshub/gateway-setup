@@ -7,7 +7,7 @@
 # Source gateway port and interface definitions
 . /reg/g/pcds/gateway/scripts/epicscagp
 export EPICS_CA_AUTO_ADDR_LIST=NO
-export EPICS_CA_ADDR_LIST="$DEV_IF1 $DEV_IF2 $DEV_IF3 $DEV_IF4 $MCC_GW:5080"
+export EPICS_CA_ADDR_LIST="$DEV_IF1 $DEV_IF2 $DEV_IF3 $DEV_IF4 $DEV_IF01 $DEV_IF02 $DEV_IF03 $DEV_IF04 $DEV_IF05 $DEV_IF06 $MCC_GW:5080"
 #export EPICS_CA_AUTO_ADDR_LIST=YES
 #export EPICS_CA_ADDR_LIST="$MCC_GW:5080"
 

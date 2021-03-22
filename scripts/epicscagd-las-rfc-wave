@@ -13,7 +13,7 @@ gwprefix=NET:CAG:LAS:RFC:WAVE
 gwprocport=30098
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG3_IFLIST | sed -e "s%${LAS_IF3}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG03_IFLIST | sed -e "s%${LAS_IF03}%%"`
 
 case "$1" in
 start)
