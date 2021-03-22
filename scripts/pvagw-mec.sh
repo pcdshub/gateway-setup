@@ -12,7 +12,7 @@
 
 gwname=mec
 gwprocport=40060
-export gwHostNum=1
+export gwHostNum=01
 
 case "$1" in
 start)

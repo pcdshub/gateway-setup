@@ -12,7 +12,7 @@
 
 gwname=det
 gwprocport=40074
-export gwHostNum=2
+export gwHostNum=02
 
 case "$1" in
 start)

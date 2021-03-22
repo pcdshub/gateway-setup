@@ -12,7 +12,7 @@
 
 gwname=las-rfc-wave
 gwprocport=40098
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

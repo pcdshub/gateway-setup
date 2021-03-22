@@ -12,7 +12,7 @@
 
 gwname=xcs
 gwprocport=40040
-export gwHostNum=4
+export gwHostNum=04
 
 case "$1" in
 start)

@@ -12,7 +12,7 @@
 
 gwname=xpp
 gwprocport=40030
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

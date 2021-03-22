@@ -12,7 +12,7 @@
 
 gwname=rix
 gwprocport=40082
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

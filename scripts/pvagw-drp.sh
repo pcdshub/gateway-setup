@@ -12,7 +12,7 @@
 
 gwname=drp
 gwprocport=40180
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

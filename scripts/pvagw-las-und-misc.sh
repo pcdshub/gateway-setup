@@ -12,7 +12,7 @@
 
 gwname=las-und-misc
 gwprocport=40099
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

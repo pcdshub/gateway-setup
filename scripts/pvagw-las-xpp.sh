@@ -12,7 +12,7 @@
 
 gwname=las-xpp
 gwprocport=40093
-export gwHostNum=1
+export gwHostNum=01
 
 case "$1" in
 start)

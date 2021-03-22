@@ -12,7 +12,7 @@
 
 gwname=tmo
 gwprocport=40079
-export gwHostNum=3
+export gwHostNum=03
 
 case "$1" in
 start)

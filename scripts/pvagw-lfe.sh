@@ -12,7 +12,7 @@
 
 gwname=lfe
 gwprocport=40070
-export gwHostNum=2
+export gwHostNum=02
 
 case "$1" in
 start)

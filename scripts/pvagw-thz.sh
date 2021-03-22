@@ -12,7 +12,7 @@
 
 gwname=thz
 gwprocport=40080
-export gwHostNum=1
+export gwHostNum=01
 
 case "$1" in
 start)
