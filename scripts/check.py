@@ -310,6 +310,13 @@ def run_match(
 
 
 def main(lint=False, pvlists=None, names=None, hide_context=False, remove_any=False):
+    if not names and not lint:
+        print("Nothing to do; did you mean to --lint or forget PV names?",
+              file=sys.stderr)
+        print(file=sys.stderr)
+        _main(["--help"])
+        return
+
     pvlists = load_pvlists(pvlists)
     if lint:
         run_lint(pvlists, show_context=not hide_context)
@@ -329,7 +336,11 @@ def main(lint=False, pvlists=None, names=None, hide_context=False, remove_any=Fa
         )
 
 
-if __name__ == "__main__":
+def _main(args=None):
     parser = create_arg_parser()
-    args = parser.parse_args()
+    args = parser.parse_args(args or sys.argv[1:])
     main(**vars(args))
+
+
+if __name__ == "__main__":
+    _main()
