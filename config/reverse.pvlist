@@ -1,0 +1,18 @@
+EVALUATION ORDER ALLOW, DENY
+
+NET:CAG:CXI:.* ALLOW  RWCXI
+NET:CAG:DET:.* ALLOW  RWDET
+NET:CAG:DRP:.* ALLOW  RWDRP
+NET:CAG:KFE:.* ALLOW  RWKFE
+NET:CAG:LAS:.* ALLOW  RWLAS
+NET:CAG:LFE:.* ALLOW  RWLFE
+NET:CAG:MEC:.* ALLOW  RWMEC
+NET:CAG:MFX:.* ALLOW  RWMFX
+NET:CAG:TMO:.* ALLOW  RWTMO
+NET:CAG:XCS:.* ALLOW  RWXCS
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:REVERSE.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:REVERSE:newAsFlag 1
