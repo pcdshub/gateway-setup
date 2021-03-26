@@ -3,7 +3,7 @@ EVALUATION ORDER ALLOW, DENY
 ###########################################################
 # LCLS-II Naming convention patterns
 
-# Allow K0 devices w/ naming conventions
+# Allow K beamline devices w/ naming conventions
 # starting w/ 2 char device code and device number,
 # followed by K0, K1, K2, ...
 [A-Z][A-Z][0-9]K[01234]:.* ALLOW
@@ -33,6 +33,10 @@ ARCH:.*                    ALLOW
 PLC:KFE:VAC:.*		ALLOW RWINSTRMCC 1
 RIX:FEE:VAC:.*		ALLOW RWINSTRMCC 1
 RIX:HUT:VAC:.*		ALLOW RWINSTRMCC 1
+
+# PMPS FFO/Arbiter Permissions
+PLC:KFE:.*		ALLOW RWINSTRMCC 1
+PLC:RIX:.*		ALLOW RWINSTRMCC 1
 
 # Allow read only access to KFE:.*
 KFE:.*	        ALLOW
