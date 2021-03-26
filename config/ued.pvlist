@@ -1,5 +1,6 @@
-EVALUATION ORDER ALLOW, DENY
+EVALUATION ORDER DENY, ALLOW
 # To reread config file:
 #       caput NET:CAG:UED:newAsFlag 1
 
-.* ALLOW
+.* ALLOW RDARCH 1
+.* DENY
