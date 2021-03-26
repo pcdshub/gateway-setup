@@ -4,7 +4,8 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow gas detector PVs
 DIAG:FEE1:.*          ALLOW
-GDET:FEE1:.*          ALLOW
+# WIP 3/19/2021 zlentz: Temporarily DENY to move to lfe-gdet for load balancing
+GDET:FEE1:.*          DENY
 IOC:FEE:GASDET:DAQ:.* ALLOW
 EVR:FEE:GASDET:DAQ:.* ALLOW
 
