@@ -2,6 +2,7 @@
 import argparse
 import dataclasses
 import glob
+import io
 import pathlib
 import re
 import sys
@@ -134,7 +135,7 @@ class PVList:
 def create_arg_parser():
     """Create the argument parser."""
     parser = argparse.ArgumentParser(
-        description="",
+        description="pvlist name matching and linting tool",
     )
     parser.add_argument("--lint", action="store_true", help="Lint regular expressions")
     parser.add_argument(
@@ -220,51 +221,114 @@ def print_match(
         ctx = ""
 
     print(
-        f"{ident}:{expr.lineno}: {expr.expr!r} {' '.join(expr.details)}{ctx}",
-        file=file
+        f"{ident}:{expr.lineno}: {expr.expr!r} {' '.join(expr.details)}{ctx}", file=file
     )
     if isinstance(expr, BadExpression):
         print(
-            f"{ident}:{expr.lineno}: {expr.expr!r}: ERROR: {expr.exception}",
-            file=file
+            f"{ident}:{expr.lineno}: {expr.expr!r}: ERROR: {expr.exception}", file=file
         )
 
 
-def run_match(
+def run_match_and_aggregate(
     pvlists: List[PVList],
     names: List[str],
     show_context: bool = True,
     remove_any: bool = False,
 ):
     """
-    Match ``names`` against all PVLists.
+    Match ``names`` against all PVLists, and aggregate by matching rule sets.
 
     Parameters
     ----------
     pvlists : List[PVList]
         The list of PVLists.
-    names : List[str]
-        List of names to match.
+    name : List[str]
+        PV name to match.
+    show_context : bool
+        Show comment context of the matching line.
+    remove_any : bool
+        Remove catch-all '.*' from lines.
+    """
+    by_name = {}
+    for name in names:
+        with io.StringIO() as fp:
+            for pvlist in pvlists:
+                for context, expr in pvlist.match(name):
+                    if expr.expr == ".*" and remove_any:
+                        continue
+
+                    print_match(
+                        pvlist, context, expr, show_context=show_context,
+                        file=fp
+                    )
+
+            by_name[name] = fp.getvalue() or "No matches"
+
+    by_rule = {}
+    for name, rules in by_name.items():
+        if rules not in by_rule:
+            by_rule[rules] = set()
+        by_rule[rules].add(name)
+
+    for rule, names in by_rule.items():
+        print("-" * max(len(line) for line in rule.splitlines()))
+        print(rule.strip())
+        print("-" * max(len(line) for line in rule.splitlines()))
+        for name in sorted(names):
+            print(name)
+        print()
+
+    return by_rule
+
+
+def run_match(
+    pvlists: List[PVList],
+    name: str,
+    show_context: bool = True,
+    remove_any: bool = False,
+):
+    """
+    Match ``name`` against all PVLists.
+
+    Parameters
+    ----------
+    pvlists : List[PVList]
+        The list of PVLists.
+    name : List[str]
+        PV name to match.
     show_context : bool
         Show comment context of the matching line.
     remove_any : bool
         Remove catch-all '.*' from lines.
     """
     for pvlist in pvlists:
-        for name in names:
-            for context, expr in pvlist.match(name):
-                if expr.expr == ".*" and remove_any:
-                    continue
+        for context, expr in pvlist.match(name):
+            if expr.expr == ".*" and remove_any:
+                continue
 
-                print_match(pvlist, context, expr, show_context=show_context)
+            print_match(pvlist, context, expr, show_context=show_context)
 
 
 def main(lint=False, pvlists=None, names=None, hide_context=False, remove_any=False):
+    if not names and not lint:
+        print("Nothing to do; did you mean to --lint or forget PV names?",
+              file=sys.stderr)
+        print(file=sys.stderr)
+        _main(["--help"])
+        return
+
     pvlists = load_pvlists(pvlists)
     if lint:
         run_lint(pvlists, show_context=not hide_context)
     if names:
-        return run_match(
+        if len(names) == 1:
+            return run_match(
+                pvlists=pvlists,
+                name=names[0],
+                show_context=not hide_context,
+                remove_any=remove_any,
+            )
+        return run_match_and_aggregate(
             pvlists=pvlists,
             names=names,
             show_context=not hide_context,
@@ -272,7 +336,11 @@ def main(lint=False, pvlists=None, names=None, hide_context=False, remove_any=Fa
         )
 
 
-if __name__ == "__main__":
+def _main(args=None):
     parser = create_arg_parser()
-    args = parser.parse_args()
+    args = parser.parse_args(args or sys.argv[1:])
     main(**vars(args))
+
+
+if __name__ == "__main__":
+    _main()
