@@ -1,0 +1,13 @@
+EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#	caput NET:CAG:LFE:GDET:ARRAYS1:newAsFlag 1
+
+# Allow only Gas Detector BeamRate BSA PVs
+# for detector numbers ending in 1 or 2
+GDET:FEE1:[0-9][12]:.*HST*    ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LFE:GDET:ARRAYS1.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:LFE:GDET:ARRAYS1:newAsFlag 1

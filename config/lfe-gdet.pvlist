@@ -2,11 +2,11 @@ EVALUATION ORDER ALLOW, DENY
 # To reread config file:
 #	caput NET:CAG:LFE:GDET:newAsFlag 1
 
-# Allow only Gas Detector BeamRate BSA PVs
-GDET:FEE1:.*HSTBR     ALLOW
-
-# WIP 3/19/2021 zlentz: Temporarily ALLOW RWINSTRMCC to move from lfe-cam for load balancing
+# Allow all gas detector PVs
 GDET:FEE1:.*          ALLOW RWINSTRMCC 1
+
+# except arrays
+GDET:FEE1:.*HST*     DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
