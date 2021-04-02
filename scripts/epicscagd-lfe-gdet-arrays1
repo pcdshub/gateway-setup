@@ -2,23 +2,22 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-lfe-gdet
+# processname: epicscagd-lfe-gdet-arrays1
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=lfe-gdet
-gwprefix=NET:CAG:LFE:GDET
-gwprocport=30075
-export gwHostNum=03
+gwname=lfe-gdet-arrays1
+gwprefix=NET:CAG:LFE:GDET:ARRAYS1
+gwprocport=30073
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG03_IFLIST | sed -e "s%${LFE_IF03}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`
 
 # Add -no_cache to gwargs to disable caching in gateway
 # With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
-#gwargs="$gwargs -no_cache"
+gwargs="$gwargs -no_cache"
 
 case "$1" in
 start)
