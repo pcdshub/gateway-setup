@@ -1,6 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
 LAS:FS1:VIT:.*  	   ALLOW
+.*LM1K4.*		   ALLOW
 
 # AMO R/W Access
 LAS:R51:.* ALLOW RWAMO 1
@@ -36,6 +37,7 @@ LM1K4:EJX_MP2_LS3_LM2.*       ALLOW RWTMO 1
 LM1K4:EJX_MP2_LS3_LM3.*       ALLOW RWTMO 1
 LM1K4:EJX_MP2_ATT1_POL1.*     ALLOW RWTMO 1
 LM1K4:EJX_MP2_ATT1_POL2.*     ALLOW RWTMO 1
+LM1K4:INT_MP1_DLY1.*          ALLOW RWTMO 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

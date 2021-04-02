@@ -7,7 +7,8 @@ LAS:R54:.* ALLOW RWXPP 1
 
 # All instruments R/W Access
 LAS:FS3:.* ALLOW RWINSTR 1
-LAS:FS11:.* ALLOW RWINSTR 1
+#this is set in las.pvlist
+#LAS:FS11:.* ALLOW RWINSTR 1
 
 
 # Keep this as the last pattern please
