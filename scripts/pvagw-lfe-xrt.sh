@@ -4,15 +4,15 @@
 #
 # chkconfig: - 99 1
 # description: EPICS PVA Gateway
-# processname: pvagw-lfe-cam
+# processname: pvagw-lfe-xrt
 
 # Source function library.
 . /etc/init.d/functions
 . /cds/group/pcds/gateway/scripts/epicscagp
 
-gwname=lfe-cam
-gwprocport=40071
-export gwHostNum=04
+gwname=lfe-xrt
+gwprocport=40301
+export gwHostNum=06
 
 case "$1" in
 start)

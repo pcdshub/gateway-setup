@@ -2,18 +2,18 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-lfe-cam
+# processname: epicscagd-lfe-xrt-cam
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=lfe-cam
-gwprefix=NET:CAG:LFE:CAM
-gwprocport=30071
+gwname=lfe-xrt-cam
+gwprefix=NET:CAG:LFE:XRT:CAM
+gwprocport=30302
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${LFE_IF04}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`
 
 #cagdbg="-debug 5"
 

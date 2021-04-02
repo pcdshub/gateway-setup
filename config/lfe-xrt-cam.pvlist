@@ -1,0 +1,21 @@
+EVALUATION ORDER ALLOW, DENY
+# To reread config file:
+#	caput NET:CAG:LFE:XRT:CAM:newAsFlag 1
+
+# Allow XRT camera arrays
+XRT:DIA:CVV:01:.*:ArrayData     ALLOW
+HXX:UM6:CVV:01:.*:ArrayData     ALLOW
+HXX:HXM:CVV:01:.*:ArrayData     ALLOW
+HFX:MON:CVV:01:.*:ArrayData     ALLOW
+HFX:DG2:CVV:01:.*:ArrayData     ALLOW
+HFX:DG3:CVV:01:.*:ArrayData     ALLOW
+
+# Allow FEH cameras read-only to the world
+XCS:DG3:CVV:02:.*:ArrayData     ALLOW
+MEC:HXM:CVV:01:.*:ArrayData     ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:LFE:XRT:CAM.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:LFE:CAM:newAsFlag 1
