@@ -16,6 +16,11 @@ TMO:.*	        ALLOW
 LAMP:.*		ALLOW
 KTOF:.*		ALLOW
 PLC:.*		ALLOW
+VLS:.*		ALLOW
+LAMP:.*		ALLOW
+CVMI:.*		ALLOW
+PDU:TMO:*   ALLOW
+
 
 # Allow R/W access for INSTR to TMO:.*
 TMO:.*	        ALLOW RWINSTR 1
