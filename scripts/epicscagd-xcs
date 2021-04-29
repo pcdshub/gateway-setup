@@ -17,7 +17,7 @@ gwprefix=NET:CAG:XCS
 gwprocport=30040
 
 export EPICS_CA_ADDR_LIST=$XCS_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${XCS_IF04}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${XCS_IF06}%%"`
 
 case "$1" in
 start)
