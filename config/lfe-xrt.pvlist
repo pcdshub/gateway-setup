@@ -2,6 +2,14 @@ EVALUATION ORDER ALLOW, DENY
 # To reread config file:
 #	caput NET:CAG:LFE:XRT:newAsFlag 1
 
+
+# Allow L2, L3 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by L2 and L3.
+[A-Z][A-Z][0-9]L[23]:.*		ALLOW
+[A-Z][A-Z][0-9]L[23]:.*		ALLOW RWHXRMCC 1
+
+
 # Allow R/W access for INSTR to HFX:.*
 HFX:.*	        ALLOW RWINSTR 1
 
@@ -47,6 +55,13 @@ XCS:DG3:IMB:03.*	ALLOW	RWXCS	1
 XCS:DG3:IMB:04.*	ALLOW	RWXCS	1
 XCS:R38:EVR:43.*	ALLOW	RWXCS	1
 XCS:R38:IOC:43.*	ALLOW	RWXCS	1
+
+# XCS XRT Vac
+XCS:DG3:PIP.*		ALLOW
+XCS:MON:PIP.*		ALLOW
+XCS:SB1:PIP.*		ALLOW
+XCS:SND:PIP.*		ALLOW
+XCS:STP:PIP.*		ALLOW
 
 CXI:R48:.* ALLOW
 .*HF4.* ALLOW
@@ -115,6 +130,9 @@ HFX:DG3:CVV:01:.*:ArrayData     DENY
 # Deny FEH camera arrays, see lfe-cam gateway
 XCS:DG3:CVV:02:.*:ArrayData     DENY
 MEC:HXM:CVV:01:.*:ArrayData     DENY
+
+# Deny FFO, leave those to the LFE gateway
+.*FFO.*				DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
