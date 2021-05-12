@@ -3,6 +3,8 @@ EVALUATION ORDER ALLOW, DENY
 .*LAS.*         ALLOW
 .*UND.*         ALLOW
 ztec1.*         ALLOW
+LTLHN.*         ALLOW
+LXLHN.*         ALLOW
 
 NET:CAG:LAS.*   	ALLOW RWALL 1
 
@@ -72,7 +74,7 @@ LAS:LHN:ADC:01:.* ALLOW RWXPP 1
 LAS:LHN:ADC:04:.* ALLOW RWSXR 1
 
 # Laser hall shutters R/W Access
-LTLHN:LS.* ALLOW RWINSTR 1
+LTLHN.*LST.* ALLOW RWINSTR 1
 
 # All Undulator hall PV's go through a different gateway
 UND:.* DENY
