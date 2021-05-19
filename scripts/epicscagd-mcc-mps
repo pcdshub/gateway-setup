@@ -14,7 +14,7 @@ gwprocport=30444
 
 export EPICS_CA_ADDR_LIST=$MCC_GW
 export EPICS_CA_SERVER_PORT=5080
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${MCC_IF04}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${MCC_IF06}%%"`
 
 case "$1" in
 start)
