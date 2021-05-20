@@ -13,7 +13,7 @@ gwprefix=NET:CAG:LFE:GDET:ARRAYS2
 gwprocport=30072
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${LFE_IF04}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`
 
 # Add -no_cache to gwargs to disable caching in gateway
 # With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.

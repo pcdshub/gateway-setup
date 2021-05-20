@@ -12,7 +12,7 @@
 
 gwname=lfe-gdet-arrays2
 gwprocport=40072
-export gwHostNum=04
+export gwHostNum=06
 
 case "$1" in
 start)
