@@ -12,7 +12,7 @@
 
 gwname=lfe-cam
 gwprocport=40071
-export gwHostNum=04
+export gwHostNum=02
 
 case "$1" in
 start)
