@@ -9,6 +9,11 @@ if [ ! -d /usr/lib/systemd/system ]; then
 	echo "This host is not systemd compatible."
 	exit -1
 fi
+if [ $UID != 0 ]; then
+	echo Please run this script as root via sudo.
+	exit 1
+fi
+
 export GW_TOP=/reg/g/pcds/gateway
 if [ ! -e /etc/init.d/epicscagp ]; then
 	echo ln -s /reg/g/pcds/gateway/scripts/epicscagp /etc/init.d/epicscagp
