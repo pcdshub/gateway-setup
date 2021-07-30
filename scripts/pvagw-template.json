@@ -20,8 +20,8 @@
             /* "interface":[	','.join(PSCAG$(N)_IFLIST - $(SUBNET)_IF$(N)) ], */
             "interface":[],
             "autoaddrlist":true,
-            "access":"/reg/g/pcds/gateway/config/pcds-access.acf",
-            "pvlist":"/reg/g/pcds/gateway/config/$(xxx).pvlist",
+            "access":"/cds/group/pcds/gateway/config/pcds-access.acf",
+            "pvlist":"/cds/group/pcds/gateway/config/$(xxx).pvlist",
             "statusprefix":"PVAG:$(XXX):"
         },
         /* allow client side to access GW status PVs */
