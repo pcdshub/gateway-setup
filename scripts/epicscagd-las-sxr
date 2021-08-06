@@ -11,6 +11,7 @@
 gwname=las-sxr
 gwprefix=NET:CAG:LAS:SXR
 gwprocport=30092
+export gwHostNum=01
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG01_IFLIST | sed -e "s%${LAS_IF01}%%"`

@@ -11,6 +11,7 @@
 gwname=lfe-gdet-arrays1
 gwprefix=NET:CAG:LFE:GDET:ARRAYS1
 gwprocport=30073
+export gwHostNum=06
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`

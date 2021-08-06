@@ -15,6 +15,7 @@
 gwname=ued
 gwprefix=NET:CAG:UED
 gwprocport=30200
+export gwHostNum=01
 
 export EPICS_CA_ADDR_LIST=$UED_BC
 # Only to DEV!

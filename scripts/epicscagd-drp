@@ -15,6 +15,7 @@
 gwname=drp
 gwprefix=NET:CAG:DRP
 gwprocport=30180
+export gwHostNum=03
 
 export EPICS_CA_ADDR_LIST=$DRP_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG03_IFLIST | sed -e "s%${DRP_IF03}%%"`

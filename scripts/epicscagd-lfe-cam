@@ -11,6 +11,7 @@
 gwname=lfe-cam
 gwprefix=NET:CAG:LFE:CAM
 gwprocport=30071
+export gwHostNum=02
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${LFE_IF02}%%"`

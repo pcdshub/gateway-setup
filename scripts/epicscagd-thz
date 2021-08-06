@@ -15,6 +15,7 @@
 gwname=thz
 gwprefix=NET:CAG:THZ
 gwprocport=30080
+export gwHostNum=01
 
 export EPICS_CA_ADDR_LIST=$THZ_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG01_IFLIST | sed -e "s%${THZ_IF01}%%"`

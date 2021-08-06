@@ -15,6 +15,7 @@
 gwname=lfe-xrt
 gwprefix=NET:CAG:LFE:XRT
 gwprocport=30301
+export gwHostNum=06
 
 export EPICS_CA_ADDR_LIST=$LFE_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`

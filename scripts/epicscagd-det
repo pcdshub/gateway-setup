@@ -11,6 +11,7 @@
 gwname=det
 gwprefix=NET:CAG:DET
 gwprocport=30074
+export gwHostNum=02
 
 export EPICS_CA_ADDR_LIST=$DET_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${DET_IF02}%%"`

@@ -11,6 +11,7 @@
 gwname=mcc-mps
 gwprefix=NET:CAG:MCC:MPS
 gwprocport=30444
+export gwHostNum=06
 
 export EPICS_CA_ADDR_LIST=$MCC_GW
 export EPICS_CA_SERVER_PORT=5080

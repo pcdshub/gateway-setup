@@ -15,10 +15,15 @@
 gwname=tst
 gwprefix=NET:CAG:TST
 gwprocport=30610
+export gwHostNum=06
 
 export EPICS_CA_ADDR_LIST=$TST_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${TST_IF06}%%"`
-#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
+SUBNET_IF_REF=TST_IF${gwHostNum}
+IFLIST_REF=PSCAG${gwHostNum}_IFLIST
+
+export EPICS_CAS_INTF_ADDR_LIST=`echo ${!IFLIST_REF} | sed -e "s%${!SUBNET_IF_REF}%%"`
+
+cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.4.0/bin/$EPICS_HOST_ARCH/gateway"
 
 # Add -no_cache to gwargs to disable caching in gateway
 # With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
@@ -26,11 +31,17 @@ gwargs="$gwargs -no_cache"
 
 case "$1" in
 start)
+	# Make sure we're on the right host
+	if [ `hostname -s` != "pscag$gwHostNum" ]; then
+		echo "Wrong host!"
+		echo "Please start CA Gateway $gwname on pscag$gwHostNum"
+		exit 1
+	fi
 	echo Running: cagstart $gwname $gwprefix $gwprocport $gwargs
 	cagstart $gwname $gwprefix $gwprocport $gwargs
 	;;
 name)
-	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	echo "CA  Gateway $gwname (prefix $gwprefix) runs on pscag$gwHostNum w/ procServ port $gwprocport"
 	;;
 *)
 	echo $"Usage: $0 {start|name}"

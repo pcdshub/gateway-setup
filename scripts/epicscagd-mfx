@@ -15,6 +15,7 @@
 gwname=mfx
 gwprefix=NET:CAG:MFX
 gwprocport=30120
+export gwHostNum=02
 
 export EPICS_CA_ADDR_LIST=$MFX_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${MFX_IF02}%%"`
