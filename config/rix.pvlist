@@ -14,6 +14,7 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow read only access to RIX:.* and similar PVs
 RIX:.*                     ALLOW RWSXR 1
+CRIX:.*                     ALLOW RWSXR 1
 PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 

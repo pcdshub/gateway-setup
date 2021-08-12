@@ -9,16 +9,18 @@ EVR:FEE:GASDET:DAQ:EC:.*	ALLOW
 EVR:FEE:KMONO:DAQ:EC:.*		ALLOW
 
 # Allow LFE camera arrays
-IM[0-9]L[0-9]:.*:ArrayData	ALLOW
+IM[0-9]L[0-9]:.*:ArrayData		ALLOW
+IM[0-9]L[0-9]:.*:ArrayData.VAL	ALLOW
 
-# FEE Orca Spectrometer, readable by all, writable by INSTR and MCC
-# FEE Orca Spectrometer IMAGE2 is readable by all by bandwidth reduced
-CAMR:FEE1:441:.*:ArrayData	 ALLOW
-CAMR:FEE1:441:.*:ArrayData	 ALLOW RWINSTRMCC 1
 # FEE Orca Spectrometer IMAGE1 data specifically blocked
 # Use camrecorder to record full resolution IMAGE1 data
 CAMR:FEE1:441:IMAGE1:ArrayData	    ALLOW NOACCESS 1
 CAMR:FEE1:441:IMAGE1:ArrayData.VAL	ALLOW NOACCESS 1
+
+# Other FEE Orca Spectrometer arrays are bandwidth reduced and thus readable by all.
+# FEE Orca Spectrometer IMAGE2 is readable by all by bandwidth reduced
+CAMR:FEE1:441:.*:ArrayData		 ALLOW
+CAMR:FEE1:441:.*:ArrayData.VAL	 ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

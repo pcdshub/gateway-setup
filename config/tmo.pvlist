@@ -20,6 +20,7 @@ VLS:.*		ALLOW
 LAMP:.*		ALLOW
 CVMI:.*		ALLOW
 PDU:TMO:*   ALLOW
+IP1:.*		ALLOW
 
 
 # Allow R/W access for INSTR to TMO:.*

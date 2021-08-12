@@ -66,6 +66,9 @@ STEP:M2H:.* ALLOW RWINSTRMCC 1
 XRAY_DESTINATIONS ALLOW
 .*XTOD.* ALLOW RWINSTRMCC 1
 
+# XRT PVs go to XRT gateway
+.*XRT.* DENY
+
 # Allow read access to BYKIK:REQUEST PVs
 .*:LTU1:BYKIK:REQUEST.*  ALLOW
 
@@ -86,8 +89,14 @@ GDET:FEE1:.*          DENY
 .*FEE*_LAST_*	DENY
 
 # Deny LFE camera arrays, see lfe-cam gateway
-IM[0-9]L[0-9]:.*:ArrayData	DENY
-CAMR:FEE1:441:.*:ArrayData	DENY
+# Camera scalar PVs are by default readable via this gateway
+IM[0-9]L[0-9]:.*:ArrayData		DENY
+IM[0-9]L[0-9]:.*:ArrayData.VAL	DENY
+CAMR:FEE1:441:.*:ArrayData		DENY
+CAMR:FEE1:441:.*:ArrayData.VAL	DENY
+
+# FEE Spectrometer configuration is allowed from MCC and hutches
+CAMR:FEE1:441:.*				ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

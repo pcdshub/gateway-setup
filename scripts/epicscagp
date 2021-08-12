@@ -307,7 +307,7 @@ GW_TOP="/cds/group/pcds/gateway"
 cagvardir="$GW_TOP/logs"
 cagcfgdir="$GW_TOP/config"
 cagscriptdir="$GW_TOP/scripts"
-cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
+cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.4.0/bin/$EPICS_HOST_ARCH/gateway"
 procServ="/cds/group/pcds/pkg_mgr/release/procServ/2.7.0-1.3.0/$EPICS_HOST_ARCH/bin/procServ"
 cagdbg=""
 
