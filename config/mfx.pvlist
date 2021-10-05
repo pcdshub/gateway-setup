@@ -5,6 +5,9 @@ HXX:MXT:.*	ALLOW
 B999:R45:.*	ALLOW
 MFX:LAS:.*      ALLOW RWLAS 1
 
+# EPHOT control for ACR
+MFX:USER:MCC:EPHOT.* ALLOW RWHXRMCC
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:MFX.*      ALLOW RWALL 1

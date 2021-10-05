@@ -16,6 +16,9 @@ CXI:ACR:.*			DENY
 CXI:PVA:TEST:00:.* ALLOW RWMFX 1
 CXI:AUTH1:.* ALLOW RWALL 1
 
+# EPHOT control for HXR
+CXI:USER:MCC:EPHOT.* ALLOW RWHXRMCC
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:CXI.*      ALLOW RWALL 1
