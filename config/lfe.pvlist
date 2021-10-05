@@ -26,7 +26,7 @@ L[01234]S[0-9]+:.*         ALLOW
 # IOC and other LFE catchall
 .*LFE:.* ALLOW
 PMPS:LFE:.* ALLOW
-.*FFO.* ALLOW
+.*LFE.*FFO.* ALLOW RWHXRMCC 1
 
 ###########################
 ## Old LCLS1 patterns    ##

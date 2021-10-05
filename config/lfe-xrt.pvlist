@@ -131,8 +131,8 @@ HFX:DG3:CVV:01:.*:ArrayData     DENY
 XCS:DG3:CVV:02:.*:ArrayData     DENY
 MEC:HXM:CVV:01:.*:ArrayData     DENY
 
-# Deny FFO, leave those to the LFE gateway
-.*FFO.*				DENY
+# XRT fast faults
+.*XRT.*FFO.* ALLOW RWHXRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
