@@ -62,7 +62,7 @@ LAS:SR63:EVR.*   ALLOW RWMEC_MATLAB 1
 
 # Allow mcc to write to ephotk user PVs
 # For some reason these are in las subnet
-MEC:USER:MCC:EPHOT.*     ALLOW RWHXRMCC 1
+MEC:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
 
 # All instruments R/W Access
 AMO:LAS:DLS:05:MTR.* DENY

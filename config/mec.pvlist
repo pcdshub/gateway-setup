@@ -12,8 +12,8 @@ MEC:LAS:XPWCTRL:UOUT:.*  ALLOW RWMATLAB 1
 
 
 # Allow mcc to write to ephotk user PVs
-# Note this are currently in the las subnet for some reason, so this does nothing
-MEC:USER:MCC:EPHOT.*     ALLOW RWHXRMCC 1
+# Note these are currently in the las subnet for some reason, so this does nothing
+MEC:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
 
 
 # Keep this as the last pattern please

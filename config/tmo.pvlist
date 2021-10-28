@@ -62,7 +62,7 @@ TMO:TIMETOOL:.*	ALLOW RWDRP 1
 MR2K4:FIM:W8:.* ALLOW RWDRP 1
 
 # EPHOT control for ACR
-TMO:USER:MCC:EPHOT.* ALLOW RWSXRMCC
+TMO:USER:MCC:EPHOT.* ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

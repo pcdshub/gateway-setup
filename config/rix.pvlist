@@ -19,7 +19,7 @@ PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 
 # Allow mcc to write to ephotk user PVs
-RIX:USER:MCC:EPHOTK.*     ALLOW RWSXRMCC 1
+RIX:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
