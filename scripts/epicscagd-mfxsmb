@@ -16,9 +16,10 @@ gwname=mfxsmb
 gwprefix=NET:CAG:MFXSMB
 gwprocport=30332
 
+# interface of the host on which the gateway runs (mfx-control)
 export MFX_BCICS=172.21.46.255
 export MFX_IFICS=172.21.46.185
-export MFX_IFMFX=172.21.72.56
+export MFX_IFMFX=172.21.72.154
 
 export EPICS_CA_ADDR_LIST="$MFX_BC"
 #export EPICS_CAS_INTF_ADDR_LIST="$MFX_IFICS $IP"

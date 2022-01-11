@@ -19,7 +19,27 @@ PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 
 # Allow mcc to write to ephotk user PVs
-RIX:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
+RIX:USER:MCC:EPHOTK.*     ALLOW RWINSTRMCC 1
+# Sigh.  ProfileAverage{X,Y}_RBV should go through the array gateway,
+# so we can't let this be ALLOW, since ALLOW takes preference.
+#SL1K2:EXIT:CAM:Stats1.*            ALLOW RWINSTRMCC 1
+SL1K2:EXIT:CAM:Stats1:[A-OQ-Z].*    ALLOW RWINSTRMCC 1 
+SL1K2:EXIT:CAM:Stats1:P[^r].*       ALLOW RWINSTRMCC 1 
+SL1K2:EXIT:CAM:Stats1:Proc.*        ALLOW RWINSTRMCC 1
+SL1K2:EXIT:CAM:Stats1:Profile[^A].* ALLOW RWINSTRMCC 1
+
+SL1K2:EXIT:CAM:IMAGE2:ROI:.*_RBV   ALLOW
+SL1K2:EXIT:CAM:BitsPerPixel_RBV    ALLOW
+SL1K2:EXIT:CAM:RESOLUTION          ALLOW
+SL1K2:EXIT:CAM:X_ORIENT            ALLOW
+SL1K2:EXIT:CAM:Y_ORIENT            ALLOW
+SL1K2:EXIT:CAM:X_RTCL_CTR          ALLOW
+SL1K2:EXIT:CAM:Y_RTCL_CTR          ALLOW
+
+# Deny Arrays
+.*ArrayData.* DENY
+SL1K2:EXIT:CAM:Stats1:ProfileAverageY_RBV DENY
+
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

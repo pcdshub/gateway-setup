@@ -19,7 +19,7 @@ HAG(archhosts) {pscaa01,pscaa02}
 
 HAG(matlabhosts) {psdev105}
 HAG(xppicshosts) {xpp-control,blctl00.slac.stanford.edu}
-HAG(mfxsmbhosts) {mfx-control,blctl00.slac.stanford.edu,cfel-ftsc02}
+HAG(mfxsmbhosts) {mfx-control,blctlmfx,smbmfxctl,cfel-ftsc02}
 HAG(mfxftschosts) {cfel-ftsc02}
 HAG(mfxicshosts) {mfx-hutch01,cfel-ftsc02}
 HAG(cxiicshosts) {mfx-hutch01,cfel-ftsc02}
