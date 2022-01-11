@@ -8,101 +8,12 @@ export IP=`/sbin/ifconfig | /bin/grep -w inet | head -1 | sed -e 's/ *inet[^0-9]
 export LO_IP=127.0.0.1
 export LO_BC=127.0.0.255
 
-# pscag1 interface ip addresses
-# FEE changed to HXR, then to LFE
-# SXR changed to KFE
-export CXI_IF1=172.21.68.20
-export DET_IF1=172.21.58.20
-export DEV_IF1=134.79.165.20
-export DRP_IF1=172.21.156.20
-export KFE_IF1=172.21.92.20
-export LAS_IF1=172.21.35.20
-export LFE_IF1=172.21.88.20
-export MCC_IF1=172.21.40.20
-export MEC_IF1=172.21.76.20
-export MFX_IF1=172.21.72.20
-export RIX_IF1=172.21.140.20
-export SRV_IF1=172.21.32.24
-export THZ_IF1=172.21.57.20
-export TMO_IF1=172.21.132.20
-export TST_IF1=172.21.148.20
-export XCS_IF1=172.21.80.20
-export XPP_IF1=172.21.84.20
-export UED_IF1=172.21.36.20
-# Don't include SRV
-export PSCAG1_IFLIST="$CXI_IF1 $DET_IF1 $DEV_IF1 $DRP_IF1 $KFE_IF1 $LAS_IF1 $LFE_IF1 $MCC_IF1 $MEC_IF1 $MFX_IF1 $RIX_IF1 $THZ_IF1 $TMO_IF1 $TST_IF1 $XCS_IF1 $XPP_IF1"
-
-# pscag2 interface ip addresses
-export CXI_IF2=172.21.68.19
-export DET_IF2=172.21.58.19
-export DEV_IF2=134.79.165.19
-export DRP_IF2=172.21.156.19
-export KFE_IF2=172.21.92.19
-export LAS_IF2=172.21.35.19
-export LFE_IF2=172.21.88.19
-export MCC_IF2=172.21.40.19
-export MEC_IF2=172.21.76.19
-export MFX_IF2=172.21.72.19
-export RIX_IF2=172.21.140.19
-export SRV_IF2=172.21.32.25
-export THZ_IF2=172.21.57.19
-export TMO_IF2=172.21.132.19
-export TST_IF2=172.21.148.19
-export XCS_IF2=172.21.80.19
-export XPP_IF2=172.21.84.19
-export UED_IF2=172.21.36.19
-# Don't include SRV
-export PSCAG2_IFLIST="$CXI_IF2 $DET_IF2 $DEV_IF2 $DRP_IF2 $KFE_IF2 $LAS_IF2 $LFE_IF2 $MCC_IF2 $MEC_IF2 $MFX_IF2 $RIX_IF2 $THZ_IF2 $TMO_IF2 $TST_IF2 $XCS_IF2 $XPP_IF2"
-
-# pscag3 interface ip addresses
-export CXI_IF3=172.21.68.251
-export DET_IF3=172.21.58.251
-export DEV_IF3=134.79.165.57
-export DRP_IF3=172.21.156.251
-export KFE_IF3=172.21.92.251
-export LAS_IF3=172.21.35.251
-export LFE_IF3=172.21.88.251
-export MCC_IF3=172.21.40.21
-export MEC_IF3=172.21.76.251
-export MFX_IF3=172.21.72.251
-export RIX_IF3=172.21.140.251
-export SRV_IF3=172.21.32.54
-export THZ_IF3=172.21.57.251
-export TMO_IF3=172.21.132.251
-export TST_IF3=172.21.148.251
-export XCS_IF3=172.21.80.251
-export XPP_IF3=172.21.84.251
-export UED_IF3=172.21.36.251
-# Don't include SRV
-export PSCAG3_IFLIST="$CXI_IF3 $DET_IF3 $DEV_IF3 $DRP_IF3 $KFE_IF3 $LAS_IF3 $LFE_IF3 $MCC_IF3 $MEC_IF3 $MFX_IF3 $RIX_IF3 $THZ_IF3 $TMO_IF3 $TST_IF3 $XCS_IF3 $XPP_IF3"
-
-# pscag4 interface ip addresses
-export CXI_IF4=172.21.68.16
-export DET_IF4=172.21.58.16
-export DEV_IF4=134.79.165.16
-export DRP_IF4=172.21.156.16
-export KFE_IF4=172.21.92.16
-export LAS_IF4=172.21.35.16
-export LFE_IF4=172.21.88.16
-export MCC_IF4=172.21.40.16
-export MEC_IF4=172.21.76.16
-export MFX_IF4=172.21.72.16
-export RIX_IF4=172.21.140.16
-export SRV_IF4=172.21.32.16
-export THZ_IF4=172.21.57.16
-export TMO_IF4=172.21.132.16
-export TST_IF4=172.21.148.16
-export XCS_IF4=172.21.80.16
-export XPP_IF4=172.21.84.16
-export UED_IF4=172.21.36.16
-# Don't include SRV
-export PSCAG4_IFLIST="$CXI_IF4 $DET_IF4 $DEV_IF4 $DRP_IF4 $KFE_IF4 $LAS_IF4 $LFE_IF4 $MCC_IF4 $MEC_IF4 $MFX_IF4 $RIX_IF4 $THZ_IF4 $TMO_IF4 $TST_IF4 $XCS_IF4 $XPP_IF4"
-
 # pscag01 interface ip addresses
 export CXI_IF01=172.21.68.10
 export DET_IF01=172.21.58.10
 export DEV_IF01=134.79.165.10
-export DRP_IF01=172.21.156.10
+export DRP_IF01=172.21.152.10
+export DRPNEH_IF01=172.21.156.10
 export KFE_IF01=172.21.92.10
 export LAS_IF01=172.21.160.10
 export LFE_IF01=172.21.88.10
