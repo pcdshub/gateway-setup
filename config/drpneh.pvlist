@@ -4,4 +4,4 @@ EVALUATION ORDER ALLOW, DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
-NET:CAG:DRP:.*      ALLOW RWALL 1
+NET:CAG:DRPNEH:.*      ALLOW RWALL 1

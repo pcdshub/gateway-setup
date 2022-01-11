@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-drp
+#
+# Starts the EPICS CAG gateway
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-drp
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=drp
+gwprefix=NET:CAG:DRPNEH
+gwprocport=30181
+export gwHostNum=04
+
+export EPICS_CA_ADDR_LIST=$DRPNEH_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${DRPNEH_IF04}%%"`
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?
