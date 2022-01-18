@@ -1,7 +1,7 @@
 HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,mfx-hutch01,ioc-mfx-misc01,ioc-mfx-vacuum,ioc-mfx-table,ioc-mfx-tfs,daq-mfx-mon01,daq-mfx-mon02,daq-mfx-mon03,daq-mfx-mon04,daq-mfx-mon05,daq-mfx-mon06,daq-mfx-pgp01}
 # HAG(sxrhosts) {sxr-daq,sxr-control,sxr-monitor,sxr-console,sxr-laptop,sxr-laptop02}
 
-HAG(drphosts) {drp-neh-cmp001,drp-neh-cmp002,drp-neh-cmp003,drp-neh-cmp005,drp-neh-cmp007,drp-neh-cmp010,drp-neh-cmp011,drp-neh-cmp012,drp-neh-cmp013,drp-neh-cmp014,drp-neh-cmp015,drp-neh-cmp016,drp-neh-cmp017,drp-neh-cmp018,drp-neh-cmp019,drp-neh-cmp020,drp-neh-cmp021,drp-neh-cmp022,drp-neh-cmp023,drp-neh-cmp024,drp-neh-ctl001,drp-neh-ctl002}
+HAG(drphosts) {drp-neh-cmp001,drp-neh-cmp002,drp-neh-cmp003,drp-neh-cmp005,drp-neh-cmp007,drp-neh-cmp010,drp-neh-cmp011,drp-neh-cmp012,drp-neh-cmp013,drp-neh-cmp014,drp-neh-cmp015,drp-neh-cmp016,drp-neh-cmp017,drp-neh-cmp018,drp-neh-cmp019,drp-neh-cmp020,drp-neh-cmp021,drp-neh-cmp022,drp-neh-cmp023,drp-neh-cmp024,drp-neh-ctl001,drp-neh-ctl002,drp-srcf-cmp003,drp-srcf-eb002}
 HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console,ctl-tmo-misc-01,tmo-hutch01}
 HAG(rixhosts) {rix-daq,rix-control,rix-monitor,rix-console,ctl-rix-vac-01}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01,ioc-xpp-usr01}

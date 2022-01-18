@@ -18,6 +18,11 @@ CRIX:.*                     ALLOW RWSXR 1
 PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 
+# FIM Wave8 access for DRP
+MR2K2:FIM:W8:.* ALLOW RWDRP 1
+MR3K2:FIM:W8:.* ALLOW RWDRP 1
+RIX:FIM:W8:03.* ALLOW RWDRP 1
+
 # Allow mcc to write to ephotk user PVs
 RIX:USER:MCC:EPHOTK.*     ALLOW RWINSTRMCC 1
 # Sigh.  ProfileAverage{X,Y}_RBV should go through the array gateway,
