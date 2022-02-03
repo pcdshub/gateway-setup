@@ -29,6 +29,11 @@ XCS:IOC:DG3:CVV:02.*	DENY
 # EPHOT control for ACR
 XCS:USER:MCC:EPHOT.* ALLOW RWINSTRMCC 1
 
+# Allow PVs from xcspython
+LAS:FS4:lxt:Ophyd.*	ALLOW
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:XCS.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:XCS:newAsFlag 1
