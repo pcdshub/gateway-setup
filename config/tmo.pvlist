@@ -11,6 +11,10 @@ EVALUATION ORDER ALLOW, DENY
 
 # Special case names
 
+# Allow RW access to these patterns for drphosts
+DAQ:TMO:HSD:1_DA.*    ALLOW
+DAQ:TMO:HSD:1_DA.*    ALLOW	RWDRP	1
+
 # Allow read only access to TMO:.* and similar PVs
 TMO:.*	        ALLOW
 LAMP:.*		ALLOW

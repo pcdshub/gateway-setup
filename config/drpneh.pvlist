@@ -1,7 +1,9 @@
 EVALUATION ORDER ALLOW, DENY
 
 .*DAQ:NEH.*    ALLOW
+#.*DAQ:TMO.*    ALLOW
 .*DAQ:NEH.*    ALLOW	RWDRP	1
+#.*DAQ:TMO.*    ALLOW	RWDRP	1
 .*DRP.*        ALLOW
 
 # Keep this as the last pattern please
