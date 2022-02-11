@@ -10,6 +10,10 @@ MEC:USR:AOUT.*	 ALLOW RWMATLAB 1
 MEC:USR:DOT.*	 ALLOW RWMATLAB 1
 MEC:LAS:XPWCTRL:UOUT:.*  ALLOW RWMATLAB 1
 
+MEC:QADC:01:CH.*			DENY
+MEC:QADC:01:OUT.*			DENY
+MEC:QADC:01:SPARSE.*		DENY
+MEC:QADC:01:RAWDATA.*		DENY
 
 # Allow mcc to write to ephotk user PVs
 # Note these are currently in the las subnet for some reason, so this does nothing
@@ -18,6 +22,6 @@ MEC:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
+NET:CAG:MEC.*      ALLOW RWALL 1
 # To reread config file:
 #	caput NET:CAG:MEC:newAsFlag 1
-NET:CAG:MEC.*      ALLOW RWALL 1

@@ -1,0 +1,12 @@
+EVALUATION ORDER ALLOW, DENY
+
+MEC:QADC:01:CH.*			ALLOW
+MEC:QADC:01:OUT.*			ALLOW
+MEC:QADC:01:SPARSE.*		ALLOW
+MEC:QADC:01:RAWDATA.*		ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:MEC:ARRAYS.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:MEC:ARRAYS:newAsFlag 1
