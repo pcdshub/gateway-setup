@@ -15,11 +15,11 @@
 gwname=mec-arrays
 gwprefix=NET:CAG:MEC:ARRAYS
 gwprocport=30061
-export gwHostNum=04
-
 export EPICS_CA_ADDR_LIST=$MEC_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${MEC_IF04}%%"`
-#export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
+
+# Make sure you update gateway host number in all 3 places in the following lines!
+export gwHostNum=01
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG01_IFLIST | sed -e "s%${MEC_IF01}%%"`
 
 case "$1" in
 start)

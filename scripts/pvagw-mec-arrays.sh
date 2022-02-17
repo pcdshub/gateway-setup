@@ -12,7 +12,7 @@
 
 gwname=mec-arrays
 gwprocport=40061
-export gwHostNum=04
+export gwHostNum=01
 
 case "$1" in
 start)
