@@ -11,6 +11,7 @@ NET:CAG:MEC:.* ALLOW  RWMEC
 NET:CAG:MFX:.* ALLOW  RWMFX
 NET:CAG:TMO:.* ALLOW  RWTMO
 NET:CAG:XCS:.* ALLOW  RWXCS
+NET:CAG:XPP:.* ALLOW  RWXPP
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
