@@ -92,11 +92,11 @@ GDET:FEE1:.*          DENY
 # Camera scalar PVs are by default readable via this gateway
 IM[0-9]L[0-9]:.*:ArrayData		DENY
 IM[0-9]L[0-9]:.*:ArrayData.VAL	DENY
-CAMR:XRT1:441:.*:ArrayData		DENY
-CAMR:XRT1:441:.*:ArrayData.VAL	DENY
+CAMR:FEE1:441:.*:ArrayData		DENY
+CAMR:FEE1:441:.*:ArrayData.VAL	DENY
 
 # XRT Spectrometer configuration is allowed from MCC and hutches
-CAMR:XRT1:441:.*				ALLOW RWINSTRMCC 1
+CAMR:FEE1:441:.*				ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
