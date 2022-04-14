@@ -1,0 +1,13 @@
+EVALUATION ORDER ALLOW, DENY
+
+# Note that the ALLOW lines in rix-arrays.pvlist should
+# match the DENY lines in rix.pvlist
+#SL1K2:EXIT:CAM:Stats1:ProfileAverage.* ALLOW
+SL1K2:EXIT:CAM:Stats1:ProfileAverageY_RBV ALLOW
+RIX:.*ArrayData.* ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:RIX:ARRAYS:newAsFlag 1
+NET:CAG:RIX:ARRAYS.*      ALLOW RWALL 1
