@@ -1,7 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
 LAS:FS1:VIT:.*  	   ALLOW
-.*LM1K4.*		   ALLOW
+# .*LM1K4.*		   ALLOW # TJ: This should not be done. Only specific PVs should be passed. Leaving here as reminder. 
 
 # AMO R/W Access
 LAS:R51:.* ALLOW RWTMO 1
