@@ -3,12 +3,12 @@ HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,mfx-hutch01,ioc-mfx-m
 
 HAG(drphosts) {drp-neh-cmp001,drp-neh-cmp002,drp-neh-cmp003,drp-neh-cmp005,drp-neh-cmp007,drp-neh-cmp010,drp-neh-cmp011,drp-neh-cmp012,drp-neh-cmp013,drp-neh-cmp014,drp-neh-cmp015,drp-neh-cmp016,drp-neh-cmp017,drp-neh-cmp018,drp-neh-cmp019,drp-neh-cmp020,drp-neh-cmp021,drp-neh-cmp022,drp-neh-cmp023,drp-neh-cmp024,drp-neh-ctl001,drp-neh-ctl002,drp-srcf-cmp001,drp-srcf-cmp002,drp-srcf-cmp003,drp-srcf-cmp004,drp-srcf-cmp005,drp-srcf-cmp006,drp-srcf-eb002}
 HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console,ctl-tmo-misc-01,tmo-hutch01}
-HAG(rixhosts) {rix-daq,rix-control,rix-monitor,rix-console,ctl-rix-vac-01}
+HAG(rixhosts) {rix-daq,rix-control,rix-monitor,rix-console,ctl-rix-vac-01,ctl-rix-mot-01}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01,ioc-xpp-usr01}
 HAG(xcshosts) {xcs-daq,xcs-control,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04,daq-xcs-pgp01,daq-xcs-pgp02,ioc-xcs-user2}
 HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,daq-cxi-mon01,daq-cxi-mon02,daq-cxi-mon03,daq-cxi-mon04,daq-cxi-mon05,daq-cxi-mon06,daq-cxi-mon07,daq-cxi-mon08,daq-cxi-mon09,daq-cxi-mon10,daq-cxi-mon11,daq-cxi-mon12,daq-cxi-mon13,cxi-laptop1,ioc-cxi-usr1,daq-cxi-usrcam01,daq-cxi-usrcam02}
-HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laser,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01,mec-laptop08,mec-laptop07, mec-hutch02}
-HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1,ctl-tmo-misc-01,ctl-rix-vac-01}
+HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laser,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01,mec-laptop08,mec-laptop07, mec-hutch02, mec-hutch01}
+HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1,ctl-tmo-misc-01,ctl-rix-vac-01,ctl-rix-mot-01}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv03,ioc-las-srv04,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-xcs-srv04,ctl-las-lhn-01,ctl-las-lhn-04}
 HAG(kfehosts) {kfe-console}
 HAG(lfehosts) {lfe-console}
