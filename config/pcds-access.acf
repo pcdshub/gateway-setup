@@ -38,203 +38,261 @@ ASG(RWALL) {
 }
 
 ASG(RWMCC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mcchosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mcchosts)
     }
 }
 
 ASG(RWMFX) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mfxhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mfxhosts)
     }
 }
 
 ASG(RWDRP) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(drphosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(drphosts)
     }
 }
 
 ASG(RWTHZ) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(thzhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(thzhosts)
     }
 }
 
 ASG(RWTMO) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(tmohosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(tmohosts)
     }
 }
 
 ASG(RWTST) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(tsthosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(tsthosts)
     }
 }
 
 ASG(RWRIX) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(rixhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(rixhosts)
     }
 }
 
 ASG(RWSXR) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(drphosts,kfehosts,tmohosts,rixhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(drphosts,kfehosts,tmohosts,rixhosts)
     }
 }
 
 ASG(RWSXRMCC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(drphosts,kfehosts,tmohosts,rixhosts,mcchosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(drphosts,kfehosts,tmohosts,rixhosts,mcchosts)
     }
 }
 
 ASG(RWXPP) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xpphosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xpphosts)
     }
 }
 
 ASG(RWXCS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xcshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xcshosts)
     }
 }
 
 ASG(RWCXI) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(cxihosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(cxihosts)
     }
 }
 
 ASG(RWMEC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mechosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mechosts)
     }
 }
 
 ASG(RWLAS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(lashosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(lashosts)
     }
 }
 
 ASG(RWKFE) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(kfehosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(kfehosts)
     }
 }
 
 ASG(RWLFE) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(lfehosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(lfehosts)
     }
 }
 
 ASG(RWINSTR) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts)
     }
 }
 
 ASG(RWINSTRMCC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts,pcdshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts,pcdshosts)
     }
 }
 
 ASG(RWHXR) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts)
     }
 }
 
 ASG(RWHXRMCC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts)
     }
 }
 
 ASG(RWMATLAB) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(matlabhosts,mcchosts,lashosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(matlabhosts,mcchosts,lashosts)
     }
 }
 
 ASG(RWMEC_MATLAB) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mechosts,matlabhosts,mcchosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mechosts,matlabhosts,mcchosts)
     }
 }
 
 ASG(RWXPPICS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xppicshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xppicshosts)
     }
 }
 
 ASG(RWXCSICS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(xcsicshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(xcsicshosts)
     }
 }
 
 ASG(RWMFXFTSC) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mfxftschosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mfxftschosts)
     }
 }
 
 ASG(RWMFXSMB) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mfxsmbhosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mfxsmbhosts)
     }
 }
 
 ASG(RWMFXICS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(mfxicshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(mfxicshosts)
     }
 }
 
 ASG(RWCXIICS) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(cxiicshosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(cxiicshosts)
     }
 }
 
 ASG(RWDET) {
-    RULE(1,READ)
+    RULE(1,READ){
+      HAG(dethosts)
+    }
     RULE(1,WRITE,TRAPWRITE){
       HAG(dethosts)
     }
