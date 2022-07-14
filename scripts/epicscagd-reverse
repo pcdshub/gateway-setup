@@ -19,12 +19,17 @@ gwprocport=30611
 export gwHostNum=06
 
 export EPICS_CA_ADDR_LIST=$DEV_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${DEV_IF06}%%"`
-#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST`
+# Note: Can't exclude DEV_IF as that's how we RW the gateway NET:CAG:REVERSE:.* PVs
+#export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${DEV_IF06}%%"`
+
+#export EPICS_CAS_IGNORE_ADDR_LIST=`echo $ALL_PSCAG_IFLIST | sed -e "s%${DEV_IF06}%%"`
+cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.3.0-1.1.0/bin/$EPICS_HOST_ARCH/gateway"
 
 # Add -no_cache to gwargs to disable caching in gateway
 # With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
 #gwargs="$gwargs -no_cache"
+#gwargs="$gwargs -access $cagcfgdir/pcds-access-rev.acf"
 
 case "$1" in
 start)
