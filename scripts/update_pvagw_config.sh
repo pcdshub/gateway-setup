@@ -22,6 +22,7 @@ do
 	source $i env-only
 	mkdir -p $pvaLogsDir/$PVAGW_NAME
 	#echo Updating $pvaLogsDir/$PVAGW_NAME/pvagw-$PVAGW_NAME.json for host pscag$gwHostNum.
+	echo python $GW_TOP/scripts/genPvaConf.py --template $GW_TOP/scripts/pvagw-template.json  --name $PVAGW_NAME --gwNum $gwHostNum --hutch $CLIENT_SUBNET
 	python $GW_TOP/scripts/genPvaConf.py --template $GW_TOP/scripts/pvagw-template.json  --name $PVAGW_NAME --gwNum $gwHostNum --hutch $CLIENT_SUBNET
 done
 echo "All PVA gateway config files are uptodate."
