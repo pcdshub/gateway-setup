@@ -17,6 +17,7 @@ HAG(tsthosts) {ctl-tst-pgp01,ctl-tst-pgp02,ioc-tst-13,ioc-tst-rec02,ioc-tst-rec0
 HAG(pcdshosts) {pscron}
 HAG(dethosts) {ioc-det-pnccd01,daq-det-pnccd01,ioc-det-pnccd02,daq-det-pnccd02,ioc-det-portable2,det-console}
 HAG(archhosts) {pscaa01,pscaa02}
+HAG(kubhosts) {172.21.32.137}
 
 HAG(matlabhosts) {psdev105}
 HAG(xppicshosts) {xpp-control,blctl00.slac.stanford.edu}
@@ -248,5 +249,11 @@ ASG(NOACCESS) {
 ASG(RDARCH) {
     RULE(1,READ){
       HAG(archhosts)
+    }
+}
+
+ASG(RDKUB) {
+    RULE(1,READ){
+      HAG(kubhosts)
     }
 }

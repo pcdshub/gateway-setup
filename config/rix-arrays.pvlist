@@ -6,6 +6,11 @@ EVALUATION ORDER ALLOW, DENY
 SL1K2:EXIT:CAM:Stats1:ProfileAverageY_RBV ALLOW
 RIX:.*ArrayData.* ALLOW
 
+CRIX:GIGE:06:Stats1:ProfileAverageX_RBV ALLOW
+CRIX:GIGE:06:Stats1:ProfileAverageY_RBV ALLOW
+
+CRIX:GIGE:06:Stats1:ProfileCursorY_RBV ALLOW
+CRIX:GIGE:06:Stats1:ProfileCursorX_RBV ALLOW
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 # To reread config file:

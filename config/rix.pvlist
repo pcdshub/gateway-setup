@@ -17,6 +17,8 @@ RIX:.*                     ALLOW RWSXR 1
 CRIX:.*                     ALLOW RWSXR 1
 PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
+QRIXS:.*                   ALLOW RWSXR 1
+QRIX:.*                    ALLOW RWSXR 1
 
 # FIM Wave8 access for DRP
 MR4K2:FIM:W8:.* ALLOW RWDRP 1
@@ -33,6 +35,9 @@ SL1K2:EXIT:CAM:Stats1:P[^r].*       ALLOW RWINSTRMCC 1
 SL1K2:EXIT:CAM:Stats1:Proc.*        ALLOW RWINSTRMCC 1
 SL1K2:EXIT:CAM:Stats1:Profile[^A].* ALLOW RWINSTRMCC 1
 
+
+CRIX:GIGE:06:Stats1:Profile[^A].* ALLOW RWINSTRMCC 1
+
 SL1K2:EXIT:CAM:IMAGE2:ROI:.*_RBV   ALLOW
 SL1K2:EXIT:CAM:BitsPerPixel_RBV    ALLOW
 SL1K2:EXIT:CAM:RESOLUTION          ALLOW
@@ -41,8 +46,10 @@ SL1K2:EXIT:CAM:Y_ORIENT            ALLOW
 SL1K2:EXIT:CAM:X_RTCL_CTR          ALLOW
 SL1K2:EXIT:CAM:Y_RTCL_CTR          ALLOW
 
+# Note that the ALLOW lines in rix-arrays.pvlist should
+# match the DENY lines in rix.pvlist
 # Deny Arrays
-.*ArrayData.* DENY
+RIX:.*ArrayData.* DENY
 SL1K2:EXIT:CAM:Stats1:ProfileAverageY_RBV DENY
 
 

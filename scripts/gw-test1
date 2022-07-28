@@ -2,34 +2,37 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-fee-cam3
+# processname: epicscagd-test1
 
 # Source function library.
 . /etc/init.d/functions
 . /reg/g/pcds/gateway/scripts/epicscagp
 
-gwname=gw-test1
+gwname=tst
 gwprefix=NET:CAG:TEST1
 gwprocport=30081
+export gwHostNum=06
 
-export EPICS_CA_AUTO_ADDR_LIST=NO
-export EPICS_CA_ADDR_LIST="$PSCAG01_IFLIST 172.21.87.255 172.21.151.255 172.21.83.255"
+export EPICS_CA_ADDR_LIST=$TST_BC
+SUBNET_IF_REF=TST_IF${gwHostNum}
+IFLIST_REF=PSCAG${gwHostNum}_IFLIST
+
+export EPICS_CAS_INTF_ADDR_LIST=`echo ${!IFLIST_REF} | sed -e "s%${!SUBNET_IF_REF}%%"`
+
+cagprogram="/reg/g/pcds/epics-dev/bhill/extensions/ca-gateway-git/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.4.0/bin/$EPICS_HOST_ARCH/gateway"
+
 #export EPICS_CA_SERVER_PORT=5084
 #export EPICS_CA_REPEATER_PORT=5083
 export EPICS_CAS_BEACON_PORT=5083
 export EPICS_CAS_SERVER_PORT=5084
-export EPICS_CAS_BEACON_ADDR_LIST="$SXR_BC:5083 $XPP_BC:5083 $XCS_BC:5083 "
-export EPICS_CAS_IGNORE_ADDR_LIST="$ALL_PSCAG_IFLIST"
+#export EPICS_CAS_BEACON_ADDR_LIST="$SXR_BC:5083 $XPP_BC:5083 $XCS_BC:5083 "
+#export EPICS_CAS_IGNORE_ADDR_LIST="$ALL_PSCAG_IFLIST"
 #export EPICS_CAS_IGNORE_ADDR_LIST="$DEV_IF01 $DEV_IF03 $DEV_IF04"
 #export EPICS_CAS_INTF_ADDR_LIST=172.21.46.35
 
-#export EPICS_CA_ADDR_LIST=$FEE_BC
-#export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${FEE_IF02}%%"`
-
-cagdbg="-debug 5"
-#cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/pvgwfd"
-#cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
-cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.0.6.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
+cagdbg="-debug 15"
 
 mkdir --parents /tmp/$gwname
 $cagprogram -access $cagcfgdir/pcds-access.acf -pvlist $cagcfgdir/$gwname.pvlist -home /tmp/$gwname $cagdbg 2>&1 | tee /tmp/$gwname/gateway.log
