@@ -32,6 +32,7 @@ EVR:LAS:LHN:01:.*       ALLOW RWXPP 1
 # XCS R/W Access
 LAS:XCS:.*              DENY
 XCS:LAS:.*              DENY
+EVR:LAS:XCS:01:.*       ALLOW RWXCS 1
 
 # MFX R/W Access
 LAS:MFX:.*              ALLOW RWMFX 1

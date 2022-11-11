@@ -18,6 +18,9 @@ RTDSL0.* ALLOW RWHXRMCC 1
 [A-Z][A-Z][0-9]L0:.*       ALLOW RWHXRMCC 1
 [A-Z][A-Z][0-9]L1:.*       ALLOW RWHXRMCC 1
 
+# The EK9K from ioc-tmo-adc01 is now on an LFE host:
+TMO:EK9K.*                 ALLOW
+
 # Allow devices w/ stand naming convention
 # starting w/ line code L0, L1, L2, ...
 # followed by stand number, S0, S3, S3A, S10, ...

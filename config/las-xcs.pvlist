@@ -1,9 +1,9 @@
 EVALUATION ORDER ALLOW, DENY
 
 
-# XPP R/W Access
-LAS:XCS:.*  ALLOW RWXCS 1
-XCS:LAS:.*  ALLOW RWXCS 1
+# XCS R/W Access
+LAS:XCS:.*       ALLOW RWXCS 1
+XCS:LAS:.*       ALLOW RWXCS 1
 
 # All instruments R/W Access
 LAS:FS4:.*  ALLOW RWINSTR 1

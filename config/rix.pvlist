@@ -14,11 +14,15 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow read only access to RIX:.* and similar PVs
 RIX:.*                     ALLOW RWSXR 1
-CRIX:.*                     ALLOW RWSXR 1
+CRIX:.*                    ALLOW RWSXR 1
+CRIXS:.*                   ALLOW RWSXR 1
 PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 QRIXS:.*                   ALLOW RWSXR 1
 QRIX:.*                    ALLOW RWSXR 1
+
+# Timetool access for DRP
+RIX:TIMETOOL:.*	ALLOW RWDRP 1
 
 # FIM Wave8 access for DRP
 MR4K2:FIM:W8:.* ALLOW RWDRP 1

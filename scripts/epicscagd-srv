@@ -18,7 +18,7 @@ gwprocport=30666
 export gwHostNum=01
 
 export EPICS_CAS_SERVER_PORT=5100
-export EPICS_CA_ADDR_LIST=`echo $BC_LIST | sed -s "s%${DEV_BC}%%"`
+export EPICS_CA_ADDR_LIST=`echo $BC_LIST | sed -e "s%${DEV_BC}%%" -e "s%${MCC1_BC}%%"  -e "s%${MCC2_BC}%${MCC_GW}:5080%"`
 export EPICS_CAS_INTF_ADDR_LIST=$SRV_IF01
 
 case "$1" in

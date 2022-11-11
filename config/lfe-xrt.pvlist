@@ -120,6 +120,7 @@ HXX:HXM:CVV:01:.*     ALLOW RWINSTRMCC 1
 HFX:MON:CVV:01:.*     ALLOW RWINSTRMCC 1
 HFX:DG2:CVV:01:.*     ALLOW RWINSTRMCC 1
 HFX:DG3:CVV:01:.*     ALLOW RWINSTRMCC 1
+XCS:GIGE:YAG1:.*      ALLOW RWINSTRMCC 1
 
 # Deny XRT camera arrays, see lfe-cam gateway
 XRT:DIA:CVV:01:.*:ArrayData     DENY
@@ -128,6 +129,7 @@ HXX:HXM:CVV:01:.*:ArrayData     DENY
 HFX:MON:CVV:01:.*:ArrayData     DENY
 HFX:DG2:CVV:01:.*:ArrayData     DENY
 HFX:DG3:CVV:01:.*:ArrayData     DENY
+XCS:GIGE:YAG1:.*:ArrayData      DENY
 
 # Deny FEH camera arrays, see lfe-cam gateway
 XCS:DG3:CVV:02:.*:ArrayData     DENY
