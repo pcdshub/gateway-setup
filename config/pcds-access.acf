@@ -3,6 +3,7 @@ HAG(mfxhosts) {mfx-control,mfx-console,mfx-daq,mfx-monitor,mfx-hutch01,ioc-mfx-m
 
 HAG(drphosts) {drp-neh-cmp001,drp-neh-cmp002,drp-neh-cmp003,drp-neh-cmp005,drp-neh-cmp007,drp-neh-cmp010,drp-neh-cmp011,drp-neh-cmp012,drp-neh-cmp013,drp-neh-cmp014,drp-neh-cmp015,drp-neh-cmp016,drp-neh-cmp017,drp-neh-cmp018,drp-neh-cmp019,drp-neh-cmp020,drp-neh-cmp021,drp-neh-cmp022,drp-neh-cmp023,drp-neh-cmp024,drp-neh-ctl001,drp-neh-ctl002,drp-srcf-cmp001,drp-srcf-cmp002,drp-srcf-cmp003,drp-srcf-cmp004,drp-srcf-cmp005,drp-srcf-cmp006,drp-srcf-cmp007,drp-srcf-cmp008,drp-srcf-cmp009,drp-srcf-cmp010,drp-srcf-cmp011,drp-srcf-cmp012,drp-srcf-cmp013,drp-srcf-cmp014,drp-srcf-cmp015,drp-srcf-cmp016,drp-srcf-cmp017,drp-srcf-cmp018,drp-srcf-cmp019,drp-srcf-cmp020,drp-srcf-cmp021,drp-srcf-cmp022,drp-srcf-cmp023,drp-srcf-cmp024,drp-srcf-cmp025,drp-srcf-cmp026,drp-srcf-cmp027,drp-srcf-cmp028,drp-srcf-cmp029,drp-srcf-cmp030,drp-srcf-cmp031,drp-srcf-cmp032,drp-srcf-cmp033,drp-srcf-cmp034,drp-srcf-cmp035,drp-srcf-cmp036,drp-srcf-cmp037,drp-srcf-cmp038,drp-srcf-cmp039,drp-srcf-cmp040,drp-srcf-cmp041,drp-srcf-cmp042,drp-srcf-cmp043,drp-srcf-cmp044,drp-srcf-cmp045,drp-srcf-cmp046,drp-srcf-cmp047,drp-srcf-cmp048,drp-srcf-cmp049,drp-srcf-cmp050,drp-srcf-cmp051,drp-srcf-cmp052,drp-srcf-cmp053,drp-srcf-cmp054,drp-srcf-cmp055,drp-srcf-cmp056,drp-srcf-eb001,drp-srcf-eb002}
 HAG(tmohosts) {tmo-daq,tmo-control,tmo-monitor,tmo-console,ctl-tmo-misc-01,tmo-hutch01}
+HAG(txihosts) {txi-control,txi-daq,txi-monitor,txi-console}
 HAG(rixhosts) {rix-daq,rix-control,rix-monitor,rix-console,ctl-rix-vac-01,ctl-rix-mot-01}
 HAG(xpphosts) {xpp-daq,xpp-control,xpp-hutch01,xpp-laptop01,xpp-laptop03,xpp-laptop04,daq-xpp-pgp01,ioc-xpp-usr01}
 HAG(xcshosts) {xcs-daq,xcs-control,xcs-console,xcs-hutch01,xcs-laptop01,xcs-laptop02,xcs-laptop03,xcs-laptop04,daq-xcs-pgp01,daq-xcs-pgp02,ioc-xcs-user2}
@@ -73,6 +74,13 @@ ASG(RWTMO) {
     }
 }
 
+ASG(RWTXI) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE){
+      HAG(txihosts)
+    }
+}
+
 ASG(RWTST) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
@@ -90,14 +98,14 @@ ASG(RWRIX) {
 ASG(RWSXR) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
-      HAG(drphosts,kfehosts,tmohosts,rixhosts)
+      HAG(drphosts,kfehosts,tmohosts,txihosts,rixhosts)
     }
 }
 
 ASG(RWSXRMCC) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
-      HAG(drphosts,kfehosts,tmohosts,rixhosts,mcchosts)
+      HAG(drphosts,kfehosts,tmohosts,txihosts,rixhosts,mcchosts)
     }
 }
 
@@ -153,14 +161,14 @@ ASG(RWLFE) {
 ASG(RWINSTR) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
-      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts)
+      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,lashosts,kfehosts,lfehosts,tmohosts,txihosts,rixhosts)
     }
 }
 
 ASG(RWINSTRMCC) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){
-      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,kfehosts,lfehosts,tmohosts,rixhosts,pcdshosts)
+      HAG(drphosts,xpphosts,xcshosts,mfxhosts,cxihosts,mechosts,mcchosts,seqhosts,lashosts,kfehosts,lfehosts,tmohosts,txihosts,rixhosts,pcdshosts)
     }
 }
 
