@@ -20,6 +20,7 @@ PLC:.*                     ALLOW RWSXR 1
 PDU:RIX:.*                 ALLOW RWSXR 1
 QRIXS:.*                   ALLOW RWSXR 1
 QRIX:.*                    ALLOW RWSXR 1
+H22:.*                     ALLOW RWSXR 1
 
 # Timetool access for DRP
 RIX:TIMETOOL:.*	ALLOW RWDRP 1
