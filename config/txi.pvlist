@@ -1,0 +1,34 @@
+EVALUATION ORDER ALLOW, DENY
+
+###########################################################
+# LCLS-II Naming convention patterns
+
+# Allow K1, K2 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by K0, K1, K2, ...
+[A-Z][A-Z][0-9]K3:.*       ALLOW RWSXR 1
+[A-Z][A-Z][0-9]L1:.*       ALLOW RWSXR 1
+[A-Z][A-Z][A-Z]:TXI:.*     ALLOW RWSXR 1
+
+# Special case names
+
+# Allow read only access to TXI:.* and similar PVs
+H12:.*                     ALLOW RWSXR 1
+
+# Timetool access for DRP
+TXI:TIMETOOL:.*	ALLOW RWDRP 1
+
+# Allow mcc to write to ephotk user PVs
+TXI:USER:MCC:EPHOTK.*     ALLOW RWINSTRMCC 1
+
+# Note that the ALLOW lines in txi-arrays.pvlist should
+# match the DENY lines in txi.pvlist
+# Deny Arrays
+TXI:.*ArrayData.* DENY
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:TXI:newAsFlag 1
+NET:CAG:TXI.*      ALLOW RWALL 1

@@ -1,0 +1,11 @@
+EVALUATION ORDER ALLOW, DENY
+
+# Note that the ALLOW lines in txi-arrays.pvlist should
+# match the DENY lines in txi.pvlist
+TXI:.*ArrayData.* ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+# To reread config file:
+#	caput NET:CAG:TXI:ARRAYS:newAsFlag 1
+NET:CAG:TXI:ARRAYS.*      ALLOW RWALL 1
