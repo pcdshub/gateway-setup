@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-txi-arrays
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=txi-arrays
+gwprefix=NET:CAG:TXI:ARRAYS
+gwprocport=30085
+export gwHostNum=05
+
+export EPICS_CA_ADDR_LIST=$TXI_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG05_IFLIST | sed -e "s%${TXI_IF05}%%"`
+
+#cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.0.6.0-1.0.1/bin/$EPICS_HOST_ARCH/gateway"
+
+# Add -no_cache to gwargs to disable caching in gateway
+# With -no_cache, CA updates are passed along to clients w/o pre-fetching the value.
+#gwargs="$gwargs -no_cache"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport -no_cache
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?
