@@ -3,6 +3,7 @@ EVALUATION ORDER ALLOW, DENY
 # Allow read access to all LAS:FS2 PV's 
 LAS:FS2.*                       ALLOW
 .*LM2K2.*                       ALLOW
+.*LM1K2.*                       ALLOW
 
 # SXR R/W Access
 LAS:R52:.*                      ALLOW RWSXR 1
