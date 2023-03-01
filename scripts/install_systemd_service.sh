@@ -47,6 +47,16 @@ echo -e
 echo All epics gateway systemd service files have been installed.
 echo If new gateways are added, you can run this script again.
 echo -e
+echo To start all CA gateways on a host
+echo sudo $GW_TOP/scripts/start_ca_gws.sh
+echo To start all PVA gateways on a host
+echo sudo $GW_TOP/scripts/start_pva_gws.sh
+echo To stop all CA gateways on a host
+echo sudo $GW_TOP/scripts/stop_ca_gws.sh
+echo To stop all PVA gateways on a host
+echo sudo $GW_TOP/scripts/stop_pva_gws.sh
+echo -e
+echo Or, if you want to launch them individually.
 echo Check the appropriate launch script before starting it
 echo to make sure its configured for that gateway host.
 echo CA:  grep _IFLIST    $GW_TOP/scripts/epicscagd-xxx
