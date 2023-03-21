@@ -10,6 +10,7 @@ HFX:MON:CVV:01:.*:ArrayData     ALLOW
 HFX:DG2:CVV:01:.*:ArrayData     ALLOW
 HFX:DG3:CVV:01:.*:ArrayData     ALLOW
 XCS:GIGE:YAG1:.*:ArrayData      ALLOW
+XCS:GIGE:YAG3M:.*:ArrayData     ALLOW
 
 # Allow FEH cameras read-only to the world
 XCS:DG3:CVV:02:.*:ArrayData     ALLOW
