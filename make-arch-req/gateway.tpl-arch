@@ -1,0 +1,18 @@
+# Gateway archive template
+$(PREFIX):active		1
+$(PREFIX):clientEventRate		1
+$(PREFIX):clientPostRate		1
+$(PREFIX):connected		1
+$(PREFIX):connecting		1
+$(PREFIX):cpuFract		1
+$(PREFIX):dead		1
+$(PREFIX):existTestRate		1
+$(PREFIX):inactive		1
+$(PREFIX):load		1
+$(PREFIX):loopRate		1
+$(PREFIX):newAsFlag		10	monitor
+$(PREFIX):pvtotal		1
+$(PREFIX):quitFlag		10  monitor
+$(PREFIX):serverEventRate		1
+$(PREFIX):serverPostRate		1
+$(PREFIX):vctotal		1
