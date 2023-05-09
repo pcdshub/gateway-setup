@@ -13,6 +13,7 @@ EVALUATION ORDER ALLOW, DENY
 # Special case names
 
 # Allow read only access to TXI:.* and similar PVs
+TXI:.*                     ALLOW RWSXR 1
 H12:.*                     ALLOW RWSXR 1
 
 # Timetool access for DRP
