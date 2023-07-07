@@ -3,6 +3,7 @@ EVALUATION ORDER ALLOW, DENY
 .*DAQ:NEH.*    DENY
 .*DAQ:TMO.*    DENY
 .*DRP.*        ALLOW
+DET:.*         ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
