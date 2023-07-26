@@ -28,6 +28,7 @@ SXR:.*                  DENY
 LAS:XPP:.*              DENY
 LAS:R54:.*              DENY
 EVR:LAS:LHN:01:.*       ALLOW RWXPP 1
+EVR:LAS:LHN:04:.*       ALLOW RWXPP 1
 
 # XCS R/W Access
 LAS:XCS:.*              DENY
