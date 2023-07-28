@@ -1,7 +1,6 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*DAQ:NEH.*    DENY
-.*DAQ:TMO.*    DENY
+.*DAQ:NEH.*    ALLOW RWSXR
 .*DRP.*        ALLOW
 DET:.*         ALLOW
 

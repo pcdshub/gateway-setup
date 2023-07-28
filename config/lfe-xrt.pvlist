@@ -139,6 +139,9 @@ XCS:GIGE:YAG3M:.*:ArrayData      DENY
 XCS:DG3:CVV:02:.*:ArrayData     DENY
 MEC:HXM:CVV:01:.*:ArrayData     DENY
 
+# Deny DAQ PVA PVs, workaround for gateway config bug
+.*DAQ:NEH.* DENY
+
 # XRT fast faults
 .*XRT.*FFO.* ALLOW RWHXRMCC 1
 
