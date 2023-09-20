@@ -62,6 +62,7 @@ SXR:.*   DENY
 TST:.*   DENY
 XCS:.*   DENY
 XPP:.*   DENY
+LM1K4:W8:04:.*  DENY
 
 # These DENY patterns are needed to allow GMD
 # and XGMD PVs on accelerator IOC's

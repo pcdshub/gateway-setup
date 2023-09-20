@@ -61,6 +61,7 @@ MR5K4:.*		ALLOW RWINSTR 1
 
 # Timetool access for DRP
 TMO:TIMETOOL:.*	ALLOW RWDRP 1
+LM1K4:W8:04:.*  DENY
 
 # FIM Wave8 access for DRP
 MR2K4:FIM:W8:.* ALLOW RWDRP 1

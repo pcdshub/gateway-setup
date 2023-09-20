@@ -115,6 +115,8 @@ PMPS:KFE:BeamParamCntl.*	ALLOW RWSXR 1
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
 
+LM1K4:W8:04:.*             DENY
+
 ###########################################################
 # LCLS-I Naming convention patterns
 # Are we ready to drop these since SXR hutch is no more?
@@ -135,6 +137,7 @@ SXR:.*IMAGE.*		DENY
 SXR:.*Image.*		DENY
 SXR:.*PROJ.*		DENY
 SXR:.*HPrj.*		DENY
+
 
 # Keep this as the last pattern please
 

@@ -101,6 +101,10 @@ CAMR:FEE1:441:.*:ArrayData.VAL	DENY
 # XRT Spectrometer configuration is allowed from MCC and hutches
 CAMR:FEE1:441:.*				ALLOW RWINSTRMCC 1
 
+# Temporary access for MCC to TPR delay (KPP 09/2023)
+KFE:CAM:TPR:02:TRG02_SYS0_TDES ALLOW RWINSTRMCC 1
+KFE:CAM:TPR:02:TRG02_SYS2_TDES ALLOW RWINSTRMCC 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LFE.*      ALLOW RWALL 1

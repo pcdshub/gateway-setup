@@ -51,6 +51,7 @@ XPP:SB2:IPM:01:SUMHST.*     DENY
 XPP:SB2:IPM:01:SUMCNTHST.*  DENY
 XPP:SB2:IPM:01:SUMRMSHST.*  DENY
 
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:XPP.*      ALLOW RWALL 1
