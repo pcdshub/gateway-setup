@@ -110,7 +110,7 @@ TV1K4:.*		ALLOW RWINSTRMCC 1
 SL1K2:EXIT:CAM:.*   DENY
 
 # Allow write access to PMPS Configuration Params from SX control rooms:
-PMPS:KFE:BeamParamCntl.*	ALLOW RWSXR 1
+PMPS:KFE:.*	ALLOW RWSXR 1
 
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
