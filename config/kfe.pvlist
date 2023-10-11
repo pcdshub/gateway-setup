@@ -29,6 +29,9 @@ PMPS.*                     ALLOW
 # Special case - ioc-archstats runs here
 ARCH:.*                    ALLOW
 
+# Allow write access to PMPS Configuration Params from SX control rooms:
+PMPS:KFE:.*	ALLOW RWSXR 1
+
 # Special case - vacuum system overrides, etc
 PLC:KFE:VAC:.*		ALLOW RWINSTRMCC 1
 TMO:FEE:VAC:.*		ALLOW RWINSTRMCC 1
@@ -108,9 +111,6 @@ TV1K4:.*		ALLOW RWINSTRMCC 1
 
 # Deny RIX PVs w/ same naming convention as kfe
 SL1K2:EXIT:CAM:.*   DENY
-
-# Allow write access to PMPS Configuration Params from SX control rooms:
-PMPS:KFE:.*	ALLOW RWSXR 1
 
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
