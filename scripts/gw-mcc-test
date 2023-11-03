@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-mcc-test
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=mcc-test
+gwprefix=NET:CAG:MCC:TEST
+gwprocport=30124
+
+export EPICS_CA_ADDR_LIST=$MCC_GW
+export EPICS_CA_SERVER_PORT=5080
+
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG2_IFLIST | sed -e "s%${MCC_IF2}%%"`
+export EPICS_CAS_BEACON_PORT=5125
+export EPICS_CAS_SERVER_PORT=5126
+#export EPICS_CAS_BEACON_ADDR_LIST="172.21.46.255:$EPICS_CAS_BEACON_PORT"
+
+cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.0.6.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.0.6.0-1.0.1/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.1.0-1.1.1/bin/$EPICS_HOST_ARCH/gateway"
+#cagprogram="/reg/g/pcds/epics/extensions/gateway/R2.1.2.0-1.0.0/bin/$EPICS_HOST_ARCH/gateway"
+
+procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.6.0-SLAC/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.0.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.1.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.2.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.7.0-1.3.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.8.0-1.0.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.8.0-1.1.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/g/pcds/pkg_mgr/release/procServ/2.8.0-1.2.0/$EPICS_HOST_ARCH/bin/procServ"
+#procServ="/reg/neh/home/slepicka/sandbox/test/procServ-2.8.0/procServ "
+
+cagvardir=/tmp/
+cagdbg="-debug 25"
+cagdbg=""
+
+mkdir --parents /tmp/$gwname
+#$cagprogram -no_cache -access $cagcfgdir/pcds-access.acf -pvlist $cagcfgdir/$gwname.pvlist -log /tmp/$gwname/gateway.log -home /tmp/$gwname $cagdbg 2>&1 > /tmp/$gwname/gateway-out.log &
+
+cagstart $gwname $gwprefix $gwprocport
+

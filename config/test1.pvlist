@@ -1,0 +1,15 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*	ALLOW
+.*	ALLOW RWXCS 1
+
+
+
+# Added for PVA gateway testing
+CXI:PVA:TEST:00:.* ALLOW RWMFX 1
+CXI:AUTH1:.* ALLOW RWALL 1
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:TEST1.*      ALLOW RWALL 1

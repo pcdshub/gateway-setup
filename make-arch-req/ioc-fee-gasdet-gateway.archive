@@ -1,0 +1,18 @@
+# Gateway archive template
+:active		1
+:clientEventRate		1
+:clientPostRate		1
+:connected		1
+:connecting		1
+:cpuFract		1
+:dead		1
+:existTestRate		1
+:inactive		1
+:load		1
+:loopRate		1
+:newAsFlag		10	monitor
+:pvtotal		1
+:quitFlag		10  monitor
+:serverEventRate		1
+:serverPostRate		1
+:vctotal		1

@@ -115,7 +115,15 @@ SL1K2:EXIT:CAM:.*   DENY
 # Allow write access to XGMD HV control from soft xray control rooms and ACR
 EM2K0:XGMD:SHV:.*          ALLOW RWSXRMCC
 
+# Temporarily deny DRP PVs due to an error (?) in the gateway setups
 LM1K4:W8:04:.*             DENY
+MR3K2:FIM:W8:.* DENY
+MR4K2:FIM:W8:.* DENY
+MR2K4:FIM:W8:.* DENY
+MR3K4:FIM:W8:.* DENY
+RIX:TIMETOOL:.*	DENY
+RIX:FIM:W8:03.* DENY
+DAQ:TMO:HSD:1_DA.* DENY
 
 ###########################################################
 # LCLS-I Naming convention patterns

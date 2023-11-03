@@ -61,6 +61,8 @@ MR5K4:.*		ALLOW RWINSTR 1
 
 # Timetool access for DRP
 TMO:TIMETOOL:.*	ALLOW RWDRP 1
+
+# Temporarily deny DRP PVs due to an error (?) in the gateway setups
 LM1K4:W8:04:.*  DENY
 
 # FIM Wave8 access for DRP

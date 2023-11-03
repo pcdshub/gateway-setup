@@ -9,11 +9,14 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][0-9]K3:.*       ALLOW RWSXR 1
 [A-Z][A-Z][0-9]L1:.*       ALLOW RWSXR 1
 [A-Z][A-Z][A-Z]:TXI:.*     ALLOW RWSXR 1
+[A-Z][A-Z][A-Z]:TXI:.*     ALLOW RWHXR 1
 
 # Special case names
 
 # Allow read only access to TXI:.* and similar PVs
 TXI:.*                     ALLOW RWSXR 1
+TXI:.*                     ALLOW RWINSTRMCC 1 
+PLC:TXI:.*                 ALLOW RWINSTRMCC 1
 H12:.*                     ALLOW RWSXR 1
 
 # Timetool access for DRP

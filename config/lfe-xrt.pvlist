@@ -135,6 +135,10 @@ XCS:GIGE:YAG1:.*:ArrayData      DENY
 XCS:GIGE:YAG3:.*:ArrayData      DENY
 XCS:GIGE:YAG3M:.*:ArrayData      DENY
 
+# XRT enironmental monitoring
+B960:100:3052.*  ALLOW
+B960:100:3202.*  ALLOW
+
 # Deny FEH camera arrays, see lfe-cam gateway
 XCS:DG3:CVV:02:.*:ArrayData     DENY
 MEC:HXM:CVV:01:.*:ArrayData     DENY
