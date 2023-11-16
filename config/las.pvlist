@@ -97,6 +97,11 @@ LAS:UNDH:FLOAT:15       ALLOW RWINSTR 1
 # fstiming unit 0 waveforms go through different gateway
 LAS:FS0:WAVE.*          DENY
 
+# TMO Timing PV access
+LAS:LHN:LLG2:01:PHASCTL:RF_PHASE_SET.*  ALLOW RWTMO 1
+LAS:LHN:LLG2:01:PHASCTL:DELAY_SET.*     ALLOW RWTMO 1
+
+
 # TODO: why is this at the bottom?
 NET:CAG:LAS:AMO.*           DENY
 # Keep this as the last pattern please
