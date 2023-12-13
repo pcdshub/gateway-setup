@@ -26,6 +26,7 @@ CVMI:.*		ALLOW
 PDU:TMO:*   ALLOW
 IP1:.*		ALLOW
 DREAM:.*	ALLOW
+MRCO:.*     ALLOW
 
 # Allow R/W access for INSTR to TMO:.*
 TMO:.*	        ALLOW RWINSTR 1
