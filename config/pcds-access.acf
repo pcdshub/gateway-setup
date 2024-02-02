@@ -74,6 +74,13 @@ ASG(RWTMO) {
     }
 }
 
+ASG(RWTMODAQ) {
+    RULE(1,READ)
+    RULE(1,WRITE,TRAPWRITE){
+      HAG(tmohosts,drphosts)
+    }
+}
+
 ASG(RWTXI) {
     RULE(1,READ)
     RULE(1,WRITE,TRAPWRITE){

@@ -77,8 +77,8 @@ LM1K4:EJX_MP2:ELL:M1.*        ALLOW RWTMO 1
 LM1K4:EJX_MP2:ELL:M2.*        ALLOW RWTMO 1
 LAS:R51:.*                    ALLOW RWTMO 1 
 
-# Add timing Wave8 access for DRP
-LM1K4:W8:04:.*                ALLOW RWDRP 1
+# Add timing Wave8 access for TMO DAQ
+LM1K4:W8:04:.*                ALLOW RWTMODAQ 1
 
 # Array PVs to deny
 # Added to las-fs-wave gateway
