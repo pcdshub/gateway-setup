@@ -11,6 +11,10 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][A-Z]:TXI:.*     ALLOW RWSXR 1
 [A-Z][A-Z][A-Z]:TXI:.*     ALLOW RWHXR 1
 
+# Rack location catchall
+B940:.*             ALLOW
+B950:.*             ALLOW
+
 # Special case names
 
 # Allow read only access to TXI:.* and similar PVs
