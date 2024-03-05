@@ -21,6 +21,9 @@ RTDSL0.* ALLOW RWHXRMCC 1
 # The EK9K from ioc-tmo-adc01 is now on an LFE host:
 TMO:EK9K.*                 ALLOW
 
+# Allow IM1L1 controls on TXI side
+IM1L1:.*                    ALLOW RWINSTRMCC 1
+
 # Allow devices w/ stand naming convention
 # starting w/ line code L0, L1, L2, ...
 # followed by stand number, S0, S3, S3A, S10, ...
@@ -30,6 +33,10 @@ L[01234]S[0-9]+:.*         ALLOW
 .*LFE:.* ALLOW
 PMPS:LFE:.* ALLOW
 .*LFE.*FFO.* ALLOW RWHXRMCC 1
+
+# Rack location catchall
+B940:.*             ALLOW
+B950:.*             ALLOW
 
 ###########################
 ## Old LCLS1 patterns    ##

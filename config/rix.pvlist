@@ -10,6 +10,10 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][0-9]K2:.*       ALLOW RWSXR 1
 [A-Z][A-Z][A-Z]:RIX:.*     ALLOW RWSXR 1
 
+# Rack location catchall
+B940:.*             ALLOW
+B950:.*             ALLOW
+
 # Special case names
 
 # Allow read only access to RIX:.* and similar PVs
@@ -29,6 +33,7 @@ RIX:TIMETOOL:.*	ALLOW RWDRP 1
 MR4K2:FIM:W8:.* ALLOW RWDRP 1
 MR3K2:FIM:W8:.* ALLOW RWDRP 1
 RIX:FIM:W8:03.* ALLOW RWDRP 1
+RIX:CRIX:W8:.* ALLOW RWDRP 1 
 
 # Allow mcc to write to ephotk user PVs
 RIX:USER:MCC:EPHOTK.*     ALLOW RWINSTRMCC 1

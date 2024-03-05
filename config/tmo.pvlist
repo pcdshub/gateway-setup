@@ -9,6 +9,10 @@ EVALUATION ORDER ALLOW, DENY
 [A-Z][A-Z][0-9]K4:.*       ALLOW
 [A-Z][A-Z][A-Z]:TMO:.*       ALLOW
 
+# Rack location catchall
+B940:.*             ALLOW
+B950:.*             ALLOW
+
 # Special case names
 
 # Allow RW access to these patterns for drphosts

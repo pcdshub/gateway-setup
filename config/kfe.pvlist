@@ -21,6 +21,10 @@ EVALUATION ORDER ALLOW, DENY
 # followed by stand number, S0, S3, S3A, S10, ...
 K[01234]S[0-9]+:.*         ALLOW
 
+# Rack location catchall
+B940:.*             ALLOW
+B950:.*             ALLOW
+
 # Special case names
 RTDSK0:.*                  ALLOW
 PCPM3B:.*                  ALLOW
