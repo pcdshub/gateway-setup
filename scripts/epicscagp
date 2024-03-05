@@ -249,7 +249,7 @@ cagstart() {
 
 PYTHON_EXE=`which python`
 pvaLogsDir="$GW_TOP/pva-logs"
-P4P_TOP=/cds/group/pcds/epics/extensions/p4p/R3.5.2-1.0.0
+P4P_TOP=/cds/group/pcds/epics/extensions/p4p/R4.1.12
 P4P_ARGS=""
 #P4P_ARGS="--logging $GW_TOP/scripts/pva-logging.yaml"
 
