@@ -11,10 +11,10 @@
 gwname=rix
 gwprefix=NET:CAG:RIX
 gwprocport=30082
-export gwHostNum=05
+export gwHostNum=02
 
 export EPICS_CA_ADDR_LIST=$RIX_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG05_IFLIST | sed -e "s%${RIX_IF05}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${RIX_IF02}%%"`
 
 #cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
 #cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.0.6.0-1.0.1/bin/$EPICS_HOST_ARCH/gateway"
