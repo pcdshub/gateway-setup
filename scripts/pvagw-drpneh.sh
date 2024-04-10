@@ -12,7 +12,7 @@
 
 gwname=drpneh
 gwprocport=40181
-export gwHostNum=04
+export gwHostNum=00
 
 case "$1" in
 start)
