@@ -217,6 +217,7 @@ export EPICS_CAS_IGNORE_ADDR_LIST=`echo $EPICS_CAS_IGNORE_ADDR_LIST | sed -e "s%
 # Don't include DRPNEH
 export EPICS_CAS_BEACON_ADDR_LIST="\
 $DEV_BC:5065 $DRP_BC:5065 $MCC1_BC:5069 $MCC2_BC:5069 $LAS_BC:5065 $LFE_BC:5065 $THZ_BC:5065 $TMO_BC:5065 $DET_BC:5065 $KFE_BC:5065 $RIX_BC:5065 $XPP_BC:5065 $XCS_BC:5065 $CXI_BC:5065 $MEC_BC:5065 $MFX_BC:5065 $TST_BC:5065 $LO_BC"
+
 export DAEMON_COREFILE_LIMIT="unlimited"
 
 # Common to most
@@ -242,7 +243,7 @@ cagstart() {
   ln -s $cagvardir/$1/gateway.log.$TIME $cagvardir/$1/gateway.log
   ln -s $cagvardir/$1/gateway-put.log.$TIME $cagvardir/$1/gateway-put.log
   touch $cagvardir/$1/gateway-put.log.$TIME
-  PROCSERV="$procServ --allow --ignore ^D^C --logfile $cagvardir/$1/gateway.log.$TIME --name $1 $3"
+  PROCSERV="$procServ --allow --ignore ^D^C --logfile $cagvardir/$1/gateway.log.$TIME --name $1 --pidfile /run/epicscagd-$1.pid $3"
   $PROCSERV $cagprogram -prefix $2 -access $cagcfgdir/pcds-access.acf -pvlist $cagcfgdir/$1.pvlist -home $cagvardir/$1 $cagdbg -command $cagvardir/gateway.command -putlog $cagvardir/$gwname/gateway-put.log $4 $5 $6 $7 
   echo " done"
 }
@@ -268,7 +269,7 @@ pvaStart() {
 	ln -s $pvaLogsDir/$1/pva-put.log.$TIME $pvaLogsDir/$1/pva-put.log
 	touch $pvaLogsDir/$1/pva-put.log.$TIME
 	cd $pvaLogsDir/$1
-	PROCSERV="$procServ --allow --ignore ^D^C --logfile $pvaLogsDir/$1/pva.log.$TIME --name pva-$1 $2"
+	PROCSERV="$procServ --allow --ignore ^D^C --logfile $pvaLogsDir/$1/pva.log.$TIME --name pva-$1 --pidfile /run/pvagw-$1.pid $2"
 	$PROCSERV $PYTHON_EXE -m p4p.gw $P4P_ARGS $pvaLogsDir/$1/pvagw-$1.json
 	echo " done"
 }

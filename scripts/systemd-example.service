@@ -4,9 +4,11 @@ After=multi-user.target
 Requires=multi-user.target
 
 [Service]
-Type=oneshot
+Type=forking
 ExecStart=/reg/g/pcds/gateway/scripts/epicscagd-aaa start
-RemainAfterExit=yes
+PIDFile=/run/epicscagd-aaa.pid
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
