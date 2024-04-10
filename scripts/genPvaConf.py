@@ -78,15 +78,18 @@ def updateConfig( gwConfig, gwDict ):
     SUBNET	= gwDict['SUBNET']
     XXX		= gwDict['XXX']
     gwIntf	= getEnv( "%s_IF%s" % (SUBNET, gwDict['N']), verbose=verbose )
+    gwIgnr  = getEnv ( "EPICS_CAS_IGNORE_ADDR_LIST", verbose=verbose )
     gwBcast	= getEnv( "%s_BC" % (SUBNET), verbose=verbose )
     gwHostIntfList = getEnv( "PSCAG%s_IFLIST" % gwDict['N'], verbose=verbose ).split()
     gwIntfList = [ intf for intf in gwHostIntfList if intf != gwIntf ]
 
     # Configure client side addrlist
-    gwConfig["clients"][0]['addrlist']	= "%s %s" % ( gwIntf, gwBcast )
+    gwConfig["clients"][0]['addrlist']	= "%s" % ( gwBcast )
 
     # Configure server side
     gwConfig["servers"][0]['interface']	= gwIntfList
+
+    gwConfig["servers"][0]['ignoreaddr'] = gwIgnr
 
     pvlist = gwConfig["servers"][0]['pvlist']
     gwConfig["servers"][0]['pvlist']	= expandMacros( pvlist, gwDict )

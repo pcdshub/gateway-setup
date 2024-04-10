@@ -7,7 +7,7 @@
         {
             "name":"theClient",
             "provider":"pva",
-            "addrlist":"$(SUBNET)_IF$(N) $(SUBNET)_BC",
+            "addrlist":"$(SUBNET)_BC",
             "autoaddrlist":false
         }
     ],
