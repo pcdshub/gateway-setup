@@ -21,8 +21,6 @@ DAQ:TMO:HSD:1_DA.*    ALLOW	RWDRP	1
 
 # Allow read access to DAQ aux variables
 DAQ:NEH:.*          ALLOW
-# But not to the XPM variables which live in DRP land but show up here due to another bug
-DAQ:NEH:XPM:.*       DENY
 
 # Allow read only access to TMO:.* and similar PVs
 TMO:.*	        ALLOW
