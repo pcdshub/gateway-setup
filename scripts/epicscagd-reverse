@@ -16,7 +16,7 @@
 gwname=reverse
 gwprefix=NET:CAG:REVERSE
 gwprocport=30611
-export gwHostNum=06
+export gwHostNum=00
 
 export EPICS_CA_ADDR_LIST=$DEV_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST`

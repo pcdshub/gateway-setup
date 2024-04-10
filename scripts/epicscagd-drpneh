@@ -15,7 +15,7 @@
 gwname=drpneh
 gwprefix=NET:CAG:DRPNEH
 gwprocport=30181
-export gwHostNum=04
+export gwHostNum=00
 
 export EPICS_CA_ADDR_LIST=$DRPNEH_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${DRPNEH_IF04}%%"`
