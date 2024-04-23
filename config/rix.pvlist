@@ -26,13 +26,15 @@ QRIXS:.*                   ALLOW RWSXR 1
 QRIX:.*                    ALLOW RWSXR 1
 H22:.*                     ALLOW RWSXR 1
 
+# Allow read access to DAQ aux variables
+DAQ:NEH:rix:.*          ALLOW
+
 # Timetool access for DRP
 RIX:TIMETOOL:.*	ALLOW RWDRP 1
 
 # FIM Wave8 access for DRP
 MR4K2:FIM:W8:.* ALLOW RWDRP 1
 MR3K2:FIM:W8:.* ALLOW RWDRP 1
-RIX:FIM:W8:03.* ALLOW RWDRP 1
 RIX:CRIX:W8:.* ALLOW RWDRP 1 
 
 # Allow mcc to write to ephotk user PVs

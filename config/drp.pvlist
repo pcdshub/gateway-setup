@@ -1,8 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
-.*DAQ:NEH.*    ALLOW RWSXR
-.*DRP.*        ALLOW
-DET:.*         ALLOW
+DAQ:NEH:XPM:.*    ALLOW RWSXR
+
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
