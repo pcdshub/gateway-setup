@@ -6,6 +6,7 @@ ztec1.*                 ALLOW
 LTLHN.*                 ALLOW
 LXLHN.*                 ALLOW
 CYCLE:.*                ALLOW
+PTS:RFOF:.*             ALLOW
 OSC:ASC01:0:.*          ALLOW
 
 NET:CAG:LAS.*           ALLOW RWALL 1
