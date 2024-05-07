@@ -86,6 +86,7 @@ LM1K4:W8:04:.*                ALLOW RWTMODAQ 1
 # Array PVs to deny
 # Added to las-fs-wave gateway
 LM1K4:QADC:01.*               DENY
+LM1K4:.*ArrayData.*           DENY
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
