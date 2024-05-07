@@ -40,6 +40,9 @@ LM2K2:EJX_DP4_TF1_FF1.*         ALLOW RWSXR 1
 LM2K2:EJX_DP3_TF1_PM1.*         ALLOW RWSXR 1
 LM2K2:EJX_DP4_TF1_PM1.*         ALLOW RWSXR 1
 
+# ChemRIXS PVA images
+LM2K2:.*:Pva:Image.*            ALLOW
+
 # Deny MODS camera array PVs
 LM2K2:.*ArrayData.*             DENY
 LM1K2:.*ArrayData.*             DENY
