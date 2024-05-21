@@ -82,6 +82,7 @@ LM1K4:.*:Pva:Image.* ALLOW
 
 # Add timing Wave8 access for TMO DAQ
 LM1K4:W8:04:.*                ALLOW RWTMODAQ 1
+LM1K4:W8:IOC:04:.*            ALLOW RWTMODAQ 1
 
 # Array PVs to deny
 # Added to las-fs-wave gateway
