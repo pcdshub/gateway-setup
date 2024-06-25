@@ -1,6 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
 DAQ:NEH:XPM:.*    ALLOW RWSXR
+DAQ:NEH:XPM:0.*   ALLOW RWLAS
 
 
 # Keep this as the last pattern please
