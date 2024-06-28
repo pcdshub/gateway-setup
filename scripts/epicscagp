@@ -159,11 +159,16 @@ export B34_IFLAB2=134.79.217.150
 export TST_IFLAB2=172.21.148.237
 export PSCAGLAB2_IFLIST="$B34_IFLAB2 $TST_IFLAB2"
 
-#pscag-ued, a special flower with only two interfaces
+# pscag-ued, a special flower with only two interfaces
 # The testfac side uses server port 5058 as well.
 export PSCAGUED_UEDIF=172.21.36.32
 export PSCAGUED_FACIF=172.27.96.26
 export PSCAGUED_IFLIST="$PSCAGUED_FACIF $PSCAGUED_UEDIF"
+
+# pscag-txi, another special snowflake with 2 IFs
+# uses standard server ports
+export PSCAGTXI_TXIIF=172.21.136.49
+export PSCAGTXI_ICSIF=192.168.1.92
 
 export ALL_PSCAG_IFLIST="$PSCAG1_IFLIST $PSCAG2_IFLIST $PSCAG3_IFLIST $PSCAG4_IFLIST $PSCAGLAB2_IFLIST $PSCAG01_IFLIST $PSCAG02_IFLIST $PSCAG03_IFLIST $PSCAG04_IFLIST $PSCAG05_IFLIST $PSCAG06_IFLIST $PSCAGUED_IFLIST"
 

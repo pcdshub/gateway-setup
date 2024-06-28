@@ -1,0 +1,6 @@
+EVALUATION ORDER ALLOW, DENY
+
+.* ALLOW RWALL 1
+
+# To reread config file:
+#       caput NET:CAG:TXI:ICS:newAsFlag 1
