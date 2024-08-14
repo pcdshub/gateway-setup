@@ -18,6 +18,7 @@ B950:.*             ALLOW
 
 # Allow read only access to RIX:.* and similar PVs
 RIX:.*                     ALLOW RWSXR 1
+RIXS:.*                    ALLOW RWSXR 1
 CRIX:.*                    ALLOW RWSXR 1
 CRIXS:.*                   ALLOW RWSXR 1
 PLC:.*                     ALLOW RWSXR 1
