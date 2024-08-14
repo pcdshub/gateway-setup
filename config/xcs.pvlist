@@ -38,6 +38,9 @@ LAS:FS4:lxt:Ophyd.*	ALLOW
 #XCS:QADC:01:SPARSE.*            DENY
 #XCS:QADC:01:RAWDATA.*           DENY
 #XCS:ACR:.*			DENY
+# XCS Precision Enviornment Monitoring
+B960:100:3052.*  ALLOW
+B960:100:3202.*  ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
