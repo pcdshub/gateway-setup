@@ -9,6 +9,9 @@ EVALUATION ORDER ALLOW, DENY
 # Temporary mobile rack PVs
 HXR:PRT:01:MMS.* ALLOW
 
+# Allow Goniometer PVs
+HXR:GON:.* ALLOW
+
 # Allow all on shared SB1
 HX2:SB1:.* ALLOW RWHXRMCC 1
 XPP:GIGE:01:.* ALLOW RWHXRMCC 1
