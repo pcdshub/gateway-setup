@@ -17,7 +17,7 @@ HAG(thzhosts) {ioc-thz-fct01}
 HAG(tsthosts) {ctl-tst-pgp01,ctl-tst-pgp02,ioc-tst-13,ioc-tst-rec02,ioc-tst-rec03}
 HAG(pcdshosts) {pscron}
 HAG(dethosts) {ioc-det-pnccd01,daq-det-pnccd01,ioc-det-pnccd02,daq-det-pnccd02,ioc-det-portable2,det-console}
-HAG(archhosts) {pscaa01,pscaa02}
+HAG(archhosts) {pscaa01,pscaa02,psbolt}
 HAG(kubhosts) {pskube09,phoebus-alarm-server-0,phoebus-alarm-server-1,phoebus-alrm-srv-gmdxgmd-0,phoebus-alrm-srv-gmdxgmd-1,phoebus-alrm-srv-rtdsk0vac-0,phoebus-alrm-srv-rtdsk0vac-1,phoebus-alrm-srv-sxr-ebd-0,phoebus-alrm-srv-sxr-ebd-1,phoebus-alrm-srv-sxr-fee-0,phoebus-alrm-srv-sxr-fee-1}
 
 HAG(matlabhosts) {psdev105}
