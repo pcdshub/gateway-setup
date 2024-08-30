@@ -97,6 +97,11 @@ def updateConfig( gwConfig, gwDict ):
     prefix = gwConfig["servers"][0]['statusprefix']
     gwConfig["servers"][0]['statusprefix']	= expandMacros( prefix, gwDict )
 
+    serverport = getEnv("EPICS_PVA_SERVER_PORT", verbose=verbose)
+    bcastport = getEnv("EPICS_PVA_BROADCAST_PORT", verbose=verbose)
+    gwConfig["servers"][0]["serverport"] = int(serverport)
+    gwConfig["servers"][0]["bcastport"] = int(bcastport)
+
     # Configure reverse gateway so client side can read GW status PVs
     gwConfig["servers"][1]['interface']	= [ gwIntf ]
     gwConfig["servers"][1]['addrlist']	= gwBcast
