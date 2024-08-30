@@ -15,6 +15,7 @@
 gwname=txi-ics
 gwprefix=NET:CAG:TXI:ICS
 gwprocport=30204
+export gwHostNum=00
 
 export EPICS_CA_ADDR_LIST=$TXI_BC
 export EPICS_CAS_INTF_ADDR_LIST=$PSCAGTXI_ICSIF
