@@ -6,20 +6,23 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-mec
+# processname: epicscagd-nalms
 
 # Source function library.
 . /etc/init.d/functions
 . /etc/init.d/epicscagp
 
-gwname=srv
-gwprefix=NET:CAG:SRV
+gwname=nalms
+gwprefix=NET:CAG:NALMS
 gwprocport=30666
 export gwHostNum=01
 
+# Special port so normal clients don't see this
 export EPICS_CAS_SERVER_PORT=5068
-export EPICS_CA_ADDR_LIST=`echo $BC_LIST | sed -e "s%${DEV_BC}%%" -e "s%${MCC1_BC}%%"  -e "s%${MCC2_BC}%${MCC_GW}:5080%"`
-export EPICS_CAS_INTF_ADDR_LIST=$SRV_IF01
+# Explicit list of areas to search in for data
+export EPICS_CA_ADDR_LIST="$LAS_BC $LFE_BC $TMO_BC $KFE_BC $RIX_BC $XPP_BC $TXI_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
+# Explicit interfaces on pscag01 to allow access to
+export EPICS_CAS_INTF_ADDR_LIST="$S3DF_IF01"
 
 case "$1" in
 start)

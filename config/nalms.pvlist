@@ -1,10 +1,9 @@
 EVALUATION ORDER DENY, ALLOW
 
-.*	ALLOW RDKUB 1
-.*      DENY
+.*	ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
-NET:CAG:SRV.*      ALLOW RWALL 1
+NET:CAG:NALMS.*      ALLOW RWALL 1
 # To reread config file:
 #	caput NET:CAG:SRV:newAsFlag 1
