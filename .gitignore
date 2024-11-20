@@ -6,3 +6,5 @@ pva-logs/
 *.bak
 *hugo-test*
 *[-_]old.pvlist
+*#
+*.swp
