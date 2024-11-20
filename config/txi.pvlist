@@ -28,7 +28,7 @@ PLC:.*		               ALLOW RWINSTRMCC 1
 TXI:TIMETOOL:.*	ALLOW RWDRP 1
 
 # Allow mcc to write to ephotk user PVs
-TXI:USER:MCC:EPHOTK.*     ALLOW RWINSTRMCC 1
+TXI:USER:MCC:EPHOT.*     ALLOW RWINSTRMCC 1
 
 # Note that the ALLOW lines in txi-arrays.pvlist should
 # match the DENY lines in txi.pvlist
