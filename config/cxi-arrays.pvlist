@@ -1,9 +1,15 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Special purpose gateway for CXI waveform traffic
-CXI:QADC:01:OUT.*	ALLOW
-CXI:QADC:01:CH.*	ALLOW
-CXI:ACR:.*			ALLOW
+#Divya mod - 10/09/2024 removing old code, adding new code
+## Special purpose gateway for CXI waveform traffic
+#CXI:QADC:01:OUT.*	ALLOW
+#CXI:QADC:01:CH.*	ALLOW
+#CXI:ACR:.*			ALLOW
+
+CXI:QADC:01:CH.*            ALLOW
+CXI:QADC:01:OUT.*           ALLOW
+CXI:QADC:01:SPARSE.*        ALLOW
+CXI:QADC:01:RAWDATA.*       ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

@@ -7,10 +7,16 @@ XRT:IOC:PP:IMS.*	ALLOW
 CXI:EXS:HST.* ALLOW RWMCC 1
 CXI:ECS:.* ALLOW RWMFX 1
 
+##Divya mod - 10/09/2024 commenting old code, adding new code
 # Divert these high traffic CXI waveforms to cxi-arrays gateway
-CXI:QADC:01:OUT.*	DENY
-CXI:QADC:01:CH.*	DENY
-CXI:ACR:.*			DENY
+#CXI:QADC:01:OUT.*	DENY
+#CXI:QADC:01:CH.*	DENY
+#CXI:ACR:.*			DENY
+
+CXI:QADC:01:CH.*            DENY
+CXI:QADC:01:OUT.*           DENY
+CXI:QADC:01:SPARSE.*        DENY
+CXI:QADC:01:RAWDATA.*       DENY
 
 # Added for PVA gateway testing
 CXI:PVA:TEST:00:.* ALLOW RWMFX 1
