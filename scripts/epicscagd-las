@@ -11,10 +11,10 @@
 gwname=las
 gwprefix=NET:CAG:LAS
 gwprocport=30090
-export gwHostNum=01
+export gwHostNum=02
 
 export EPICS_CA_ADDR_LIST=$LAS_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG01_IFLIST | sed -e "s%${LAS_IF01}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG02_IFLIST | sed -e "s%${LAS_IF02}%%"`
 
 case "$1" in
 start)
