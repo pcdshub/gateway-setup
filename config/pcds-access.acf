@@ -11,7 +11,7 @@ HAG(cxihosts) {cxi-daq,cxi-control,cxi-monitor,cxi-console,cxi-ana,cxi-hutch01,d
 HAG(mechosts) {mec-daq,mec-control,mec-control-2,mec-monitor,mec-console,mec-console-2,mec-laser,mec-laptop01,mec-laptop02,mec-laptop03,mec-laptop04,mec-laptop05,mec-laptop06,ioc-mec-misc01,ioc-mec-ipimb01,mec-laptop08,mec-laptop07, mec-hutch02, mec-hutch01}
 HAG(seqhosts) {ioc-xpp-osc01,ioc-xcs-user2,ioc-cxi-misc1,ctl-tmo-misc-01,ctl-rix-vac-01,ctl-rix-mot-01}
 HAG(lashosts) {las-console,ioc-las-fstiming,ioc-las-srv01,ioc-las-srv03,ioc-las-srv04,ioc-las-cxi-srv05,ioc-las-mec-srv06,ioc-las-xcs-srv04,ctl-las-lhn-01,ctl-las-lhn-04,las-neh-control,las-neh-monitor}
-HAG(kfehosts) {kfe-console}
+HAG(kfehosts) {kfe-console,ctl-kfe-misc-01}
 HAG(lfehosts) {lfe-console}
 HAG(thzhosts) {ioc-thz-fct01}
 HAG(tsthosts) {ctl-tst-pgp01,ctl-tst-pgp02,ioc-tst-13,ioc-tst-rec02,ioc-tst-rec03}
