@@ -160,3 +160,7 @@ SXR:.*HPrj.*		DENY
 # To reread config file:
 #	caput NET:CAG:KFE:newAsFlag 1
 NET:CAG:KFE.*      ALLOW RWALL 1
+
+# TMO DREAM KBslits
+SL2K4:SCATTER.*     ALLOW 
+TMO:SL2K4:MMS.*     ALLOW
