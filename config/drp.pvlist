@@ -1,9 +1,13 @@
 EVALUATION ORDER ALLOW, DENY
 
+# Allow write access to XPM PVs from specific instrument areas.
 DAQ:NEH:XPM:.*    ALLOW RWSXR
 DAQ:NEH:XPM:0.*   ALLOW RWLAS
 
 DAQ:FEH:XPM:.*    ALLOW RWINSTR
+
+# Allow everyone read-only access to live analysis PVs
+DRP:.*            ALLOW
 
 
 # Keep this as the last pattern please
