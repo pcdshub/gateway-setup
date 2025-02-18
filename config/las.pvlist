@@ -107,6 +107,8 @@ LAS:LHN:LLG2:02:PHASCTL:DELAY_TWK.*     ALLOW RWSXR 1
 # Ophyd lxt object notepad PVs (offset, etc.)
 LAS:LHN:LLG2:01:lxt:.*                  ALLOW RWSXR 1
 LAS:LHN:LLG2:02:lxt:.*                  ALLOW RWSXR 1
+# Might be unused
+LAS:TMO:lxt:.*                          ALLOW RWSXR 1
 
 
 # TODO: why is this at the bottom?
