@@ -52,28 +52,28 @@ LAS:MEC:.*              ALLOW RWMEC 1
 LAS:FS6:.*              ALLOW RWMEC 1
 
 # Allow mcc to write to ephotk user PVs
-# For some reason these are in las subnet
+# TODO: For some reason these are in las subnet
 MEC:USER:MCC:EPHOT.*    ALLOW RWINSTRMCC 1
 
 # Laser Hall Bays R/W Access
 LAS:FS11:.*             ALLOW RWINSTR 1
 LAS:FS14:.*             ALLOW RWINSTR 1
 
-# TODO: Laser Hall, temporary, allow ADC PVs to XPP and TMO
+# Laser Hall Shutters R/W Access
+LTLHN.*LST.*            ALLOW RWINSTR 1
+
+# TODO: Temporary, Allow LHN ADC PVs to XPP and TMO
 LAS:LHN:ADC:01:.*       ALLOW RWXPP 1
 LAS:LHN:ADC:04:.*       ALLOW RWSXR 1
 
-# Laser Hall Shutters R/W Access
-LTLHN.*LST.*            ALLOW RWINSTR 1
+# Deny fast history PVs
+LAS*_LAST_*             DENY
 
 # All Undulator Hall PV's go through a different gateway
 UND:.*                  DENY
 
 # RF Phase Cavity phase control PV's go through a different gateway
 LAS:UND:MMS:.*          DENY
-
-# Deny fast history PVs
-LAS*_LAST_*             DENY
 
 # TODO: Temporary, ACR/AD/MCC Access
 LAS:UNDS:FLOAT:05       ALLOW RWMCC 1
