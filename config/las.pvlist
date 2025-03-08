@@ -45,8 +45,6 @@ CXI:.*                  ALLOW RWCXI 1
 LAS:FS5:.*              ALLOW RWCXI 1
 EVR:LAS:CXI:01.*        ALLOW RWCXI 1
 IOC:LAS:CXI:EVR:01.*    ALLOW RWCXI 1
-LAS:R52B:AIN.*          ALLOW RWCXI 1
-LAS:R52B:AOU.*          ALLOW RWCXI 1
 
 # MEC R/W Access
 MEC:.*                  ALLOW RWMEC 1
