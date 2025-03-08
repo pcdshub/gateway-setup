@@ -1,8 +1,8 @@
 EVALUATION ORDER ALLOW, DENY
 
+# Allow Read-Only Access
 .*LAS.*                 ALLOW
 .*UND.*                 ALLOW
-ztec1.*                 ALLOW
 LTLHN.*                 ALLOW
 LXLHN.*                 ALLOW
 CYCLE:.*                ALLOW
