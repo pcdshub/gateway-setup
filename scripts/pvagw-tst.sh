@@ -15,7 +15,7 @@ gwprocport=40610
 export gwHostNum=06
 
 #P4P_TOP=/cds/group/pcds/epics-dev/bhill/extensions/p4p-git
-P4P_TOP=/cds/group/pcds/epics/extensions/p4p/R4.0.0-1.0.0
+#P4P_TOP=/cds/group/pcds/epics/extensions/p4p/R4.0.0-1.0.0
 
 case "$1" in
 start)
