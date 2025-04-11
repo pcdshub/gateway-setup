@@ -49,6 +49,9 @@ LM2K2:.*:Pva:Image.*            ALLOW
 LM2K2:.*ArrayData.*             DENY
 LM1K2:.*ArrayData.*             DENY
 
+# Allow read write access to LM2K2:W8:03
+LM2K2:W8:03.*                   ALLOW RWDRP 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LAS:SXR.*      ALLOW RWALL 1
