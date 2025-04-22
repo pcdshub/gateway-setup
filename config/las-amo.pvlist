@@ -68,12 +68,6 @@ LM1K4:EJX:ELL:2:M2.*            ALLOW RWTMO 1
 # IP1 MODS R/W Access - Non-LSS Shutter
 LM1K4:EJX_SHUTTER_24V.*         ALLOW RWTMO 1
 
-# IP1 MODS R/W Access - Atto-solids temporary controls (TODO Remove)
-LM1K4:EJX_TP1_DLY1.*            ALLOW RWTMO 1
-LM1K4:EJX_TP1_LS1_LM1.*         ALLOW RWTMO 1
-LM1K4:EJX_TP1_LS1_LM2.*         ALLOW RWTMO 1
-LM1K4:EJX_TP1_LS1_LM3.*         ALLOW RWTMO 1
-
 # IP1 MODS Wave8 R/W Access - TMO DAQ
 LM1K4:W8:04:.*                  ALLOW RWTMODAQ 1
 LM1K4:W8:IOC:04:.*              ALLOW RWTMODAQ 1
