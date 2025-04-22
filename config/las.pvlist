@@ -88,7 +88,6 @@ LAS:UNDH:FLOAT:15       ALLOW RWINSTR 1
 LAS:FS0:WAVE.*          DENY
 
 # TMO Timing PV access
-#LAS:LHN:LLG2:01:PHASCTL:RF_PHASE_SET.*  ALLOW RWSXR 1
 LAS:LHN:LLG2:01:PHASCTL:DELAY_SET.*     ALLOW RWSXR 1
 LAS:LHN:LLG2:02:PHASCTL:DELAY_SET.*     ALLOW RWSXR 1
 LAS:LHN:LLG2:01:PHASCTL:DELAY_TWK.*     ALLOW RWSXR 1
@@ -99,9 +98,9 @@ LAS:LHN:LLG2:02:lxt:.*                  ALLOW RWSXR 1
 # Might be unused
 LAS:TMO:lxt:.*                          ALLOW RWSXR 1
 
-
 # TODO: why is this at the bottom?
 NET:CAG:LAS:AMO.*           DENY
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 # To reread config file:
