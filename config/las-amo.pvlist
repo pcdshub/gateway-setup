@@ -1,33 +1,19 @@
 EVALUATION ORDER ALLOW, DENY
 
-# Allow read-only access
-# LAS:FS1:VIT:.*                  ALLOW
+# Allow Read-Only Access
 .*LM1K4.*              	        ALLOW  
 
-# AMO R/W Access
-# Outdated FS1 locker PVs below
-# LAS:R51:.*                      ALLOW RWTMO 1
-# AMO:LAS:.*                      ALLOW RWTMO 1
-# LAS:LH1:.*                      ALLOW RWTMO 1
-# LAS:FS1:VIT:AUTO_MODE_ENABLE.*  ALLOW RWTMO 1
-# LAS:FS1:VIT:FREQ_SEARCH.*       ALLOW RWTMO 1
-# LAS:FS1:VIT:FREQ_SP.*           ALLOW RWTMO 1
-# LAS:FS1:VIT:FS_TGT_TIME.*       ALLOW RWTMO 1
-# LAS:FS1:VIT:FS_TIMING.*         ALLOW RWTMO 1
-# LAS:FS1:VIT:RF_LOCK_ENABLE.*    ALLOW RWTMO 1
+# Allow Read-Only Access - LM1K4 PVA images
+LM1K4:.*:Pva:Image.* ALLOW 
 
-# All instruments R/W Access
-# --> IOC moved from LAS to AMO subnet
-#AMO:LAS:DLS:05:MTR.* ALLOW RWINSTR 1
-#AMO:LAS:DLS:06:MTR.* ALLOW RWINSTR 1
-
+# All Instruments R/W Access
 # LAS:FS1:Angle:Shift:Ramp:Target  ALLOW RWINSTR 1
 # LAS:FS1:.*_vcxo_loop             ALLOW RWINSTR 1
 # LAS:FS1:REG:kp_vcxo:wr           ALLOW RWINSTR 1
 # LAS:FS1:bt_.*                    ALLOW RWINSTR 1
 # LAS:FS2:bt_.*                    ALLOW RWINSTR 1
 
-# TMO MODS PVs for TMO
+# IP1 MODS R/W Access
 LM1K4:INJ_DP2_MR1.*             ALLOW RWTMO 1 
 LM1K4:INJ_DP2_MR1_LM1.*         ALLOW RWTMO 1
 LM1K4:INJ_MP1_ATT1_WP1.*        ALLOW RWTMO 1
@@ -37,7 +23,6 @@ LM1K4:COM_DP2_TF1_SL1.*         ALLOW RWTMO 1
 LM1K4:COM_DP2_XTL1.*            ALLOW RWTMO 1 
 LM1K4:COM_DP3_TF1_SL1.*         ALLOW RWTMO 1 
 LM1K4:COM_DP1_MR1.*             ALLOW RWTMO 1 
-# LM1K4:COM_MP1_GT2_LM1.*         ALLOW RWTMO 1 
 LM1K4:COM_MP1_MR1_TIP1.*        ALLOW RWTMO 1 
 LM1K4:COM_MP1_MR1_TILT1.*       ALLOW RWTMO 1 
 LM1K4:COM_MP1_PZM1.*            ALLOW RWTMO 1
@@ -47,14 +32,9 @@ LM1K4:COM_MP1_MR4_TILT1.*       ALLOW RWTMO 1
 LM1K4:COM_MP2_BS2_TIP1.*        ALLOW RWTMO 1 
 LM1K4:COM_MP2_BS2_TILT1.*       ALLOW RWTMO 1 
 LM1K4:COM_MP2_DLY1.*            ALLOW RWTMO 1 
-# LM1K4:COM_MP2_MR8_TIP1.*        ALLOW RWTMO 1 
-# LM1K4:COM_MP2_MR8_TILT1.*       ALLOW RWTMO 1 
 
 LM1K4:ATM_DP1_TF1_SL1.*         ALLOW RWTMO 1 
 LM1K4:ATM_DP2_TF1_SL1.*         ALLOW RWTMO 1 
-# LM1K4:ATM_MP1_WP1_LM1.*         ALLOW RWTMO 1 
-# LM1K4:ATM_MP1_WP1_RM1.*         ALLOW RWTMO 1 
-# LM1K4:ATM_MP2_POL1.*            ALLOW RWTMO 1 
 LM1K4:ATM:ELL:1:M3.*            ALLOW RWTMO 1
 LM1K4:ATM_MP1_MR0_TIP1.*        ALLOW RWTMO 1 
 LM1K4:ATM_MP1_MR0_TILT1.*       ALLOW RWTMO 1 
@@ -63,9 +43,6 @@ LM1K4:ATM_MP1_MR1_TILT1.*       ALLOW RWTMO 1
 LM1K4:ATM_MP1_MR3_TIP1.*        ALLOW RWTMO 1 
 LM1K4:ATM_MP1_MR3_TILT1.*       ALLOW RWTMO 1 
 
-# LM1K4:EJX_MP2_ATT1_POL1.*       ALLOW RWTMO 1 
-# LM1K4:EJX_MP2_ATT1_POL2.*       ALLOW RWTMO 1 
-# LM1K4:EJX_DP6_CVS1_MR3.*        ALLOW RWTMO 1 
 LM1K4:EJX_DP6_CVS1_MR2.*        ALLOW RWTMO 1 
 LM1K4:EJX_DP6_CVS1_MR1.*        ALLOW RWTMO 1 
 LM1K4:EJX_MP1_OAP1.*            ALLOW RWTMO 1 
@@ -83,31 +60,25 @@ LM1K4:EJX_MP1_OAP1_MR1_TIP1.*   ALLOW RWTMO 1
 LM1K4:EJX_MP1_OAP1_MR1_TILT1.*  ALLOW RWTMO 1
 LM1K4:EJX_DP6_CVS1_MR1.*        ALLOW RWTMO 1
 LM1K4:EJX_DP6_CVS1_MR2.*        ALLOW RWTMO 1
+LM1K4:EJX:ELL:1:M1.*            ALLOW RWTMO 1
+LM1K4:EJX:ELL:1:M2.*            ALLOW RWTMO 1
+LM1K4:EJX:ELL:2:M1.*            ALLOW RWTMO 1
+LM1K4:EJX:ELL:2:M2.*            ALLOW RWTMO 1
 
-# Atto-solids temporary controls
+# IP1 MODS R/W Access - Non-LSS Shutter
+LM1K4:EJX_SHUTTER_24V.*         ALLOW RWTMO 1
+
+# IP1 MODS R/W Access - Atto-solids temporary controls (TODO Remove)
 LM1K4:EJX_TP1_DLY1.*            ALLOW RWTMO 1
 LM1K4:EJX_TP1_LS1_LM1.*         ALLOW RWTMO 1
 LM1K4:EJX_TP1_LS1_LM2.*         ALLOW RWTMO 1
 LM1K4:EJX_TP1_LS1_LM3.*         ALLOW RWTMO 1
 
-# Non-LSS Shutter
-LM1K4:EJX_SHUTTER_24V.*         ALLOW RWTMO 1
-
-# LM1K4:INT_MP1_DLY1.*          ALLOW RWTMO 1 
-LM1K4:EJX:ELL:1:M1.*        ALLOW RWTMO 1
-LM1K4:EJX:ELL:1:M2.*        ALLOW RWTMO 1
-LM1K4:EJX:ELL:2:M1.*        ALLOW RWTMO 1
-LM1K4:EJX:ELL:2:M2.*        ALLOW RWTMO 1
-# LAS:R51:.*                    ALLOW RWTMO 1 
-
-# LM1K4 PVA images
-LM1K4:.*:Pva:Image.* ALLOW 
-
-# Add timing Wave8 access for TMO DAQ
+# IP1 MODS Wave8 R/W Access - TMO DAQ
 LM1K4:W8:04:.*                  ALLOW RWTMODAQ 1
 LM1K4:W8:IOC:04:.*              ALLOW RWTMODAQ 1
 
-# Array PVs to deny
+# Array PVs to Deny R/W
 # Added to las-fs-wave gateway
 LM1K4:QADC:01.*                 DENY
 LM1K4:.*ArrayData.*             DENY
