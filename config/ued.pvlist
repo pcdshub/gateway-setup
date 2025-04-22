@@ -1,6 +1,15 @@
 EVALUATION ORDER DENY, ALLOW
+
+# Full access for archiver
+.* ALLOW        RDARCH 1
+
+# Everyone else only gets UED stuff
+# This prevents heavy traffic
+UED.*           ALLOW
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:UED.*   ALLOW RWALL 1
 # To reread config file:
 #       caput NET:CAG:UED:newAsFlag 1
-
-.* ALLOW RDARCH 1
-.* DENY
