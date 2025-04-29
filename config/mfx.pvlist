@@ -7,6 +7,8 @@ MFX:LAS:.*      ALLOW RWLAS 1
 
 # EPHOT control for ACR
 MFX:USER:MCC:EPHOT.* ALLOW RWINSTRMCC 1
+# UND GO PV reset for ACR
+MFX:USER:MCC:UND:GO  ALLOW RWINSTRMCC 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
