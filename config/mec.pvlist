@@ -2,6 +2,9 @@ EVALUATION ORDER ALLOW, DENY
 
 .*MEC.*	ALLOW
 
+# FMS devices read/write access
+FMS:MEC.* ALLOW RWALL 1
+
 # FiberOven access to it's EVR trigger
 EVR:MEC:REC01:TRIG6.*	ALLOW RWLAS 1
 
