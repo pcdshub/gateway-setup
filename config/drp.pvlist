@@ -8,6 +8,8 @@ DAQ:FEH:XPM:.*    ALLOW RWINSTR
 
 # Allow everyone read-only access to live analysis PVs
 DRP:.*            ALLOW
+# Allow write access to EPIX PVs from instrument areas.
+DRP:EPIX.*        ALLOW RWINSTR
 
 
 # Keep this as the last pattern please
