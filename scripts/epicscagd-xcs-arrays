@@ -18,7 +18,7 @@ gwprocport=30041
 export gwHostNum=03
 
 export EPICS_CA_ADDR_LIST=$XCS_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${XCS_IF04}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG03_IFLIST | sed -e "s%${XCS_IF03}%%"`
 #export cagprogram="/reg/g/pcds/package/epics/3.14/extensions/R3.14.12/bin/$EPICS_HOST_ARCH/gateway"
 
 case "$1" in

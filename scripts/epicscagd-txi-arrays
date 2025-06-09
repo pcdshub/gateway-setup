@@ -11,10 +11,10 @@
 gwname=txi-arrays
 gwprefix=NET:CAG:TXI:ARRAYS
 gwprocport=30085
-export gwHostNum=05
+export gwHostNum=03
 
 export EPICS_CA_ADDR_LIST=$TXI_BC
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG05_IFLIST | sed -e "s%${TXI_IF05}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG03_IFLIST | sed -e "s%${TXI_IF03}%%"`
 
 #cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.1.2.0-1.3.0/bin/$EPICS_HOST_ARCH/gateway"
 #cagprogram="/cds/group/pcds/epics/extensions/gateway/R2.0.6.0-1.0.1/bin/$EPICS_HOST_ARCH/gateway"
