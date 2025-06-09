@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-pscag01
+#
+# Starts the EPICS CAG gateway
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-pscag04
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=pscag02
+gwprefix=NET:CAG:PSCAG02
+gwprocport=30502
+export gwHostNum=02
+
+export EPICS_CA_ADDR_LIST=localhost
+export EPICS_CAS_INTF_ADDR_LIST="$PSCAG02_IFLIST"
+
+case "$1" in
+start)
+        cagstart $gwname $gwprefix $gwprocport
+        ;;
+name)
+        echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+        ;;
+*)
+        echo $"Usage: $0 {start|name}"
+        exit 1
+esac
+
+exit $?
+

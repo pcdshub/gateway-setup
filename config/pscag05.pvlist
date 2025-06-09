@@ -1,0 +1,5 @@
+EVALUATION ORDER ALLOW, DENY
+
+# For pscag gateways, these are all the local PVs only
+NET:CAG:PSCAG05.*      ALLOW RWALL 1
+
