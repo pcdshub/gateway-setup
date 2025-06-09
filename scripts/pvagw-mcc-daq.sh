@@ -12,7 +12,7 @@
 
 gwname=mcc-daq
 gwprocport=40445
-export gwHostNum=04
+export gwHostNum=03
 
 case "$1" in
 start)

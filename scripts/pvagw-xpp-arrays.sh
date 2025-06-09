@@ -12,7 +12,7 @@
 
 gwname=xpp-arrays
 gwprocport=40076
-export gwHostNum=04
+export gwHostNum=03
 
 case "$1" in
 start)

@@ -15,7 +15,7 @@
 gwname=xcs-arrays
 gwprefix=NET:CAG:XCS:ARRAYS
 gwprocport=30041
-export gwHostNum=04
+export gwHostNum=03
 
 export EPICS_CA_ADDR_LIST=$XCS_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG04_IFLIST | sed -e "s%${XCS_IF04}%%"`

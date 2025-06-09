@@ -12,7 +12,7 @@
 
 gwname=txi
 gwprocport=40084
-export gwHostNum=05
+export gwHostNum=03
 
 case "$1" in
 start)

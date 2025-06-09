@@ -11,7 +11,7 @@
 gwname=txi
 gwprefix=NET:CAG:TXI
 gwprocport=30084
-export gwHostNum=06
+export gwHostNum=03
 
 export EPICS_CA_ADDR_LIST=$TXI_BC
 export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${TXI_IF06}%%"`
