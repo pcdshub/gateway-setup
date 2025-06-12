@@ -26,6 +26,9 @@ EVR:LAS:LHN:04:.*       ALLOW RWTMO 1
 # SXR R/W Access (KFE|TMO|TXI|RIX)
 LAS:R52:.*              DENY
 SXR:.*                  DENY
+LAS:FS2.*               DENY
+.*LM2K2.*               DENY
+.*LM1K2.*               DENY
 
 # XPP R/W Access
 LAS:XPP:.*              DENY
