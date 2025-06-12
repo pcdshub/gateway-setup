@@ -78,6 +78,7 @@ XRAY_DESTINATIONS ALLOW
 
 # XRT PVs go to XRT gateway
 .*XRT.* DENY
+HFX:.*  DENY
 
 # Allow read access to BYKIK:REQUEST PVs
 .*:LTU1:BYKIK:REQUEST.*  ALLOW
