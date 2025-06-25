@@ -2,6 +2,7 @@ EVALUATION ORDER ALLOW, DENY
 
 # Allow Read-Only Access
 .*LM1K4.*              	        ALLOW  
+.*LM2K4.*			ALLOW
 
 # Allow Read-Only Access - LM1K4 PVA images
 LM1K4:.*:Pva:Image.* ALLOW 
@@ -79,6 +80,7 @@ LM1K4:.*ArrayData.*             DENY
 LM2K4:.*ArrayData.*             DENY
 
 # IP2 MODS PVs
+LM2K4:INJ_MP1_ATT1_WP1.*	ALLOW RWTMO 1
 LM2K4:EJX_MP1_MR99_LM1.*	ALLOW RWTMO 1
 
 # QRIXS PVA images
