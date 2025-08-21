@@ -10,6 +10,12 @@ ioc:.* ALLOW RWTMO 1
 # Temporary test
 MR2K4:FIM:W8:01:AdcCalibStatus	ALLOW
 
+# FMS Annunciator not a test
+.*B751.* ALLOW RWALL 1
+
+# FMS Interlock not a test
+.*FMS.* ALLOW RWALL 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:TST.*      ALLOW RWALL 1

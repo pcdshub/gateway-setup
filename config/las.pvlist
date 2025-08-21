@@ -21,6 +21,7 @@ NET:CAG:LAS:UND:MISC.*  DENY
 # TMO R/W Access
 LAS:R51:.*              DENY
 .*LM1K4.*              	DENY
+.*LM2K4.*              	DENY
 EVR:LAS:LHN:04:.*       ALLOW RWTMO 1
 
 # SXR R/W Access (KFE|TMO|TXI|RIX)
