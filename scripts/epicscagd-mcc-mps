@@ -11,11 +11,11 @@
 gwname=mcc-mps
 gwprefix=NET:CAG:MCC:MPS
 gwprocport=30444
-export gwHostNum=06
+export gwHostNum=05
 
 export EPICS_CA_ADDR_LIST=$MCC_GW
 export EPICS_CA_SERVER_PORT=5080
-export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${MCC_IF06}%%"`
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG05_IFLIST | sed -e "s%${MCC_IF05}%%"`
 
 case "$1" in
 start)

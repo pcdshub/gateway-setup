@@ -12,7 +12,7 @@
 
 gwname=mcc-mps
 gwprocport=40444
-export gwHostNum=06
+export gwHostNum=05
 
 case "$1" in
 start)
