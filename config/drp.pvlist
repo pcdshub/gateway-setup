@@ -1,5 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
+# Read-only for anyone
+DAQ:.*            ALLOW
 # Allow write access to XPM PVs from specific instrument areas.
 DAQ:NEH:XPM:.*    ALLOW RWSXR
 DAQ:NEH:XPM:0.*   ALLOW RWLAS
