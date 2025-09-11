@@ -103,6 +103,10 @@ LM2K4:EJX_SHUTTER_24V.*         ALLOW RWTMO 1
 # IP2 MODS PVA images
 LM2K4:.*:Pva:Image.*            ALLOW
 
+# IP2 MODS Wave8 R/W Access - TMO DAQ
+LM2K4:W8:01:.*                  ALLOW RWTMODAQ 1
+LM2K4:W8:IOC:01:.*              ALLOW RWTMODAQ 1
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LAS:AMO.*               ALLOW RWALL 1
