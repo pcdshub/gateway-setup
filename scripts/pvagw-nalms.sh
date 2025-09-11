@@ -16,7 +16,7 @@ export gwHostNum=01
 
 # Manipulate genPvaConf.py by setting these environment variables
 export EPICS_PVA_SERVER_PORT=5072
-export NALMS_BC="$LAS_BC $LFE_BC $TMO_BC $KFE_BC $RIX_BC $XPP_BC $TXI_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
+export NALMS_BC="$LAS_BC $LFE_BC $TMO_BC $KFE_BC $RIX_BC $XPP_BC $TXI_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC $DRP_BC"
 export PSCAG01_IFLIST="$S3DF_IF01"
 export NALMS_IF01="localhost"
 
