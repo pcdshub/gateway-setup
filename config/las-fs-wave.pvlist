@@ -4,7 +4,7 @@ EVALUATION ORDER ALLOW, DENY
 LAS:FS0:WAVE.* ALLOW
 
 LM1K4:QADC:01.* ALLOW RWTMO 1
-
+LM2K4:QADC:01.* ALLOW RWTMO 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

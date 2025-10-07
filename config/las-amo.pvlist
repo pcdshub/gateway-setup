@@ -77,6 +77,7 @@ LM1K4:W8:IOC:04:.*              ALLOW RWTMODAQ 1
 # Array PVs to Deny R/W
 # Added to las-fs-wave gateway
 LM1K4:QADC:01.*                 DENY
+LM2K4:QADC:01.*                 DENY
 LM1K4:.*ArrayData.*             DENY
 LM2K4:.*ArrayData.*             DENY
 
