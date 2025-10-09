@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-srv
+#
+# Starts the EPICS CAG gateway
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-nalms
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=s3df-user
+gwprefix=NET:CAG:S3DF:USR
+gwprocport=30667
+export gwHostNum=04
+
+# Special port so normal clients don't see this
+export EPICS_CAS_SERVER_PORT=5068
+# Explicit list of areas to search in for data
+export EPICS_CA_ADDR_LIST="$LAS_BC $LFE_BC $TMO_BC $KFE_BC $RIX_BC $XPP_BC $TXI_BC $XCS_BC $CXI_BC $MEC_BC $MFX_BC"
+# Explicit interfaces on pscag01 to allow access to
+export EPICS_CAS_INTF_ADDR_LIST="$S3DF_IF04"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

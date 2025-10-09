@@ -1,0 +1,9 @@
+EVALUATION ORDER DENY, ALLOW
+
+.*	ALLOW
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:S3DF:USR.*      ALLOW RWALL 1
+# To reread config file:
+#	caput NET:CAG:SRV:newAsFlag 1
