@@ -24,6 +24,7 @@ LAS:UNDH:FLOAT:06 ALLOW RWMCC 1
 #PPS:NEH1:1:S1STOPPER.*	ALLOW RWAMOCTL 1
 #PPS:NEH1:1:S2STOPPER.*	ALLOW RWAMOCTL 1
 
+
 # DENY access to camera iocs, see mcc-wave gateway
 # NOTE: Can't enable here unless we also add these to LCLS gateway config file
 #		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
