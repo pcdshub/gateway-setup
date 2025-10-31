@@ -3,53 +3,24 @@ EVALUATION ORDER ALLOW, DENY
 #	caput NET:CAG:XPP:newAsFlag 1
 
 .*XPP.*	ALLOW
-.*HX2.*	ALLOW
-.*HX3.*	ALLOW
 
-# Temporary mobile rack PVs
-HXR:PRT:01:MMS.* ALLOW
+# Allow L2 devices w/ naming conventions
+# starting w/ 2 char device code and device number,
+# followed by L2
+[A-Z][A-Z][0-9]L2:.*    ALLOW
+
+# Mobile rack PVs
+HXR:PRT:01:MMS.*        ALLOW
 
 # Allow Goniometer PVs
-HXR:GON:.* ALLOW
-
-# Allow all on shared SB1
-HX2:SB1:.* ALLOW RWHXRMCC 1
-XPP:GIGE:01:.* ALLOW RWHXRMCC 1
-
-# Allow various XPP Hutch things
-XPP:NAV:SB1:01:DES_ZOOM ALLOW RWHXRMCC 1
-XPP:R30:EVR:27.*   ALLOW RWMCC 1
-XPP:R35:IOC:SEQ.*  ALLOW RWINSTRMCC 1
-XPP:USER:MCC:EPHOT.* ALLOW RWINSTRMCC 1
-XPP:OPAL1K:1.* ALLOW RWMCC 1
-XPP:OPAL1K:1:BinnedImage ALLOW RWMCC 1
-XPP:OPAL1K:1:LiveImage ALLOW RWMCC 1
-
-#Allow all HXR XPP lodcm
-XPP:LODCM:.* ALLOW RWHXRMCC 1
+HXR:GON:.*              ALLOW
 
 # Deny Arrays
-HX2:SB1:CVV:01:.*ArrayData.* DENY
-
-HX2:SB1:IPM:01:SUMHST.*     DENY
-HX2:SB1:IPM:01:SUMCNTHST.*  DENY
-HX2:SB1:IPM:01:SUMRMSHST.*  DENY
-
-XPP:MON:IPM:02:SUMHST.*     DENY
-XPP:MON:IPM:02:SUMCNTHST.*  DENY
-XPP:MON:IPM:02:SUMRMSHST.*  DENY
-
-XPP:SB1:IPM:02:SUMHST.*     DENY
-XPP:SB1:IPM:02:SUMCNTHST.*  DENY
-XPP:SB1:IPM:02:SUMRMSHST.*  DENY
-
-XPP:SB2:IPM:01:SUMHST.*     DENY
-XPP:SB2:IPM:01:SUMCNTHST.*  DENY
-XPP:SB2:IPM:01:SUMRMSHST.*  DENY
+XPP:.*ArrayData.*       DENY
 
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
-NET:CAG:XPP.*      ALLOW RWALL 1
+NET:CAG:XPP.*           ALLOW RWALL 1
 # To reread config file:
 #	caput NET:CAG:XPP:newAsFlag 1
