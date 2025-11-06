@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-lfe-xrt-cam
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=lfe-xrt-spec
+gwprefix=NET:CAG:LFE:XRT:SPEC
+gwprocport=30303
+export gwHostNum=06
+
+export EPICS_CA_ADDR_LIST=$LFE_BC
+export EPICS_CAS_INTF_ADDR_LIST=`echo $PSCAG06_IFLIST | sed -e "s%${LFE_IF06}%%"`
+
+#cagdbg="-debug 5"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport -no_cache 
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?
