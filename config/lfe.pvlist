@@ -104,13 +104,6 @@ GDET:FEE1:.*          DENY
 IM[0-9]L[0-9]:.*:ArrayData		DENY
 IM[0-9]L[0-9]:.*:ArrayData.VAL	DENY
 
-# XRT Spectrometer configuration is allowed from MCC and hutches
-# But the arrays are not, see lfe-xrt-spec and lfe-xrt-spec-proj gateways
-CAMR:FEE1:441:.*:ArrayData		DENY
-CAMR:FEE1:441:.*:ArrayData.VAL	DENY
-CAMR:FEE1:441:BLD1:HorizProj.*  DENY
-CAMR:FEE1:441:.*				ALLOW RWINSTRMCC 1
-
 # Temporary access for MCC to TPR delay (KPP 09/2023)
 KFE:CAM:TPR:02:TRG02_SYS0_TDES ALLOW RWINSTRMCC 1
 KFE:CAM:TPR:02:TRG02_SYS2_TDES ALLOW RWINSTRMCC 1

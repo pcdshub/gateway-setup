@@ -1,7 +1,7 @@
 EVALUATION ORDER ALLOW, DENY
 
 # Performance of this is important, solo gateway
-CAMR:FEE1:441:BLD1:HorizProj.*   ALLOW
+XRT:ZYLA:CAM:.*:BLD1:HorizProj.*   ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

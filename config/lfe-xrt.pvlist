@@ -152,6 +152,12 @@ MEC:HXM:CVV:01:.*:ArrayData     DENY
 # XRT fast faults
 .*XRT.*FFO.* ALLOW RWHXRMCC 1
 
+# XRT Spectrometer configuration is allowed from MCC and hutches
+# But the arrays are not, see lfe-xrt-spec and lfe-xrt-spec-proj gateways
+XRT:ZYLA:CAM:.*:ArrayData           DENY
+XRT:ZYLA:CAM:.*:ArrayData.VAL       DENY
+XRT:ZYLA:CAM:.*:BLD1:HorizProj.*  DENY
+
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
 NET:CAG:LFE:XRT.*      ALLOW RWALL 1
