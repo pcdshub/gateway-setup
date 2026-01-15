@@ -15,10 +15,22 @@ HXR:PRT:01:MMS.*        ALLOW
 # Allow Goniometer PVs
 HXR:GON:.*              ALLOW
 
+# Allow LODCM PVs
+SP1L2:LODCM:*           ALLOW
+
+# Allow LODCM PMPS
+PLC:XPP:LODCM.*         ALLOW RWALL 1
+
+# Allow XRT Pink line devices
+TV7L0:*			ALLOW
+TV8L0:*			ALLOW
+
 # Deny Arrays
 XPP:.*ArrayData.*       DENY
 [A-Z][A-Z][0-9]L2:.*ArrayData.*     DENY
 
+# Allows reloading from pspmpsdb (temporarily?)
+#PLC:.*:DB:REFRESH		    ALLOW RWALL 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
