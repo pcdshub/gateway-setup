@@ -113,3 +113,5 @@ KFE:CAM:TPR:02:TRG02_SYS2_TDES ALLOW RWINSTRMCC 1
 NET:CAG:LFE.*      ALLOW RWALL 1
 # To reread config file:
 #	caput NET:CAG:LFE:newAsFlag 1
+#
+#
