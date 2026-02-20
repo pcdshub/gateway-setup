@@ -1,0 +1,21 @@
+HAG(mlhosts) {172.24.8.122}
+
+ASG(DEFAULT) {
+    RULE(1,READ){
+      HAG(mlhosts)
+    }
+}
+
+ASG(RWML) {
+    RULE(1,READ){
+      HAG(mlhosts)
+    }
+    RULE(1,WRITE,TRAPWRITE){
+      HAG(mlhosts)
+    }
+}
+
+ASG(NOACCESS) {
+    RULE(1,NONE)
+}
+

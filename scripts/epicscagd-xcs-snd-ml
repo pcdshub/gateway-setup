@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#	/etc/rc.d/init.d/epicscagd-srv
+#
+# Starts the EPICS CAG gateway
+#
+# chkconfig: - 99 1
+# description: EPICS Channel Access Gateway
+# processname: epicscagd-nalms
+
+# Source function library.
+. /etc/init.d/functions
+. /etc/init.d/epicscagp
+
+gwname=xcs-snd-ml
+gwprefix=NET:CAG:XCS:SND:ML
+gwprocport=30690
+export gwHostNum=01
+
+# Special port so normal clients don't see this
+export EPICS_CAS_SERVER_PORT=5104
+# Explicit list of areas to search in for data
+export EPICS_CA_ADDR_LIST="$XCS_BC"
+# Explicit interfaces on pscag01 to allow access to
+export EPICS_CAS_INTF_ADDR_LIST="$S3DF_IF01"
+
+# Special access rules for giving access only to the ML agent
+cagacf="$cagcfgdir/$gwname.acf"
+
+case "$1" in
+start)
+	cagstart $gwname $gwprefix $gwprocport
+	;;
+name)
+	echo "Gateway $gwname (prefix $gwprefix) runs on procServ port $gwprocport"
+	;;
+*)
+	echo $"Usage: $0 {start|name}"
+	exit 1
+esac
+
+exit $?

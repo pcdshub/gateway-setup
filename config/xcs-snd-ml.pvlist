@@ -1,0 +1,14 @@
+EVALUATION ORDER ALLOW, DENY
+
+.*XCS.*                   ALLOW
+XCS:USER:SND:MODEL.*      ALLOW RWML
+
+
+# Keep this as the last pattern please
+# Add write permission for gateway diagnostic pvs
+NET:CAG:XCS:SND:ML.*      ALLOW RWML 1
+
+# To reread config file:
+#	caput NET:CAG:XCS:newAsFlag 1
+# Note: this gives the ML process the ability to restart its own gateway via PV
+# But the rest of us can't write to this gateway at all, by design, so restart the other way
