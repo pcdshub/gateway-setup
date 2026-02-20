@@ -1,4 +1,4 @@
-HAG(mlhosts) {172.24.8.122}
+HAG(mlhosts) {snd-model-0}
 
 ASG(DEFAULT) {
     RULE(1,READ){
