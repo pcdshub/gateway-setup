@@ -29,6 +29,7 @@ PDU:TMO:*   ALLOW
 IP1:.*		ALLOW
 DREAM:.*	ALLOW
 MRCO:.*     ALLOW
+MBES:.*		ALLOW
 
 # Allow R/W access for INSTR to TMO:.*
 TMO:.*	        ALLOW RWINSTR 1

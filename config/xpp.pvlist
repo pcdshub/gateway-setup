@@ -12,6 +12,9 @@ EVALUATION ORDER ALLOW, DENY
 # Mobile rack PVs
 HXR:PRT:01:MMS.*        ALLOW
 
+# ATDS Kappa PVs
+ATDS.*			ALLOW
+
 # Allow Goniometer PVs
 HXR:GON:.*              ALLOW
 
@@ -25,12 +28,18 @@ PLC:XPP:LODCM.*         ALLOW RWALL 1
 TV7L0:*			ALLOW
 TV8L0:*			ALLOW
 
+# XPP Wave8 R/W Access - DAQ DRP
+EM1L2:IPM:W8:01:.*    ALLOW RWDRP 1
+EM2L2:IPM:W8:01:.*    ALLOW RWDRP 1
+SP1L2:LODCM:W8:01:.*    ALLOW RWDRP 1
+XPP:USR:W8:01:.*        ALLOW RWDRP 1
+
 # Deny Arrays
 XPP:.*ArrayData.*       DENY
 [A-Z][A-Z][0-9]L2:.*ArrayData.*     DENY
 
 # Allows reloading from pspmpsdb (temporarily?)
-#PLC:.*:DB:REFRESH		    ALLOW RWLFE 1
+PLC:.*:DB:REFRESH		    ALLOW RWPMPSDB 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
