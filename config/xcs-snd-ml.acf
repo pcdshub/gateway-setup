@@ -1,17 +1,18 @@
-HAG(mlhosts) {snd-model-0}
+HAG(mlread) {snd-sase-model-0}
+HAG(mlwrite) {snd-model-0}
 
 ASG(DEFAULT) {
     RULE(1,READ){
-      HAG(mlhosts)
+      HAG(mlread,mlwrite)
     }
 }
 
 ASG(RWML) {
     RULE(1,READ){
-      HAG(mlhosts)
+      HAG(mlread,mlwrite)
     }
     RULE(1,WRITE,TRAPWRITE){
-      HAG(mlhosts)
+      HAG(mlwrite)
     }
 }
 
