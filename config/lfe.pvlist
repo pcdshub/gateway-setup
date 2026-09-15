@@ -38,6 +38,11 @@ PMPS:LFE:.* ALLOW
 B940:.*             ALLOW
 B950:.*             ALLOW
 
+# GEM MPOD and DC power supplies
+LFE:MPOD:GEM:01.*   ALLOW RWINSTRMCC 1
+LFE:GEM:DCS:01.*    ALLOW RWINSTRMCC 1
+LFE:GEM:DCS:02.*    ALLOW RWINSTRMCC 1
+
 ###########################
 ## Old LCLS1 patterns    ##
 ###########################
