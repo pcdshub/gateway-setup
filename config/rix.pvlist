@@ -65,6 +65,7 @@ SL1K2:EXIT:CAM:Y_RTCL_CTR          ALLOW
 RIX:.*ArrayData.* DENY
 SL1K2:EXIT:CAM:Stats1:ProfileAverageY_RBV DENY
 
+RIX:CAM:TPR:05:.* ALLOW RWSXR 1
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs
