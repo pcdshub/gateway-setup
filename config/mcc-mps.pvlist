@@ -1,16 +1,15 @@
 EVALUATION ORDER ALLOW, DENY
 
-
-# Temporary workaround for issue delete later
-IOC:BSY0:MP01:BYKIK_RATE.*   	ALLOW RWINSTRMCC 1
-IOC:BSY0:MP01:BYKIKS_RATE.*	ALLOW RWINSTRMCC 1
-USEG:UNDH:.*50:K.*		ALLOW RWINSTRMCC 1
-USEG:UNDS:.*50:K.*		ALLOW RWINSTRMCC 1
-BEND:DMPH:400:BDES.*		ALLOW RWINSTRMCC 1
-BEND:DMPS:400:BACT.*		ALLOW RWINSTRMCC 1
-
+# PVs that PMPS needs
+IOC:BSY0:MP01:BYKIK_RATE.*      ALLOW RWINSTRMCC 1
+IOC:BSY0:MP01:BYKIKS_RATE.*     ALLOW RWINSTRMCC 1
+USEG:UNDH:.*50:K.*              ALLOW RWINSTRMCC 1
+USEG:UNDS:.*50:K.*              ALLOW RWINSTRMCC 1
+BEND:DMPH:400:BDES.*            ALLOW RWINSTRMCC 1
+BEND:DMPS:400:BACT.*            ALLOW RWINSTRMCC 1
 
 # RWINSTRMCC MPS related PV's
+# Mostly for LCLS1 link nodes
 # We need this gateway and these entries to allow these
 # Accelerator MPS PVs from ioc-bsy0-mp01 and other IOCs
 # which look like photon hutch PVs
@@ -52,22 +51,6 @@ SXR:.*_BYPS.*   ALLOW
 TST:.*_BYPS.*   ALLOW
 XCS:.*_BYPS.*   ALLOW
 XPP:.*_BYPS.*   ALLOW
-
-# Need to allow all these hutch prefixes as the Accel LCLS-II naming convention
-# is now overlapping w/ LCLS-I hutch based PV naming convention.
-# Too much similarity between PVs makes it hard to craft rules that would
-# distinguish between them.   Thus PV search requests that start w/ a
-# hutch prefix will be passed on to Accel subnet as well as the hutch gateway.
-AMO:.*   ALLOW
-CXI:.*   ALLOW
-HFX:.*   ALLOW
-HXX:.*   ALLOW
-LAS:.*   ALLOW
-MEC:.*   ALLOW
-MFX:.*   ALLOW
-SXR:.*   ALLOW
-XCS:.*   ALLOW
-XPP:.*   ALLOW
 
 # Keep this as the last pattern please
 # Add write permission for gateway diagnostic pvs

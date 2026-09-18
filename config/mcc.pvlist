@@ -1,94 +1,166 @@
 EVALUATION ORDER ALLOW, DENY
 
+# Catch-all: AD might have the PV
 .*	ALLOW RWINSTRMCC 1
 
 # Route these PVs through mcc-daq gateway
-EM1K0:GMD:HPS:STR0:STREAM_SHORT.*	DENY
-EM2K0:XGMD:HPS:STR0:STREAM_SHORT.*	DENY
+EM1K0:GMD:HPS:STR0:STREAM_SHORT.*     DENY
+EM2K0:XGMD:HPS:STR0:STREAM_SHORT.*    DENY
 
-# Temporary workaround for issue delete later
-IOC:BSY0:MP01:BYKIK_RATE.*	DENY
-IOC:BSY0:MP01:BYKIKS_RATE.*	DENY
-USEG:UNDH:.*50:K.*		DENY
-USEG:UNDS:.*50:K.*		DENY
-BEND:DMPH:400:BDES.*		DENY
-BEND:DMPS:400:BACT.*		DENY
-
-# Temporary, ACR needs access to TMO's EVR PVs
-EVR:LAS:LHN:04:.* ALLOW RWMCC 1
-LAS:UNDS:FLOAT:05 ALLOW RWMCC 1
-LAS:UNDS:FLOAT:06 ALLOW RWMCC 1
-LAS:UNDH:FLOAT:05 ALLOW RWMCC 1
-LAS:UNDH:FLOAT:06 ALLOW RWMCC 1
-
-#PPS:NEH1:1:S1STOPPER.*	ALLOW RWAMOCTL 1
-#PPS:NEH1:1:S2STOPPER.*	ALLOW RWAMOCTL 1
-
-
-# DENY access to camera iocs, see mcc-wave gateway
-# NOTE: Can't enable here unless we also add these to LCLS gateway config file
-#		/usr/local/lcls/tools/gateway/config/gwEbeamServeWF.dat
-#OTRS:.*   DENY
-#PROF:.*   DENY
+# PVs that PMPS needs: route through mcc-mps gateway
+IOC:BSY0:MP01:BYKIK_RATE.*            DENY
+IOC:BSY0:MP01:BYKIKS_RATE.*           DENY
+USEG:UNDH:.*50:K.*                    DENY
+USEG:UNDS:.*50:K.*                    DENY
+BEND:DMPH:400:BDES.*                  DENY
+BEND:DMPS:400:BACT.*                  DENY
 
 # Blocking these specific PV's that ioc-und-rec01
 # reads over a dedicated 10G connection to the XTCAV host
-OTRS:DMPH:695:RAW:ArrayData.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:Image:ArrayData.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:RAW:ArraySize.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:Image:ArraySize.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:CAMERA.IRAW DENY FROM ioc-und-rec01
-OTRS:DMPH:695:MinX_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:MinY_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:SizeX_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:SizeY_RBV.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:RESOLUTION.*		DENY FROM ioc-und-rec01
-OTRS:DMPH:695:ArrayRate_RBV.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:AcquireTime_RBV.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:FLT1_PNEU.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:FLT2_PNEU.*	DENY FROM ioc-und-rec01
-OTRS:DMPH:695:PNEUMATIC.*	DENY FROM ioc-und-rec01
+OTRS:DMPH:695:RAW:ArrayData.*         DENY FROM ioc-und-rec01
+OTRS:DMPH:695:Image:ArrayData.*       DENY FROM ioc-und-rec01
+OTRS:DMPH:695:RAW:ArraySize.*         DENY FROM ioc-und-rec01
+OTRS:DMPH:695:Image:ArraySize.*       DENY FROM ioc-und-rec01
+OTRS:DMPH:695:CAMERA.IRAW             DENY FROM ioc-und-rec01
+OTRS:DMPH:695:MinX_RBV.*              DENY FROM ioc-und-rec01
+OTRS:DMPH:695:MinY_RBV.*              DENY FROM ioc-und-rec01
+OTRS:DMPH:695:SizeX_RBV.*             DENY FROM ioc-und-rec01
+OTRS:DMPH:695:SizeY_RBV.*             DENY FROM ioc-und-rec01
+OTRS:DMPH:695:RESOLUTION.*            DENY FROM ioc-und-rec01
+OTRS:DMPH:695:ArrayRate_RBV.*         DENY FROM ioc-und-rec01
+OTRS:DMPH:695:AcquireTime_RBV.*       DENY FROM ioc-und-rec01
+OTRS:DMPH:695:FLT1_PNEU.*             DENY FROM ioc-und-rec01
+OTRS:DMPH:695:FLT2_PNEU.*             DENY FROM ioc-und-rec01
+OTRS:DMPH:695:PNEUMATIC.*             DENY FROM ioc-und-rec01
 
-# Deny PCDS related PV's
-# See mcc-mps.pvlist for MPS related PV's starting w/ hutch prefixes
-AMO:.*   DENY
-CXI:.*   DENY
-DET:.*   DENY
-HFX:.*   DENY
-HXX:.*   DENY
-LAS:.*   DENY
-MEC:.*   DENY
-MFX:.*   DENY
-SXR:.*   DENY
-TST:.*   DENY
-XCS:.*   DENY
-XPP:.*   DENY
+# Protect against abuse of the catch-all pattern
+# Guard obvious photon-side PVs from being sent to accelerator controls
+# L2SI naming pattern
+[A-Z][A-Z][0-9]K[0-9]:.*      DENY
+.*:[A-Z][A-Z][0-9]K[0-9]:.*   DENY
+[A-Z][A-Z][0-9]L[0-9]:.*      DENY
+.*:[A-Z][A-Z][0-9]L[0-9]:.*   DENY
 
-# Temporarily deny DRP PVs due to an error (?) in the gateway setups
-LM1K4:W8:04:.*  DENY
-MR3K2:FIM:W8:.* DENY
-MR4K2:FIM:W8:.* DENY
-MR2K4:FIM:W8:.* DENY
-MR3K4:FIM:W8:.* DENY
-RIX:TIMETOOL:.*	DENY
-RIX:FIM:W8:03.* DENY
-DAQ:TMO:HSD:1_DA.* DENY
+# FEE/EBD/XRT
+KFE:.*                        DENY
+.*:KFE:.*                     DENY
+LFE:.*                        DENY
+.*:LFE:.*                     DENY
+RTDSK0:.*                     DENY
+RTDSL0:.*                     DENY
+GDET:.*                       DENY
+XRT:.*                        DENY
+.*:XRT:.*                     DENY
+HFX:.*                        DENY
+.*:HFX:.*                     DENY
+HXX:.*                        DENY
+.*:HXX:.*                     DENY
+HXN:.*                        DENY
+.*:HXN:.*                     DENY
 
-# These DENY patterns are needed to allow GMD
-# and XGMD PVs on accelerator IOC's
-# sioc-fees-gd01 and sioc-fees-gd02 to pass
-# yet block other K and L beamline PVs in PCDS subnets.
-# Specifically, we need to not deny these patterns
-# EM1K0:GMD:.*
-# EM2K0:XGMD:.*
-# Test PVs:
-# EM1K0:GMD:HPS:milliJoulesPerPulse
-# EM2K0:XGMD:HPS:milliJoulesPerPulse
-# TODO: Test these when TMO isn't operating
-#[A-Z][A-Z][0-9][KL][01234]:[^GX].* DENY
-#[A-Z][A-Z][0-9][KL][01234]:X[^G].* DENY
-#[A-Z][A-Z][0-9][KL][01234]:G[^M].* DENY
-#[A-Z][A-Z][0-9][KL][01234]:GM[^D].* DENY
+# SXR Hutches
+TMO:.*                        DENY
+.*:TMO:.*                     DENY
+DREAM:.*                      DENY
+.*:DREAM:.*                   DENY
+MRCO:.*                       DENY
+.*:MRCO:.*                    DENY
+LAMP:.*                       DENY
+.*:LAMP:.*                    DENY
+MBES:.*                       DENY
+.*:MBES:.*                    DENY
+CVMI:.*                       DENY
+.*:CVMI:.*                    DENY
+IMCVMI.*                      DENY
+.*:IMCVMI.*                   DENY
+IMATM:.*                      DENY
+.*:IMATM.*                    DENY
+RIX:.*                        DENY
+.*:RIX:.*                     DENY
+RIXS:.*                       DENY
+.*:RIXS:.*                    DENY
+CRIX:.*                       DENY
+.*:CRIX:.*                    DENY
+CRIXS:.*                      DENY
+.*:CRIXS:.*                   DENY
+QRIX:.*                       DENY
+.*:QRIX:.*                    DENY
+QRIXS:.*                      DENY
+.*:QRIXS:.*                   DENY
+H22:.*                        DENY
+.*:H22:.*                     DENY
+TXI:.*                        DENY
+.*:TXI:.*                     DENY
+
+# HXR Hutches
+HXR:.*                        DENY
+.*:HXR:.*                     DENY
+HX2:.*                        DENY
+.*:HX2:.*                     DENY
+HX3:.*                        DENY
+.*:HX3:.*                     DENY
+XPP:.*                        DENY
+.*:XPP:.*                     DENY
+ATDS:.*                       DENY
+XCS:.*                        DENY
+.*:XCS:.*                     DENY
+POLYCAP:.*                    DENY
+MFX:.*                        DENY
+.*:MFX:.*                     DENY
+CXI:.*                        DENY
+.*:CXI:.*                     DENY
+MEC:.*                        DENY
+.*:MEC:.*                     DENY
+
+# Other hutches
+UED:.*                        DENY
+.*:UED:.*                     DENY
+
+# Non-hutch areas
+LAS:.*                        DENY
+.*:LAS:.*                     DENY
+LTLHN.*                       DENY
+LXLHN.*                       DENY
+DET:.*                        DENY
+.*:DET:.*                     DENY
+TST:.*                        DENY
+.*:TST:.*                     DENY
+
+# Data system
+DAQ:.*                        DENY
+.*:DAQ:.*                     DENY
+DRP:.*                        DENY
+.*:DRP:.*                     DENY
+
+# Racks
+B940:.*                       DENY
+.*:B940:.*                    DENY
+B950:.*                       DENY
+.*:B950:.*                    DENY
+FMS:.*                        DENY
+.*:FMS:.*                     DENY
+
+# Photon-side plc mgmt PVs
+PLC:.*                        DENY
+
+# Debug/test PVs
+FAKE:.*                       DENY
+.*:FAKE:.*                    DENY
+TEST:.*                       DENY
+.*:TEST:.*                    DENY
+
+# Old PVs who knows these might be requested
+FEE:.*                        DENY
+.*:FEE:.*                     DENY
+AMO:.*                        DENY
+.*:AMO:.*                     DENY
+SXR:.*                        DENY
+.*:SXR:.*                     DENY
+STEP:.*                       DENY
+
+# Some application is asking for this but idk why
+CYCLE:.*                      DENY
+
 
 # DENY these PVs when using B34 Dev EVG
 #ECS:SYS0:.*  DENY
