@@ -25,7 +25,7 @@ export EPICS_CA_ADDR_LIST="$UED_BC"
 # Explicit interfaces on pscag01 to allow access to
 export EPICS_CAS_INTF_ADDR_LIST="$S3DF_IF01"
 
-# Special access rules for giving access only to the ML agent
+# Special access rules
 cagacf="$cagcfgdir/$gwname.acf"
 
 case "$1" in
