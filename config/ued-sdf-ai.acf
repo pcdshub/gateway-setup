@@ -1,0 +1,8 @@
+# ECS-11371 requests unrestricted Phase 1 reads for clients able to reach
+# this gateway. This explicit policy grants READ to any such client, but no
+# WRITE access, including to gateway diagnostics or control PVs.
+# The companion PV list must exclude all unapproved and internal PVs.
+
+ASG(DEFAULT) {
+	RULE(1,READ)
+}
