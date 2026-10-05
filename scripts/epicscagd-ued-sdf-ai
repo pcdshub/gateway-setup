@@ -15,11 +15,11 @@
 
 gwname=ued-sdf-ai
 gwprefix=NET:CAG:UED:SDF:AI
-gwprocport=?					# procServ console TCP port
+gwprocport=31001				# 31000–31099 range is available
 export gwHostNum=01
 
 # Special port so normal clients don't see this
-export EPICS_CAS_SERVER_PORT=
+export EPICS_CAS_SERVER_PORT=5110	# 5110–5119 range is available
 # Explicit list of areas to search in for data
 export EPICS_CA_ADDR_LIST="$UED_BC"
 # Explicit interfaces on pscag01 to allow access to
