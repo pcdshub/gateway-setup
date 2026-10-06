@@ -1,5 +1,4 @@
 #!/bin/bash
-# Must verify the host, upstream sources, listener, ports, and -ro support.
 #
 #	/etc/rc.d/init.d/epicscagd-srv
 #
@@ -7,7 +6,7 @@
 #
 # chkconfig: - 99 1
 # description: EPICS Channel Access Gateway
-# processname: epicscagd-nalms
+# processname: epicscagd-ued-sdf-ai
 
 # Source function library.
 . /etc/init.d/functions
