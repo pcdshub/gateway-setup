@@ -1,0 +1,114 @@
+# Allowed UED AI/ML gateway PVs
+# Each rule matches one approved PV exactly; no write groups or diagnostic PVs.
+EVALUATION ORDER ALLOW, DENY
+
+# Gun
+SIOC:AS01:KY03:0:AREQ                  ALLOW
+SIOC:AS01:KY03:0:PREQ                  ALLOW
+SIOC:AS01:KY03:0:AACT_AVGNT            ALLOW
+SIOC:AS01:KY03:0:PACT_AVGNT            ALLOW
+APC:AS01:TM01:M2_CH2_SPARE             ALLOW
+
+# Solenoids and quadrupoles
+SOLN:AS01:121:BCTRL                     ALLOW
+SOLN:AS01:311:BCTRL                     ALLOW
+QUAD:AS01:361:BCTRL                     ALLOW
+QUAD:AS01:371:BCTRL                     ALLOW
+SOLN:AS01:121:BACT                      ALLOW
+SOLN:AS01:311:BACT                      ALLOW
+QUAD:AS01:361:BACT                      ALLOW
+QUAD:AS01:371:BACT                      ALLOW
+
+# Correctors
+XCOR:AS01:121:BCTRL                     ALLOW
+YCOR:AS01:122:BCTRL                     ALLOW
+XCOR:AS01:221:BCTRL                     ALLOW
+YCOR:AS01:222:BCTRL                     ALLOW
+XCOR:AS01:321:BCTRL                     ALLOW
+YCOR:AS01:322:BCTRL                     ALLOW
+XCOR:AS01:341:BCTRL                     ALLOW
+YCOR:AS01:342:BCTRL                     ALLOW
+XCOR:AS01:381:BCTRL                     ALLOW
+YCOR:AS01:382:BCTRL                     ALLOW
+
+# Sample stages and collimator
+UED:USR:MMN:11:03                      ALLOW
+UED:USR:MMN:11:04                      ALLOW
+UED:USR:MMN:11:05                      ALLOW
+UED:USR:MMN:11:01                      ALLOW
+UED:USR:MMN:11:08                      ALLOW
+UED:USR:MMN:04:03                      ALLOW
+UED:USR:MMN:04:02                      ALLOW
+UED:USR:MMN:04:01                      ALLOW
+UED:MCS2:03:m1                         ALLOW
+UED:USR:MMN:14:07                      ALLOW
+
+# Pump, THz, and gun UV settings
+UED:USR:MMN:05:02                      ALLOW
+UED:USR:MMN:05:08                      ALLOW
+UED:USR:MMN:03:04                      ALLOW
+UED:USR:MMN:06:05                      ALLOW
+UED:USR:MMN:08:01                      ALLOW
+UED:USR:MMN:06:08                      ALLOW
+MOTR:AS01:MC05:CH5:MOTOR               ALLOW
+MOTR:AS01:MC05:CH6:MOTOR               ALLOW
+UED:USR:BHC:AO1:3                      ALLOW
+UED:USR:BHC:AO1:2                      ALLOW
+UED:USR:MMN:14:01                      ALLOW
+UED:USR:BHC:AO1:4                      ALLOW
+
+# VCC camera size, image, and settings
+UED:GIGE:06:ArraySizeX_RBV             ALLOW
+UED:GIGE:06:ArraySizeY_RBV             ALLOW
+UED:GIGE:06:ROI1:MinX                  ALLOW
+UED:GIGE:06:ROI1:MinY                  ALLOW
+UED:GIGE:06:ROI1:SizeX                 ALLOW
+UED:GIGE:06:ROI1:SizeY                 ALLOW
+UED:GIGE:06:IMAGE1:ArrayData           ALLOW
+UED:GIGE:06:Gain                       ALLOW
+UED:GIGE:06:AcquireTime                ALLOW
+
+# Sample chamber camera size, image, settings, and cross
+UED:GIGE:03:ArraySizeX_RBV             ALLOW
+UED:GIGE:03:ArraySizeY_RBV             ALLOW
+UED:GIGE:03:ROI1:MinX                  ALLOW
+UED:GIGE:03:ROI1:MinY                  ALLOW
+UED:GIGE:03:ROI1:SizeX                 ALLOW
+UED:GIGE:03:ROI1:SizeY                 ALLOW
+UED:GIGE:03:IMAGE1:ArrayData           ALLOW
+UED:GIGE:03:Gain                       ALLOW
+UED:GIGE:03:AcquireTime                ALLOW
+UED:GIGE:03:Cross2X                    ALLOW
+UED:GIGE:03:Cross2Y                    ALLOW
+
+# THz camera (the approved list also labels these as legacy QM slots)
+UED:GIGE:12:IMAGE1:ArraySize0_RBV      ALLOW
+UED:GIGE:12:IMAGE1:ArraySize1_RBV      ALLOW
+UED:GIGE:12:ROI1:MinX                  ALLOW
+UED:GIGE:12:ROI1:MinY                  ALLOW
+UED:GIGE:12:ROI1:SizeX                 ALLOW
+UED:GIGE:12:ROI1:SizeY                 ALLOW
+UED:GIGE:12:Gain                       ALLOW
+UED:GIGE:12:AcquireTime                ALLOW
+UED:GIGE:12:Cross2X                    ALLOW
+UED:GIGE:12:Cross2Y                    ALLOW
+
+# Andor3 camera size, image, and settings
+UED:ANDOR:CAM:03:IMAGE2:ArraySize0_RBV ALLOW
+UED:ANDOR:CAM:03:IMAGE2:ArraySize1_RBV ALLOW
+UED:ANDOR:CAM:03:ROI1:MinX             ALLOW
+UED:ANDOR:CAM:03:ROI1:MinY             ALLOW
+UED:ANDOR:CAM:03:ROI1:SizeX            ALLOW
+UED:ANDOR:CAM:03:ROI1:SizeY            ALLOW
+UED:ANDOR:CAM:03:IMAGE2:ArrayData      ALLOW
+UED:ANDOR:CAM:03:AndorEMGain           ALLOW
+UED:ANDOR:CAM:03:AcquireTime           ALLOW
+
+# Chamber light and THz stage
+ACSW:AS01:NW03:2POWERON                ALLOW
+ACSW:AS01:NW03:2POWEROFF               ALLOW
+UED:USR:MMN:13:02                      ALLOW
+UED:USR:MMN:13:03                      ALLOW
+UED:USR:MMN:13:04                      ALLOW
+UED:USR:MMN:13:05                      ALLOW
+UED:USR:MMN:13:06                      ALLOW

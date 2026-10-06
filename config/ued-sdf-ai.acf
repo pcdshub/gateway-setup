@@ -1,0 +1,5 @@
+# Unrestricted reads for clients able to reach this gateway.
+
+ASG(DEFAULT) {
+	RULE(1,READ)
+}

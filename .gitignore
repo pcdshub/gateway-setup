@@ -8,3 +8,4 @@ pva-logs/
 *[-_]old.pvlist
 *#
 *.swp
+.vscode/
